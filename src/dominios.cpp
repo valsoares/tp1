@@ -1,8 +1,9 @@
 #include <iostream>
 
+#include "dominios.h"
+
 using namespace std;
 
 int main(){
-    faz_tudo();
     return 0;
 }
