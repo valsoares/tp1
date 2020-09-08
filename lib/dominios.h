@@ -9,7 +9,7 @@ class Endereco {
     private: 
         string texto;
 
-        void validaTexto(string texto);
+        bool validaTexto(string texto);
 
     public:
         void setTexto(string texto);
