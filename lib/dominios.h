@@ -21,14 +21,14 @@ class Endereco {
 
 class Horario {
    private: 
-        int valor;
+        string valor;
 
-        void validaValor(int valor);
+        bool validaValor(string valor);
 
     public:
-        void setValor(int valor);
+        void setValor(string valor);
 
-        int getValor() {
+        string getValor() {
             return valor;
         }
 
@@ -38,7 +38,7 @@ class Nome {
    private: 
         string texto;
 
-        void validaTexto(string texto);
+        bool validaTexto(string texto);
 
     public:
         void setTexto(string texto);
@@ -67,7 +67,7 @@ class Prazo {
     private: 
         int valor;
 
-        void validaValor(int valor);
+        bool validaValor(int valor);
 
     public:
         void setValor(int valor);
@@ -95,7 +95,7 @@ class Taxa {
     private: 
         int valor;
 
-        void validaValor(int valor);
+        bool validaValor(int valor);
 
     public:
         void setValor(int valor);
@@ -107,28 +107,28 @@ class Taxa {
 
 class ValorAplicacao {
     private: 
-        int valor;
+        double valor;
 
-        void validaValor(int valor);
+        bool validaValor(double valor);
 
     public:
-        void setValor(int valor);
+        void setValor(double valor);
 
-        int getValor() {
+        double getValor() {
             return valor;
         }
 };
 
 class ValorMinimo {
     private: 
-        int valor;
+        double valor;
 
-        void validaValor(int valor);
+        bool validaValor(double valor);
 
     public:
         void setValor(int valor);
 
-        int getValor() {
+        double getValor() {
             return valor;
         }
 };

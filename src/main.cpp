@@ -4,13 +4,24 @@
 using namespace std;
 
 int main() {
-    int x;
-    string y, z;
+    int x, h, m, vetor[100];
+    string y, z, hora;
+    char doispontos;
+    bool valor = false;
     x = 10;
     y = "valesc66a";
     z = ".";
 
-    cout << y.length() << endl;
-    cout << y.find(z);
+    int a = 12345;
+    int i = 0;
+    while(a > 0) {
+    int b = a % 10;
+    a /= 10;
+    vetor[i] = b;
+    cout << vetor[i] <<endl;
+    i++;
+    }
+    cout << vetor;
+
     return 0;
 }
