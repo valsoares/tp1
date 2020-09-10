@@ -5,49 +5,49 @@
 
 using namespace std;
 
-bool Endereco::validaTexto(string texto) {
-    /*Texto composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito
+bool Endereco::validaEndereco(string endereco) {
+    /*endereco composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito
     (0 – 9), ponto ou espaço. Apenas letras e dígitos podem estar em sequência. Em termo cujo
     primeiro caracter é letra, a mesma é maiúscula*/
-    if(texto.length() < 5 && texto.length() > 20) {
+    if(endereco.length() < 5 && endereco.length() > 20) {
         return false;
     }
 
-    for (int i = 0; i < texto.length(); i++) {
-        if(texto[i] > 'A' && texto[i] < 'z');
-        else if(texto[i] == '.') {
-            if(texto[i+1] == '.') {
+    for (int i = 0; i < endereco.length(); i++) {
+        if(endereco[i] > 'A' && endereco[i] < 'z');
+        else if(endereco[i] == '.') {
+            if(endereco[i+1] == '.') {
                 return false;
             }
         }
-        else if(texto[i] == ' ') {
-            if(texto[i+1] == ' ') {
+        else if(endereco[i] == ' ') {
+            if(endereco[i+1] == ' ') {
                 return false;
             }
-            if(texto[i+1] >= 'a' || texto[i+1] <= 'z') {
+            if(endereco[i+1] >= 'a' || endereco[i+1] <= 'z') {
                 return false;
             }
         }
-        else if(texto[i] >= 0 && texto[i] <= 9);
+        else if(endereco[i] >= '0' && endereco[i] <= '9');
     }
 
     return true;
     
 }
 
-void Endereco::setTexto(string texto) {
-    if(validaTexto) {
-        this->texto = texto;
+void Endereco::setEndereco(string endereco) {
+    if(validaEndereco) {
+        this->endereco = endereco;
     }
     else {
         cout << "Entre um endereço válido" << endl;
     }
 }
 
-bool Horario::validaValor(string valor) {
+bool Horario::validaHorario(string horario) {
 /*Formato XY:ZW para representar horário entre 13:00 e 17:00 horas.*/
-    int hora = stoi(valor.substr(0,2));
-    int minuto = stoi(valor.substr(3,5));
+    int hora = stoi(horario.substr(0,2));
+    int minuto = stoi(horario.substr(3,5));
     if(hora >= 13 && hora < 17 && minuto > 0 && minuto < 60) {
         return true;
     }
@@ -60,28 +60,28 @@ bool Horario::validaValor(string valor) {
 
 }
 
-void Horario::setValor(string valor) {
-    if(validaValor) {
-        this->valor = valor;
+void Horario::setHorario(string horario) {
+    if(validaHorario) {
+        this->horario = horario;
     }
     else {
         cout << "Entre um horário válido" << endl;
     }
 }
 
-bool Nome::validaTexto(string texto) {
-/*Texto composto por 5 a 30 caracteres onde cada caracter pode ser letra (A-Z ou a-z) ou
+bool Nome::validaNome(string nome) {
+/*nome composto por 5 a 30 caracteres onde cada caracter pode ser letra (A-Z ou a-z) ou
 espaço, há pelo menos 5 letras, não há espaços em sequência, primeira letra de cada termo é
 letra maiúscula*/
-    if(texto.length() < 5 || texto.length() > 30) {
+    if(nome.length() < 5 || nome.length() > 30) {
         return false;
     }
-    for (int i = 0; i < texto.length(); i++) {
-        if(texto[i] == ' ') {
-            if(texto[i+1] >= 'a' || texto[i+1] <= 'z') {
+    for (int i = 0; i < nome.length(); i++) {
+        if(nome[i] == ' ') {
+            if(nome[i+1] >= 'a' || nome[i+1] <= 'z') {
                 return false;
             }
-            else if(texto[i+1] == ' ') {
+            else if(nome[i+1] == ' ') {
                 return false;
             }
         }
@@ -91,28 +91,28 @@ letra maiúscula*/
 
 }
 
-void Nome::setTexto(string texto) {
-    if(validaTexto) {
-        this->texto = texto;
+void Nome::setNome(string nome) {
+    if(validaNome) {
+        this->nome = nome;
     }
     else {
         cout << "Entre um nome válido" << endl;
     }
 }
 
-void Numero::validaValor(int valor) {
+void Numero::validaNumero(int numero) {
 /*Formato XXXXXX-Y onde cada X é dígito (0 – 9) e Y é dígito verificador calculado por
 meio de algorítmo apropriado.*/
 }
 
-void Numero::setValor(int valor) {
+void Numero::setNumero(int valor) {
 
 }
 
-bool Prazo::validaValor(int valor) {
-    if(valor == 6 || valor == 12 || valor == 18 || valor == 24 || valor == 30 ||
-      valor == 36 || valor == 42 || valor == 48 || valor == 54 || valor == 60 ||
-      valor == 66 || valor == 72) {
+bool Prazo::validaPrazo(int prazo) {
+    if(prazo == 6 || prazo == 12 || prazo == 18 || prazo == 24 || prazo == 30 ||
+      prazo == 36 || prazo == 42 || prazo == 48 || prazo == 54 || prazo == 60 ||
+      prazo == 66 || prazo == 72) {
           return true;
     }
     else {
@@ -120,36 +120,37 @@ bool Prazo::validaValor(int valor) {
     }
 }
 
-void Prazo::setValor(int valor) {
-    if(validaValor) {
-        this->valor = valor;
+void Prazo::setPrazo(int prazo) {
+    if(validaPrazo) {
+        this->prazo = prazo;
     }
     else {
         cout << "Entre um prazo válido" << endl;
     }
 }
 
-void Senha::validaValor(int valor) {
+void Senha::validaSenha(int senha) {
     /*Formato XXXXXX onde cada X é dígito (0 – 9) e não há dígito repetido*/
-    for (int i = 0; i < valor.length(); i++) {
-        if(valor[i] == ' ') {
-            if(valor[i+1] >= 'a' || valor[i+1] <= 'z') {
+
+    /*for (int i = 0; i < senha.length(); i++) {
+        if(senha[i] == ' ') {
+            if(senha[i+1] >= 'a' || senha[i+1] <= 'z') {
                 return false;
             }
-            else if(valor[i+1] == ' ') {
+            else if(senha[i+1] == ' ') {
                 return false;
             }
         }
-    }
+    }*/
 }
 
-void Senha::setValor(int valor) {
+void Senha::setSenha(int senha) {
 
 }
 
-bool Taxa::validaValor(int valor) {
-    /*Valor na faixa de 0 a 200*/
-    if(200 > valor && valor > 0) {
+bool Taxa::validaTaxa(int taxa) {
+    /*taxa na faixa de 0 a 200*/
+    if(200 > taxa && taxa > 0) {
         return true;
     }
     else {
@@ -157,18 +158,18 @@ bool Taxa::validaValor(int valor) {
     }
 }
 
-void Taxa::setValor(int valor) {
-    if(validaValor) {
-        this->valor = valor;
+void Taxa::setTaxa(int taxa) {
+    if(validaTaxa) {
+        this->taxa = taxa;
     }
     else {
-        cout << "Entre um valor válido" << endl;
+        cout << "Entre uma taxa válida" << endl;
     }
 }
 
-bool ValorAplicacao::validaValor(double valor) {
+bool ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
     /*Valor na faixa de 0 a 1.000.000,00*/
-    if(1000000.0 > valor && valor > 0.0) {
+    if(1000000.0 > valorAplicacao && valorAplicacao > 0.0) {
         return true;
     }
     else {
@@ -176,18 +177,18 @@ bool ValorAplicacao::validaValor(double valor) {
     }
 }
 
-void ValorAplicacao::setValor(double valor) {
-    if(validaValor) {
-        this->valor = valor;
+void ValorAplicacao::setValorAplicacao(double valorAplicacao) {
+    if(validaValorAplicacao) {
+        this->valorAplicacao = valorAplicacao;
     }
     else {
-        cout << "Entre um valor válido" << endl;
+        cout << "Entre um valor de aplicação válido" << endl;
     }
 }
 
-bool ValorMinimo::validaValor(double valor) {
+bool ValorMinimo::validaValorMinimo(double valorMinimo) {
     /*Valor 1.000,00, 5.000,00, 10.000 ou 50.000,00 */
-    if((valor == 1000.0) || (valor == 5000.0) || (valor == 10000.0) || (valor == 50000.0)) {
+    if((valorMinimo == 1000.0) || (valorMinimo == 5000.0) || (valorMinimo == 10000.0) || (valorMinimo == 50000.0)) {
         return true;
     }
     else {
@@ -195,11 +196,11 @@ bool ValorMinimo::validaValor(double valor) {
     }
 }
 
-void ValorMinimo::setValor(int valor) {
-    if(validaValor) {
-        this->valor = valor;
+void ValorMinimo::setValorMinimo(int valor) {
+    if(validaValorMinimo) {
+        this->valorMinimo = valorMinimo;
     }
     else {
-        cout << "Entre um valor válido" << endl;
+        cout << "Entre um valor mínimo válido" << endl;
     }
 }

@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    int x, h, m, vetor[100];
+    int x, h, m, vetor[6];
     string y, z, hora;
     char doispontos;
     bool valor = false;
@@ -18,10 +18,9 @@ int main() {
     int b = a % 10;
     a /= 10;
     vetor[i] = b;
-    cout << vetor[i] <<endl;
+    cout << vetor <<endl;
     i++;
     }
-    cout << vetor;
 
     return 0;
 }

@@ -135,129 +135,129 @@ class Emissor {
 
 class Endereco {
     private: 
-        string texto;
+        string endereco;
 
-        bool validaTexto(string texto);
+        bool validaEndereco(string endereco);
 
     public:
-        void setTexto(string texto);
+        void setEndereco(string endereco);
 
-        string getTexto() {
-            return texto;
+        string getEndereco() {
+            return endereco;
         }
 };
 
 class Horario {
    private: 
-        string valor;
+        string horario;
 
-        bool validaValor(string valor);
+        bool validaHorario(string horario);
 
     public:
-        void setValor(string valor);
+        void setHorario(string horario);
 
-        string getValor() {
-            return valor;
+        string getHorario() {
+            return horario;
         }
 
 };
 
 class Nome {
    private: 
-        string texto;
+        string nome;
 
-        bool validaTexto(string texto);
+        bool validaNome(string nome);
 
     public:
-        void setTexto(string texto);
+        void setNome(string nome);
 
-        string getTexto() {
-            return texto;
+        string getNome() {
+            return nome;
         }
 
 };
 
 class Numero {
     private: 
-        int valor;
+        int numero;
 
-        void validaValor(int valor);
+        void validaNumero(int numero);
 
     public:
-        void setValor(int valor);
+        void setNumero(int numero);
 
-        int getValor() {
-            return valor;
+        int getNumero() {
+            return numero;
         }
 };
 
 class Prazo {
     private: 
-        int valor;
+        int prazo;
 
-        bool validaValor(int valor);
+        bool validaPrazo(int prazo);
 
     public:
-        void setValor(int valor);
+        void setPrazo(int prazo);
 
-        int getValor() {
-            return valor;
+        int getPrazo() {
+            return prazo;
         }
 };
 
 class Senha {
     private: 
-        int valor;
+        int senha;
 
-        void validaValor(int valor);
+        void validaSenha(int senha);
 
     public:
-        void setValor(int valor);
+        void setSenha(int senha);
 
-        int getValor() {
-            return valor;
+        int getSenha() {
+            return senha;
         }
 };
 
 class Taxa {
     private: 
-        int valor;
+        int taxa;
 
-        bool validaValor(int valor);
+        bool validaTaxa(int taxa);
 
     public:
-        void setValor(int valor);
+        void setTaxa(int taxa);
 
-        int getValor() {
-            return valor;
+        int getTaxa() {
+            return taxa;
         }
 };
 
 class ValorAplicacao {
     private: 
-        double valor;
+        double valorAplicacao;
 
-        bool validaValor(double valor);
+        bool validaValorAplicacao(double valorAplicacao);
 
     public:
-        void setValor(double valor);
+        void setValorAplicacao(double valorAplicacao);
 
-        double getValor() {
-            return valor;
+        double getValorAplicacao() {
+            return valorAplicacao;
         }
 };
 
 class ValorMinimo {
     private: 
-        double valor;
+        double valorMinimo;
 
-        bool validaValor(double valor);
+        bool validaValorMinimo(double valorMinimo);
 
     public:
-        void setValor(int valor);
+        void setValorMinimo(int valorMinimo);
 
-        double getValor() {
-            return valor;
+        double getValorMinimo() {
+            return valorMinimo;
         }
 };
 
