@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    int x, h, m, vetor[6];
+    int x, h, m, vetor[6] = {};
+    int tam = sizeof(vetor)/sizeof(int);
     string y, z, hora;
     char doispontos;
     bool valor = false;
@@ -18,7 +19,6 @@ int main() {
     int b = a % 10;
     a /= 10;
     vetor[i] = b;
-    cout << vetor <<endl;
     i++;
     }
 

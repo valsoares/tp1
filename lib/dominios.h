@@ -181,7 +181,7 @@ class Numero {
     private: 
         int numero;
 
-        void validaNumero(int numero);
+        bool validaNumero(int numero);
 
     public:
         void setNumero(int numero);
@@ -209,7 +209,7 @@ class Senha {
     private: 
         int senha;
 
-        void validaSenha(int senha);
+        bool validaSenha(int senha);
 
     public:
         void setSenha(int senha);

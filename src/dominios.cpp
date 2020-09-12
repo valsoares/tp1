@@ -100,13 +100,35 @@ void Nome::setNome(string nome) {
     }
 }
 
-void Numero::validaNumero(int numero) {
+bool Numero::validaNumero(int numero) {
 /*Formato XXXXXX-Y onde cada X é dígito (0 – 9) e Y é dígito verificador calculado por
 meio de algorítmo apropriado.*/
+    int vetor_numero[6] = {};
+    int tam = sizeof(vetor_numero)/sizeof(int);
+    int k = 0;
+
+    while (numero > 0) {
+        int aux = numero % 10;
+        numero /= 10;
+        vetor_numero[k] = aux;
+        k++;
+    }
+
+    for (int i = 0; i < tam; i++) {
+        if(vetor_numero[i] >= 0 && vetor_numero[i] <= 9);
+        else {
+            return false;
+        }
+    }
 }
 
-void Numero::setNumero(int valor) {
-
+void Numero::setNumero(int numero) {
+    if(validaNumero) {
+        this->numero = numero;
+    }
+    else {
+        cout << "Entre um número válido" << endl;
+    }
 }
 
 bool Prazo::validaPrazo(int prazo) {
@@ -129,23 +151,42 @@ void Prazo::setPrazo(int prazo) {
     }
 }
 
-void Senha::validaSenha(int senha) {
-    /*Formato XXXXXX onde cada X é dígito (0 – 9) e não há dígito repetido*/
+bool Senha::validaSenha(int senha) {
+/*Formato XXXXXX onde cada X é dígito (0 – 9) e não há dígito repetido*/
 
-    /*for (int i = 0; i < senha.length(); i++) {
-        if(senha[i] == ' ') {
-            if(senha[i+1] >= 'a' || senha[i+1] <= 'z') {
-                return false;
-            }
-            else if(senha[i+1] == ' ') {
+    int vetor_senha[6] = {};
+    int tam = sizeof(vetor_senha)/sizeof(int);
+    int k = 0;
+
+    while (senha > 0) {
+        int aux = senha % 10;
+        senha /= 10;
+        vetor_senha[k] = aux;
+        k++;
+    }
+
+    for (int i = 0; i < tam; i++) {
+        if(vetor_senha[i] >= 0 && vetor_senha[i] <= 9);
+        else {
+            return false;
+        }
+
+        for(int j = 0; j < tam; j++) {
+            if(vetor_senha[i] == vetor_senha[j]){
                 return false;
             }
         }
-    }*/
+
+    }
 }
 
 void Senha::setSenha(int senha) {
-
+    if(validaSenha) {
+        this->senha = senha;
+    }
+    else {
+        cout << "Entre uma senha válida" << endl;
+    }
 }
 
 bool Taxa::validaTaxa(int taxa) {
