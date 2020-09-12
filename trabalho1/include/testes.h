@@ -1,5 +1,6 @@
-#ifndef TESTES_H_INCLUDED
-#define TESTES_H_INCLUDED
+#ifndef TESTES_H
+#define TESTES_H
+
 
 #include <iostream>
 
@@ -30,4 +31,4 @@ class TEndereco {
 
 };
 
-#endif
+#endif // TESTES_H
