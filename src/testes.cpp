@@ -20,7 +20,7 @@ void TEndereco::testeEnderecoSucesso() {
         if (endereco->getEndereco() != VALOR_VALIDO)
             estado = FALHA;
     }
-    catch(invalid_argument excecao) {
+    catch(const invalid_argument& excecao) {
         estado = FALHA;
     }
 }
@@ -30,7 +30,7 @@ void TEndereco::testeEnderecoFalha() {
         endereco->setEndereco(VALOR_INVALIDO);
         estado = FALHA;
     }
-    catch(invalid_argument excecao){
+    catch(const invalid_argument& excecao){
         return;
     }
 }

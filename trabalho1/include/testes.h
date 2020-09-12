@@ -10,8 +10,8 @@ using namespace std;
 
 class TEndereco {
     private:
-        const static string VALOR_VALIDO = "Rua 23. Casa 18.";
-        const static string VALOR_INVALIDO = "Rua 23  Casa 18.";
+        const static string VALOR_VALIDO;
+        const static string VALOR_INVALIDO;
 
         Endereco *endereco;
 

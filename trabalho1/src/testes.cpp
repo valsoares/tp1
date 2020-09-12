@@ -1,7 +1,7 @@
 #include "testes.h"
 
-const string TEndereco::VALOR_VALIDO;
-const string TEndereco::VALOR_INVALIDO;
+const string TEndereco::VALOR_VALIDO = "Rua 23. Casa 18.";
+const string TEndereco::VALOR_INVALIDO = "Rua 23  Casa 18.";
 const int TEndereco::SUCESSO;
 const int TEndereco::FALHA;
 
@@ -20,7 +20,7 @@ void TEndereco::testeEnderecoSucesso() {
         if (endereco->getEndereco() != VALOR_VALIDO)
             estado = FALHA;
     }
-    catch(invalid_argument excecao) {
+    catch(const invalid_argument& excecao) {
         estado = FALHA;
     }
 }
@@ -30,7 +30,7 @@ void TEndereco::testeEnderecoFalha() {
         endereco->setEndereco(VALOR_INVALIDO);
         estado = FALHA;
     }
-    catch(invalid_argument excecao){
+    catch(const invalid_argument& excecao){
         return;
     }
 }

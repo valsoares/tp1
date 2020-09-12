@@ -13,7 +13,7 @@ bool Endereco::validaEndereco(string endereco) {
         return false;
     }
 
-    for (int i = 0; i < endereco.length(); i++) {
+    for (size_t i = 0; i < endereco.length(); i++) {
         if(endereco[i] > 'A' && endereco[i] < 'z');
         else if(endereco[i] == '.') {
             if(endereco[i+1] == '.') {
@@ -36,7 +36,7 @@ bool Endereco::validaEndereco(string endereco) {
 }
 
 void Endereco::setEndereco(string endereco) {
-    if(validaEndereco) {
+    if(validaEndereco(endereco)) {
         this->endereco = endereco;
     }
     else {
@@ -61,7 +61,7 @@ bool Horario::validaHorario(string horario) {
 }
 
 void Horario::setHorario(string horario) {
-    if(validaHorario) {
+    if(validaHorario(horario)) {
         this->horario = horario;
     }
     else {
@@ -76,7 +76,7 @@ letra maiúscula*/
     if(nome.length() < 5 || nome.length() > 30) {
         return false;
     }
-    for (int i = 0; i < nome.length(); i++) {
+    for (size_t i = 0; i < nome.length(); i++) {
         if(nome[i] == ' ') {
             if(nome[i+1] >= 'a' || nome[i+1] <= 'z') {
                 return false;
@@ -92,7 +92,7 @@ letra maiúscula*/
 }
 
 void Nome::setNome(string nome) {
-    if(validaNome) {
+    if(validaNome(nome)) {
         this->nome = nome;
     }
     else {
@@ -123,7 +123,7 @@ meio de algorítmo apropriado.*/
 }
 
 void Numero::setNumero(int numero) {
-    if(validaNumero) {
+    if(validaNumero(numero)) {
         this->numero = numero;
     }
     else {
@@ -143,7 +143,7 @@ bool Prazo::validaPrazo(int prazo) {
 }
 
 void Prazo::setPrazo(int prazo) {
-    if(validaPrazo) {
+    if(validaPrazo(prazo)) {
         this->prazo = prazo;
     }
     else {
@@ -181,7 +181,7 @@ bool Senha::validaSenha(int senha) {
 }
 
 void Senha::setSenha(int senha) {
-    if(validaSenha) {
+    if(validaSenha(senha)) {
         this->senha = senha;
     }
     else {
@@ -200,7 +200,7 @@ bool Taxa::validaTaxa(int taxa) {
 }
 
 void Taxa::setTaxa(int taxa) {
-    if(validaTaxa) {
+    if(validaTaxa(taxa)) {
         this->taxa = taxa;
     }
     else {
@@ -219,7 +219,7 @@ bool ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
 }
 
 void ValorAplicacao::setValorAplicacao(double valorAplicacao) {
-    if(validaValorAplicacao) {
+    if(validaValorAplicacao(valorAplicacao)) {
         this->valorAplicacao = valorAplicacao;
     }
     else {
@@ -237,8 +237,8 @@ bool ValorMinimo::validaValorMinimo(double valorMinimo) {
     }
 }
 
-void ValorMinimo::setValorMinimo(int valor) {
-    if(validaValorMinimo) {
+void ValorMinimo::setValorMinimo(int valorMinimo) {
+    if(validaValorMinimo(valorMinimo)) {
         this->valorMinimo = valorMinimo;
     }
     else {

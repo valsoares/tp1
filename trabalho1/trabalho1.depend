@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1599936238 source:c:\users\vales\documents\unb\tp1\tp1\trabalho1\src\dominios.cpp
+	<iostream>
+	<string>
+	"dominios.h"
+
+1599932499 c:\users\vales\documents\unb\tp1\tp1\trabalho1\include\dominios.h
+	<iostream>
+
+1599934740 source:c:\users\vales\documents\unb\tp1\tp1\trabalho1\src\main.cpp
+	<iostream>
+	<string>
+	"dominios.h"
+	"testes.h"
+
+1599936417 c:\users\vales\documents\unb\tp1\tp1\trabalho1\include\testes.h
+	<iostream>
+	"dominios.h"
+
+1599936722 source:c:\users\vales\documents\unb\tp1\tp1\trabalho1\src\testes.cpp
+	"testes.h"
+

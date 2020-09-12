@@ -36,6 +36,7 @@
 		<Unit filename="include/dominios.h" />
 		<Unit filename="include/testes.h" />
 		<Unit filename="src/dominios.cpp" />
+		<Unit filename="src/main.cpp" />
 		<Unit filename="src/testes.cpp" />
 		<Extensions>
 			<code_completion />
