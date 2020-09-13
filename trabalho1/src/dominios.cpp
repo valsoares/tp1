@@ -5,6 +5,171 @@
 
 using namespace std;
 
+
+void Cep::validaCep(int cep) {
+    if((cep < 1000000 || cep >= 71000000) || (cep >= 6000000 && cep < 8000000) ||
+       (cep >= 8500000 && cep < 20000000) || (cep >= 26601000 && cep < 40000000) ||
+       (cep>= 42000000 && cep < 60000000) || (cep >= 61000000 && cep < 70000000)) {
+           throw invalid_argument("Argumento invalido!");
+       }
+}
+
+void Cep::setCep(int cep) {
+    validaCep(cep);
+    this->cep = cep;
+}
+
+void Classe::validaClasse(string classe) {
+    if(classe != "CDB" && classe != "LCA" && classe != "LCI" && classe != "LF" && classe != "LC"){
+        throw invalid_argument("Argumento invalido!");
+    }
+}
+
+void Classe::setClasse(string classe) {
+    validaClasse(classe);
+    this->classe = classe;
+}
+
+void CodigoAgencia::validaCodigoAgencia(string codigoAgencia) {
+    if(codigoAgencia.length() != 4 || codigoAgencia == "0000") {
+        throw invalid_argument("Argumento invalido");
+    }
+    for(int i = 0; i<4; i++){
+        if(codigoAgencia[i] < '0' || codigoAgencia[i] > '9') {
+            throw invalid_argument("Argumento invalido");
+        }
+    }
+}
+
+void CodigoAgencia::setCodigoAgencia(string codigoAgencia) {
+    validaCodigoAgencia(codigoAgencia);
+    this->codigoAgencia = codigoAgencia;
+}
+
+void CodigoAplicacao::validaCodigoAplicacao(string codigoAplicacao) {
+    if(codigoAplicacao.length() != 5 || codigoAplicacao == "00000"){
+        throw invalid_argument("Argumento invalido!");
+    }
+    for(int i = 0; i<5; i++){
+        if(codigoAplicacao[i] < '0' || codigoAplicacao[i] > '9'){
+            throw invalid_argument("Argumento invalido!");
+        }
+    }
+}
+
+void CodigoAplicacao::setCodigoAplicacao(string codigoAplicacao){
+    validaCodigoAplicacao(codigoAplicacao);
+    this->codigoAplicacao = codigoAplicacao;
+}
+
+void CodigoBanco::validaCodigoBanco(string codigoBanco){
+    if(codigoBanco != "341" && codigoBanco != "001" && codigoBanco != "237" && codigoBanco != "104" && codigoBanco != "033"){
+        throw invalid_argument("Argumento invalido!");
+    }
+}
+
+void CodigoBanco::setCodigoBanco(string codigoBanco){
+    validaCodigoBanco(codigoBanco);
+    this->codigoBanco = codigoBanco;
+}
+
+void CodigoProduto::validaCodigoProduto(string codigoProduto){
+    if(codigoProduto.length() != 3 || codigoProduto == "000"){
+        throw invalid_argument("Argumento invalido!");
+    }
+    for(int i = 0; i<3; i++){
+        if(codigoProduto[i] < '0' || codigoProduto[i] > '9'){
+            throw invalid_argument("Argumento invalido!");
+        }
+    }
+}
+
+void CodigoProduto::setCodigoProduto(string codigoProduto){
+    validaCodigoProduto(codigoProduto);
+    this->codigoProduto = codigoProduto;
+}
+
+// Falta ver o algoritmo pra gerar cpf's validos
+void Cpf::validaCpf(string cpf){
+    if(cpf.length() != 14){
+        throw invalid_argument("Argumento invalido!");
+    }
+    if(cpf[3] != '.' || cpf[7] != '.' || cpf[11] != '-'){
+        throw invalid_argument("Argumento invalido!");
+    }
+    for(int j = 0; j<4; j++){
+        for(int i = 0; i<3; i++){
+            if(j == 3 && i == 2){
+                break;
+            }
+            if(cpf[4*j+i] < '0' || cpf[4*j+i] > '9'){
+                throw invalid_argument("Argumento invalido!");
+            }
+        }
+    }
+}
+
+void Cpf::setCpf(string cpf){
+    validaCpf(cpf);
+    this->cpf = cpf;
+}
+
+//Falta limitar dias 30 e 31 dependendo do mes e limitar feveiro para 28 ou 29 dependendo do ano
+void Data::validaData(string data){
+    // Verifica que esta no formato DD/MM/AAAA
+    if(data.length() != 10 || data[2] != '/' || data[5] != '/'){
+        throw invalid_argument("Argumento invalido!");
+    }
+    for(int j = 0; j<2; j++){
+        for(int i = 0; i<2; i++){
+            if(data[3*j+i] < '0' || data[3*j+i] > '9'){
+                throw invalid_argument("Argumento invalido!");
+            }
+        }
+    }
+    for(int i = 6; i<10; i++){
+        if(data[i] < '0' || data[i] > '9'){
+            throw invalid_argument("Argumento invalido!");
+        }
+    }
+
+    // Verifica que o ano vai de 2020 até 2099
+    if(data[6] != '2' || data[7] != '0' || data[8] < '2'){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    // Verifica que não há dia nem mês 0
+    if((data[0] == '0' && data[1] == '0') || (data[3] == '0' && data[4] == '0')){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    // Verifica tanto o limite superior do mes e do dia
+    if(data[0] > '3' || data[3] > '1'){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    if((data[0] == '3' && data[1] > '1') || (data[3] == '1' && data[4] > '2')){
+        throw invalid_argument("Argumento invalido!");
+    }
+}
+
+void Data::setData(string data){
+    validaData(data);
+    this->data = data;
+}
+
+// Falta quase tudo
+void Emissor::validaEmissor(string emissor){
+    if(emissor.length() < 5 || emissor.length() > 30){
+        throw invalid_argument("Argumento invalido!");
+    }
+}
+
+void Emissor::setEmissor(string emissor){
+    validaEmissor(emissor);
+    this->emissor = emissor;
+}
+
 bool Endereco::validaEndereco(string endereco) {
     /*endereco composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito
     (0 – 9), ponto ou espaço. Apenas letras e dígitos podem estar em sequência. Em termo cujo
@@ -14,7 +179,7 @@ bool Endereco::validaEndereco(string endereco) {
     }
 
     for (size_t i = 0; i < endereco.length(); i++) {
-        if(endereco[i] > 'A' && endereco[i] < 'z');
+        if(endereco[i] >= 'A' && endereco[i] <= 'z');
         else if(endereco[i] == '.') {
             if(endereco[i+1] == '.') {
                 return false;
@@ -24,7 +189,7 @@ bool Endereco::validaEndereco(string endereco) {
             if(endereco[i+1] == ' ') {
                 return false;
             }
-            if(endereco[i+1] >= 'a' || endereco[i+1] <= 'z') {
+            if(endereco[i+1] >= 'a' && endereco[i+1] <= 'z') {
                 return false;
             }
         }
@@ -76,6 +241,9 @@ letra maiúscula*/
     if(nome.length() < 5 || nome.length() > 30) {
         return false;
     }
+    if(nome[0] >= 'a' && nome[0] <= 'z') {
+        return false;
+    }
     for (size_t i = 0; i < nome.length(); i++) {
         if(nome[i] == ' ') {
             if(nome[i+1] >= 'a' || nome[i+1] <= 'z') {
@@ -100,29 +268,26 @@ void Nome::setNome(string nome) {
     }
 }
 
-bool Numero::validaNumero(int numero) {
+//falta calcular o digito verificador
+bool Numero::validaNumero(string numero) {
 /*Formato XXXXXX-Y onde cada X é dígito (0 – 9) e Y é dígito verificador calculado por
 meio de algorítmo apropriado.*/
-    int vetor_numero[6] = {};
-    int tam = sizeof(vetor_numero)/sizeof(int);
-    int k = 0;
 
-    while (numero > 0) {
-        int aux = numero % 10;
-        numero /= 10;
-        vetor_numero[k] = aux;
-        k++;
+    if(numero.length() != 6) {
+        return false;
     }
 
-    for (int i = 0; i < tam; i++) {
-        if(vetor_numero[i] >= 0 && vetor_numero[i] <= 9);
+    for (size_t i = 0; i < numero.length(); i++) {
+        if(numero[i] >= '0' && numero[i] <= '9');
         else {
             return false;
         }
     }
+
+    return true;
 }
 
-void Numero::setNumero(int numero) {
+void Numero::setNumero(string numero) {
     if(validaNumero(numero)) {
         this->numero = numero;
     }
@@ -151,36 +316,32 @@ void Prazo::setPrazo(int prazo) {
     }
 }
 
-bool Senha::validaSenha(int senha) {
+bool Senha::validaSenha(string senha) {
 /*Formato XXXXXX onde cada X é dígito (0 – 9) e não há dígito repetido*/
 
-    int vetor_senha[6] = {};
-    int tam = sizeof(vetor_senha)/sizeof(int);
-    int k = 0;
-
-    while (senha > 0) {
-        int aux = senha % 10;
-        senha /= 10;
-        vetor_senha[k] = aux;
-        k++;
+    if(senha.length() != 6) {
+        return false;
     }
 
-    for (int i = 0; i < tam; i++) {
-        if(vetor_senha[i] >= 0 && vetor_senha[i] <= 9);
+    for (size_t i = 0; i < senha.length(); i++) {
+        if(senha[i] >= '0' && senha[i] <= '9');
         else {
             return false;
         }
 
-        for(int j = 0; j < tam; j++) {
-            if(vetor_senha[i] == vetor_senha[j]){
-                return false;
+        for(size_t j = 0; j < senha.length(); j++) {
+            if(i != j) {
+                if(senha[i] == senha[j]){
+                    return false;
+                }
             }
         }
-
     }
+
+    return true;
 }
 
-void Senha::setSenha(int senha) {
+void Senha::setSenha(string senha) {
     if(validaSenha(senha)) {
         this->senha = senha;
     }
@@ -191,7 +352,7 @@ void Senha::setSenha(int senha) {
 
 bool Taxa::validaTaxa(int taxa) {
     /*taxa na faixa de 0 a 200*/
-    if(200 > taxa && taxa > 0) {
+    if(200 >= taxa && taxa >= 0) {
         return true;
     }
     else {
@@ -210,7 +371,7 @@ void Taxa::setTaxa(int taxa) {
 
 bool ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
     /*Valor na faixa de 0 a 1.000.000,00*/
-    if(1000000.0 > valorAplicacao && valorAplicacao > 0.0) {
+    if(1000000.0 >= valorAplicacao && valorAplicacao >= 0.0) {
         return true;
     }
     else {

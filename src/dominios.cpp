@@ -179,7 +179,7 @@ bool Endereco::validaEndereco(string endereco) {
     }
 
     for (size_t i = 0; i < endereco.length(); i++) {
-        if(endereco[i] > 'A' && endereco[i] < 'z');
+        if(endereco[i] >= 'A' && endereco[i] <= 'z');
         else if(endereco[i] == '.') {
             if(endereco[i+1] == '.') {
                 return false;
@@ -189,7 +189,7 @@ bool Endereco::validaEndereco(string endereco) {
             if(endereco[i+1] == ' ') {
                 return false;
             }
-            if(endereco[i+1] >= 'a' || endereco[i+1] <= 'z') {
+            if(endereco[i+1] >= 'a' && endereco[i+1] <= 'z') {
                 return false;
             }
         }
@@ -241,6 +241,9 @@ letra maiúscula*/
     if(nome.length() < 5 || nome.length() > 30) {
         return false;
     }
+    if(nome[0] >= 'a' && nome[0] <= 'z') {
+        return false;
+    }
     for (size_t i = 0; i < nome.length(); i++) {
         if(nome[i] == ' ') {
             if(nome[i+1] >= 'a' || nome[i+1] <= 'z') {
@@ -265,30 +268,26 @@ void Nome::setNome(string nome) {
     }
 }
 
-bool Numero::validaNumero(int numero) {
+//falta calcular o digito verificador
+bool Numero::validaNumero(string numero) {
 /*Formato XXXXXX-Y onde cada X é dígito (0 – 9) e Y é dígito verificador calculado por
 meio de algorítmo apropriado.*/
-    int vetor_numero[6] = {};
-    int tam = sizeof(vetor_numero)/sizeof(int);
-    int k = 0;
-
-    while (numero > 0) {
-        int aux = numero % 10;
-        numero /= 10;
-        vetor_numero[k] = aux;
-        k++;
+    
+    if(numero.length() != 6) {
+        return false;
     }
 
-    for (int i = 0; i < tam; i++) {
-        if(vetor_numero[i] >= 0 && vetor_numero[i] <= 9);
+    for (int i = 0; i < numero.length(); i++) {
+        if(numero[i] >= '0' && numero[i] <= '9');
         else {
             return false;
         }
     }
+
     return true;
 }
 
-void Numero::setNumero(int numero) {
+void Numero::setNumero(string numero) {
     if(validaNumero(numero)) {
         this->numero = numero;
     }
@@ -317,37 +316,32 @@ void Prazo::setPrazo(int prazo) {
     }
 }
 
-bool Senha::validaSenha(int senha) {
+bool Senha::validaSenha(string senha) {
 /*Formato XXXXXX onde cada X é dígito (0 – 9) e não há dígito repetido*/
 
-    int vetor_senha[6] = {};
-    int tam = sizeof(vetor_senha)/sizeof(int);
-    int k = 0;
-
-    while (senha > 0) {
-        int aux = senha % 10;
-        senha /= 10;
-        vetor_senha[k] = aux;
-        k++;
+    if(senha.length() != 6) {
+        return false;
     }
 
-    for (int i = 0; i < tam; i++) {
-        if(vetor_senha[i] >= 0 && vetor_senha[i] <= 9);
+    for (int i = 0; i < senha.length(); i++) {
+        if(senha[i] >= '0' && senha[i] <= '9');
         else {
             return false;
         }
 
-        for(int j = 0; j < tam; j++) {
-            if(vetor_senha[i] == vetor_senha[j]){
-                return false;
+        for(int j = 0; j < senha.length(); j++) {
+            if(i != j) {
+                if(senha[i] == senha[j]){
+                    return false;
+                }
             }
         }
-
     }
+
     return true;
 }
 
-void Senha::setSenha(int senha) {
+void Senha::setSenha(string senha) {
     if(validaSenha(senha)) {
         this->senha = senha;
     }
@@ -358,7 +352,7 @@ void Senha::setSenha(int senha) {
 
 bool Taxa::validaTaxa(int taxa) {
     /*taxa na faixa de 0 a 200*/
-    if(200 > taxa && taxa > 0) {
+    if(200 >= taxa && taxa >= 0) {
         return true;
     }
     else {
@@ -377,7 +371,7 @@ void Taxa::setTaxa(int taxa) {
 
 bool ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
     /*Valor na faixa de 0 a 1.000.000,00*/
-    if(1000000.0 > valorAplicacao && valorAplicacao > 0.0) {
+    if(1000000.0 >= valorAplicacao && valorAplicacao >= 0.0) {
         return true;
     }
     else {

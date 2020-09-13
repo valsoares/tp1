@@ -179,14 +179,14 @@ class Nome {
 
 class Numero {
     private: 
-        int numero;
+        string numero;
 
-        bool validaNumero(int numero);
+        bool validaNumero(string numero);
 
     public:
-        void setNumero(int numero);
+        void setNumero(string numero);
 
-        int getNumero() {
+        string getNumero() {
             return numero;
         }
 };
@@ -207,14 +207,14 @@ class Prazo {
 
 class Senha {
     private: 
-        int senha;
+        string senha;
 
-        bool validaSenha(int senha);
+        bool validaSenha(string senha);
 
     public:
-        void setSenha(int senha);
+        void setSenha(string senha);
 
-        int getSenha() {
+        string getSenha() {
             return senha;
         }
 };
