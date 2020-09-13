@@ -10,7 +10,7 @@ int main() {
     CodigoAgencia novo;
     novo.setCodigoAgencia("5555");
     cout << novo.getCodigoAgencia() << endl;
-    novo.setCodigoAgencia("9999");
+    novo.setCodigoAgencia("3");
 
     return 0;
 }
