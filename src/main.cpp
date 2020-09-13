@@ -7,15 +7,10 @@
 using namespace std;
 
 int main() {
-    TEndereco teste;
-    switch(teste.rodarTeste()) {
-        case TEndereco::SUCESSO : 
-            cout << "SUCESSO";
-            break;
-        case TEndereco::FALHA : 
-            cout << "FALHA";
-            break;
-    }
+    CodigoAgencia novo;
+    novo.setCodigoAgencia("5555");
+    cout << novo.getCodigoAgencia() << endl;
+    novo.setCodigoAgencia("9999");
 
     return 0;
 }

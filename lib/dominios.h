@@ -9,7 +9,7 @@ class Cep {
     private:
         int cep;
 
-        bool validaCep(int cep);
+        void validaCep(int cep);
     
     public:
         void setCep(int cep);
@@ -23,7 +23,7 @@ class Classe {
     private:
         string classe;
 
-        bool validaClasse(string classe);
+        void validaClasse(string classe);
     
     public:
         void setClasse(string classe);
@@ -35,70 +35,70 @@ class Classe {
 
 class CodigoAgencia {
     private:
-        int codigo;
+        string codigoAgencia;
 
-        bool validaCodigo(int codigo);
+        void validaCodigoAgencia(string codigoAgencia);
     
     public:
-        void setCodigo(int codigo);
+        void setCodigoAgencia(string codigoAgencia);
 
-        int getCodigo() {
-            return codigo;
+        string getCodigoAgencia() {
+            return codigoAgencia;
         }
 };
 
 class CodigoAplicacao {
     private:
-        int codigo;
+        string codigoAplicacao;
 
-        bool validaCodigo(int codigo);
+        void validaCodigoAplicacao(string codigoAplicacao);
     
     public:
-        void setCodigo(int codigo);
+        void setCodigoAplicacao(string codigoAplicacao);
 
-        int getCodigo() {
-            return codigo;
+        string getCodigoAplicacao() {
+            return codigoAplicacao;
         }
 };
 
 class CodigoBanco {
     private:
-        int codigo;
+        string codigoBanco;
 
-        bool validaCodigo(int codigo);
+        void validaCodigoBanco(string codigoBanco);
     
     public:
-        void setCodigo(int codigo);
+        void setCodigoBanco(string codigoBanco);
 
-        int getCodigo() {
-            return codigo;
+        string getCodigoBanco() {
+            return codigoBanco;
         }
 };
 
 class CodigoProduto {
     private:
-        int codigo;
+        string codigoProduto;
 
-        bool validaCodigo(int codigo);
+        void validaCodigoProduto(string codigoProduto);
     
     public:
-        void setCodigo(int codigo);
+        void setCodigoProduto(string codigoProduto);
 
-        int getCodigo() {
-            return codigo;
+        string getCodigoProduto() {
+            return codigoProduto;
         }
 };
 
 class Cpf {
     private:
-        int cpf;
+        string cpf;
 
-        bool validaCpf(int cpf);
+        void validaCpf(string cpf);
     
     public:
-        void setCpf(int cpf);
+        void setCpf(string cpf);
 
-        int getCpf() {
+        string getCpf() {
             return cpf;
         }
 };
@@ -107,7 +107,7 @@ class Data {
    private: 
         string data;
 
-        bool validaData(string data);
+        void validaData(string data);
 
     public:
         void setData(string data);
@@ -122,7 +122,7 @@ class Emissor {
    private: 
         string emissor;
 
-        bool validaEmissor(string emissor);
+        void validaEmissor(string emissor);
 
     public:
         void setEmissor(string emissor);

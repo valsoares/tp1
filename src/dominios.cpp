@@ -5,6 +5,47 @@
 
 using namespace std;
 
+
+void Cep::validaCep(int cep) {
+    if((cep < 1000000 || cep >= 71000000) || (cep >= 6000000 && cep < 8000000) || 
+       (cep >= 8500000 && cep < 20000000) || (cep >= 26601000 && cep < 40000000) || 
+       (cep>= 42000000 && cep < 60000000) || (cep >= 61000000 && cep < 70000000)) {
+           throw invalid_argument("Argumento invalido!");
+       }
+}
+
+void Cep::setCep(int cep) {
+    validaCep(cep);
+    this->cep = cep;
+}
+
+void Classe::validaClasse(string classe){
+    if(classe != "CDB" && classe != "LCA" && classe != "LCI" && classe != "LF" && classe != "LC"){
+        throw invalid_argument("Argumento invalido!");
+    }
+}
+
+void Classe::setClasse(string classe){
+    validaClasse(classe);
+    this->classe = classe;
+}
+
+void CodigoAgencia::validaCodigoAgencia(string codigoAgencia){
+    if(codigoAgencia.length() != 4 || codigoAgencia == "0000"){
+        throw invalid_argument("Argumento invalido");
+    }
+    for(int i = 0; i<4; i++){
+        if(codigoAgencia[i] < '0' || codigoAgencia[i] > '9'){
+            throw invalid_argument("Argumento invalido");
+        }
+    }
+}
+
+void CodigoAgencia::setCodigoAgencia(string codigoAgencia){
+    validaCodigoAgencia(codigoAgencia);
+    this->codigoAgencia = codigoAgencia;
+}
+
 bool Endereco::validaEndereco(string endereco) {
     /*endereco composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito
     (0 – 9), ponto ou espaço. Apenas letras e dígitos podem estar em sequência. Em termo cujo
@@ -120,6 +161,7 @@ meio de algorítmo apropriado.*/
             return false;
         }
     }
+    return true;
 }
 
 void Numero::setNumero(int numero) {
@@ -178,6 +220,7 @@ bool Senha::validaSenha(int senha) {
         }
 
     }
+    return true;
 }
 
 void Senha::setSenha(int senha) {
