@@ -209,22 +209,22 @@ bool Endereco::validaEndereco(string endereco) {
     /*endereco composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito
     (0 – 9), ponto ou espaço. Apenas letras e dígitos podem estar em sequência. Em termo cujo
     primeiro caracter é letra, a mesma é maiúscula*/
-    if(endereco.length() < 5 && endereco.length() > 20) {
+    if(endereco.length() < 5 || endereco.length() > 20) {
         return false;
     }
 
     for (size_t i = 0; i < endereco.length(); i++) {
         if(endereco[i] >= 'A' && endereco[i] <= 'z');
         else if(endereco[i] == '.') {
-            if(endereco[i+1] == '.') {
+            if(endereco[i+1] == '.' && (i+1) != endereco.length()) {
                 return false;
             }
         }
         else if(endereco[i] == ' ') {
-            if(endereco[i+1] == ' ') {
+            if(endereco[i+1] == ' ' && (i+1) != endereco.length()) {
                 return false;
             }
-            if(endereco[i+1] >= 'a' && endereco[i+1] <= 'z') {
+            if((endereco[i+1] >= 'a' && endereco[i+1] <= 'z') && (i+1) != endereco.length()) {
                 return false;
             }
         }
@@ -281,10 +281,10 @@ letra maiúscula*/
     }
     for (size_t i = 0; i < nome.length(); i++) {
         if(nome[i] == ' ') {
-            if(nome[i+1] >= 'a' || nome[i+1] <= 'z') {
+            if((nome[i+1] >= 'a' && nome[i+1] <= 'z') && (i+1) != nome.length()) {
                 return false;
             }
-            else if(nome[i+1] == ' ') {
+            else if(nome[i+1] == ' ' && (i+1) != nome.length()) {
                 return false;
             }
         }

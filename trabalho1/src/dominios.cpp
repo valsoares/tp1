@@ -7,8 +7,8 @@ using namespace std;
 
 
 void Cep::validaCep(int cep) {
-    if((cep < 1000000 || cep >= 71000000) || (cep >= 6000000 && cep < 8000000) ||
-       (cep >= 8500000 && cep < 20000000) || (cep >= 26601000 && cep < 40000000) ||
+    if((cep < 1000000 || cep >= 71000000) || (cep >= 6000000 && cep < 8000000) || 
+       (cep >= 8500000 && cep < 20000000) || (cep >= 26601000 && cep < 40000000) || 
        (cep>= 42000000 && cep < 60000000) || (cep >= 61000000 && cep < 70000000)) {
            throw invalid_argument("Argumento invalido!");
        }
@@ -132,23 +132,37 @@ void Data::validaData(string data){
             throw invalid_argument("Argumento invalido!");
         }
     }
+    
+    int dia = stoi(data.substr(0,2));
+    int mes = stoi(data.substr(3,5));
+    int ano = stoi(data.substr(6,10));
 
-    // Verifica que o ano vai de 2020 até 2099
-    if(data[6] != '2' || data[7] != '0' || data[8] < '2'){
+    // Verifica que o ano vai de 2020 atÃ© 2099
+    if(ano < 2020 || ano > 2099){
         throw invalid_argument("Argumento invalido!");
     }
 
-    // Verifica que não há dia nem mês 0
-    if((data[0] == '0' && data[1] == '0') || (data[3] == '0' && data[4] == '0')){
+    // Verifica que nÃ£o hÃ¡ dia nem mÃªs 0
+    if(dia == 0 || mes == 0){
         throw invalid_argument("Argumento invalido!");
     }
 
-    // Verifica tanto o limite superior do mes e do dia
-    if(data[0] > '3' || data[3] > '1'){
+    // Verifica o limite superior do dia pra cada mes
+    if((mes  == 1 || mes  == 3 ||  mes  == 5 ||  mes  == 7 || 
+        mes  == 8 || mes  == 10 || mes  == 12) && dia > 31){
         throw invalid_argument("Argumento invalido!");
     }
 
-    if((data[0] == '3' && data[1] > '1') || (data[3] == '1' && data[4] > '2')){
+    if((mes  == 4 ||  mes  == 6 ||  mes  == 9 || mes  == 11 || mes  == 10) && dia > 30){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    // Tratamento especial para fevereiro
+    if(ano%4 == 0 && mes == 2 && dia > 29){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    if(ano%4 != 0 && mes == 2 && dia > 28){
         throw invalid_argument("Argumento invalido!");
     }
 }
@@ -158,11 +172,32 @@ void Data::setData(string data){
     this->data = data;
 }
 
-// Falta quase tudo
 void Emissor::validaEmissor(string emissor){
     if(emissor.length() < 5 || emissor.length() > 30){
         throw invalid_argument("Argumento invalido!");
     }
+
+    if(emissor[0] >= 'a' && emissor[0] <= 'z'){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    for(size_t i = 0; i < emissor.length(); i++){
+        // Restringe a entrada para letras, numeros, ponto, hifen e espaÃ§o
+        if(emissor[i] < 'A' && emissor[i] > 'z' && emissor[i]<'0' && emissor[i] > '9' && 
+           emissor[i] != '.' && emissor[i] != '-' && emissor[i] != ' '){
+               throw invalid_argument("Argumento invalido!");
+        }
+        // Apenas letras e numeros se sucedem
+        if(i+1 != emissor.length() && (emissor[i] == '.' || emissor[i] == '-' || emissor[i] == ' ') && 
+          (emissor[i+1] == '.' || emissor[i+1] == '-' || emissor[i+1] == ' ')) {
+               throw invalid_argument("Argumento invalido!");  
+        }
+        // Garante a letra maisucula no inicio de um texto
+        if(i+1 != emissor.length() && emissor[i] == ' ' && emissor[i+1] >= 'a' && emissor[i+1] <= 'z'){
+            throw invalid_argument("Argumento invalido!");
+        }
+    }
+
 }
 
 void Emissor::setEmissor(string emissor){
@@ -171,25 +206,25 @@ void Emissor::setEmissor(string emissor){
 }
 
 bool Endereco::validaEndereco(string endereco) {
-    /*endereco composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito
-    (0 – 9), ponto ou espaço. Apenas letras e dígitos podem estar em sequência. Em termo cujo
-    primeiro caracter é letra, a mesma é maiúscula*/
-    if(endereco.length() < 5 && endereco.length() > 20) {
+    /*endereco composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dÃ­gito
+    (0 â€“ 9), ponto ou espaÃ§o. Apenas letras e dÃ­gitos podem estar em sequÃªncia. Em termo cujo
+    primeiro caracter Ã© letra, a mesma Ã© maiÃºscula*/
+    if(endereco.length() < 5 || endereco.length() > 20) {
         return false;
     }
 
     for (size_t i = 0; i < endereco.length(); i++) {
         if(endereco[i] >= 'A' && endereco[i] <= 'z');
         else if(endereco[i] == '.') {
-            if(endereco[i+1] == '.') {
+            if(endereco[i+1] == '.' && (i+1) != endereco.length()) {
                 return false;
             }
         }
         else if(endereco[i] == ' ') {
-            if(endereco[i+1] == ' ') {
+            if(endereco[i+1] == ' ' && (i+1) != endereco.length()) {
                 return false;
             }
-            if(endereco[i+1] >= 'a' && endereco[i+1] <= 'z') {
+            if((endereco[i+1] >= 'a' && endereco[i+1] <= 'z') && (i+1) != endereco.length()) {
                 return false;
             }
         }
@@ -197,7 +232,7 @@ bool Endereco::validaEndereco(string endereco) {
     }
 
     return true;
-
+    
 }
 
 void Endereco::setEndereco(string endereco) {
@@ -205,12 +240,12 @@ void Endereco::setEndereco(string endereco) {
         this->endereco = endereco;
     }
     else {
-        cout << "Entre um endereço válido" << endl;
+        cout << "Entre um endereÃ§o vÃ¡lido" << endl;
     }
 }
 
 bool Horario::validaHorario(string horario) {
-/*Formato XY:ZW para representar horário entre 13:00 e 17:00 horas.*/
+/*Formato XY:ZW para representar horÃ¡rio entre 13:00 e 17:00 horas.*/
     int hora = stoi(horario.substr(0,2));
     int minuto = stoi(horario.substr(3,5));
     if(hora >= 13 && hora < 17 && minuto > 0 && minuto < 60) {
@@ -230,14 +265,14 @@ void Horario::setHorario(string horario) {
         this->horario = horario;
     }
     else {
-        cout << "Entre um horário válido" << endl;
+        cout << "Entre um horÃ¡rio vÃ¡lido" << endl;
     }
 }
 
 bool Nome::validaNome(string nome) {
 /*nome composto por 5 a 30 caracteres onde cada caracter pode ser letra (A-Z ou a-z) ou
-espaço, há pelo menos 5 letras, não há espaços em sequência, primeira letra de cada termo é
-letra maiúscula*/
+espaÃ§o, hÃ¡ pelo menos 5 letras, nÃ£o hÃ¡ espaÃ§os em sequÃªncia, primeira letra de cada termo Ã©
+letra maiÃºscula*/
     if(nome.length() < 5 || nome.length() > 30) {
         return false;
     }
@@ -246,10 +281,10 @@ letra maiúscula*/
     }
     for (size_t i = 0; i < nome.length(); i++) {
         if(nome[i] == ' ') {
-            if(nome[i+1] >= 'a' || nome[i+1] <= 'z') {
+            if((nome[i+1] >= 'a' && nome[i+1] <= 'z') && (i+1) != nome.length()) {
                 return false;
             }
-            else if(nome[i+1] == ' ') {
+            else if(nome[i+1] == ' ' && (i+1) != nome.length()) {
                 return false;
             }
         }
@@ -264,15 +299,15 @@ void Nome::setNome(string nome) {
         this->nome = nome;
     }
     else {
-        cout << "Entre um nome válido" << endl;
+        cout << "Entre um nome vÃ¡lido" << endl;
     }
 }
 
 //falta calcular o digito verificador
 bool Numero::validaNumero(string numero) {
-/*Formato XXXXXX-Y onde cada X é dígito (0 – 9) e Y é dígito verificador calculado por
-meio de algorítmo apropriado.*/
-
+/*Formato XXXXXX-Y onde cada X Ã© dÃ­gito (0 â€“ 9) e Y Ã© dÃ­gito verificador calculado por
+meio de algorÃ­tmo apropriado.*/
+    
     if(numero.length() != 6) {
         return false;
     }
@@ -292,7 +327,7 @@ void Numero::setNumero(string numero) {
         this->numero = numero;
     }
     else {
-        cout << "Entre um número válido" << endl;
+        cout << "Entre um nÃºmero vÃ¡lido" << endl;
     }
 }
 
@@ -312,12 +347,12 @@ void Prazo::setPrazo(int prazo) {
         this->prazo = prazo;
     }
     else {
-        cout << "Entre um prazo válido" << endl;
+        cout << "Entre um prazo vÃ¡lido" << endl;
     }
 }
 
 bool Senha::validaSenha(string senha) {
-/*Formato XXXXXX onde cada X é dígito (0 – 9) e não há dígito repetido*/
+/*Formato XXXXXX onde cada X Ã© dÃ­gito (0 â€“ 9) e nÃ£o hÃ¡ dÃ­gito repetido*/
 
     if(senha.length() != 6) {
         return false;
@@ -346,7 +381,7 @@ void Senha::setSenha(string senha) {
         this->senha = senha;
     }
     else {
-        cout << "Entre uma senha válida" << endl;
+        cout << "Entre uma senha vÃ¡lida" << endl;
     }
 }
 
@@ -365,7 +400,7 @@ void Taxa::setTaxa(int taxa) {
         this->taxa = taxa;
     }
     else {
-        cout << "Entre uma taxa válida" << endl;
+        cout << "Entre uma taxa vÃ¡lida" << endl;
     }
 }
 
@@ -384,7 +419,7 @@ void ValorAplicacao::setValorAplicacao(double valorAplicacao) {
         this->valorAplicacao = valorAplicacao;
     }
     else {
-        cout << "Entre um valor de aplicação válido" << endl;
+        cout << "Entre um valor de aplicaÃ§Ã£o vÃ¡lido" << endl;
     }
 }
 
@@ -403,6 +438,6 @@ void ValorMinimo::setValorMinimo(int valorMinimo) {
         this->valorMinimo = valorMinimo;
     }
     else {
-        cout << "Entre um valor mínimo válido" << endl;
+        cout << "Entre um valor mÃ­nimo vÃ¡lido" << endl;
     }
 }
