@@ -1,5 +1,50 @@
 #include "testes.h"
 
+const int TCep::VALOR_VALIDO = 70510310;
+const int TCep::VALOR_INVALIDO = 71510310;
+const int TCep::SUCESSO;
+const int TCep::FALHA;
+
+const string TClasse::VALOR_VALIDO = "CDB";
+const string TClasse::VALOR_INVALIDO = "SBT";
+const int TClasse::SUCESSO;
+const int TClasse::FALHA;
+
+const string TCodigoAgencia::VALOR_VALIDO = "0356";
+const string TCodigoAgencia::VALOR_INVALIDO = "03561";
+const int TCodigoAgencia::SUCESSO;
+const int TCodigoAgencia::FALHA;
+
+const string TCodigoAplicacao::VALOR_VALIDO = "33256";
+const string TCodigoAplicacao::VALOR_INVALIDO = "123456";
+const int TCodigoAplicacao::SUCESSO;
+const int TCodigoAplicacao::FALHA;
+
+const string TCodigoBanco::VALOR_VALIDO = "001";
+const string TCodigoBanco::VALOR_INVALIDO = "002";
+const int TCodigoBanco::SUCESSO;
+const int TCodigoBanco::FALHA;
+
+const string TCodigoProduto::VALOR_VALIDO = "352";
+const string TCodigoProduto::VALOR_INVALIDO = "3325";
+const int TCodigoProduto::SUCESSO;
+const int TCodigoProduto::FALHA;
+
+const string TCpf::VALOR_VALIDO = "020.258.468-98";
+const string TCpf::VALOR_INVALIDO = "031-256.842.75";
+const int TCpf::SUCESSO;
+const int TCpf::FALHA;
+
+const string TData::VALOR_VALIDO = "29/02/2024";
+const string TData::VALOR_INVALIDO = "29/02/2021";
+const int TData::SUCESSO;
+const int TData::FALHA;
+
+const string TEmissor::VALOR_VALIDO = "Mateus35.7-0 Bitt";
+const string TEmissor::VALOR_INVALIDO = "Mateus35.7 -0 Bitt";
+const int TEmissor::SUCESSO;
+const int TEmissor::FALHA;
+
 const string TEndereco::VALOR_VALIDO = "Rua 23. Casa 18.";
 const string TEndereco::VALOR_INVALIDO = "Rua 23  Casa 18.";
 const int TEndereco::SUCESSO;
@@ -45,6 +90,347 @@ const double TValorMinimo::VALOR_INVALIDO = 1000.50;
 const int TValorMinimo::SUCESSO;
 const int TValorMinimo::FALHA;
 
+void TCep::inicializarCep() {
+    cep = new Cep();
+    estado = SUCESSO;
+}
+
+void TCep::destruirCep() {
+    delete cep;
+}
+
+void TCep::testeCepSucesso() {
+    try {
+        cep->setCep(VALOR_VALIDO);
+        if (cep->getCep() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TCep::testeCepFalha() {
+    try{
+        cep->setCep(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TCep::rodarTeste() {
+    inicializarCep();
+    testeCepSucesso();
+    testeCepFalha();
+    destruirCep();
+    return estado;
+}
+
+void TClasse::inicializarClasse() {
+    classe = new Classe();
+    estado = SUCESSO;
+}
+
+void TClasse::destruirClasse() {
+    delete classe;
+}
+
+void TClasse::testeClasseSucesso() {
+    try {
+        classe->setClasse(VALOR_VALIDO);
+        if (classe->getClasse() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TClasse::testeClasseFalha() {
+    try{
+        classe->setClasse(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TClasse::rodarTeste() {
+    inicializarClasse();
+    testeClasseSucesso();
+    testeClasseFalha();
+    destruirClasse();
+    return estado;
+}
+
+void TCodigoAgencia::inicializarCodigoAgencia() {
+    codigoAgencia = new CodigoAgencia();
+    estado = SUCESSO;
+}
+
+void TCodigoAgencia::destruirCodigoAgencia() {
+    delete codigoAgencia;
+}
+
+void TCodigoAgencia::testeCodigoAgenciaSucesso() {
+    try {
+        codigoAgencia->setCodigoAgencia(VALOR_VALIDO);
+        if (codigoAgencia->getCodigoAgencia() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TCodigoAgencia::testeCodigoAgenciaFalha() {
+    try{
+        codigoAgencia->setCodigoAgencia(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TCodigoAgencia::rodarTeste() {
+    inicializarCodigoAgencia();
+    testeCodigoAgenciaSucesso();
+    testeCodigoAgenciaFalha();
+    destruirCodigoAgencia();
+    return estado;
+}
+
+void TCodigoAplicacao::inicializarCodigoAplicacao() {
+    codigoAplicacao = new CodigoAplicacao();
+    estado = SUCESSO;
+}
+
+void TCodigoAplicacao::destruirCodigoAplicacao() {
+    delete codigoAplicacao;
+}
+
+void TCodigoAplicacao::testeCodigoAplicacaoSucesso() {
+    try {
+        codigoAplicacao->setCodigoAplicacao(VALOR_VALIDO);
+        if (codigoAplicacao->getCodigoAplicacao() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TCodigoAplicacao::testeCodigoAplicacaoFalha() {
+    try{
+        codigoAplicacao->setCodigoAplicacao(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TCodigoAplicacao::rodarTeste() {
+    inicializarCodigoAplicacao();
+    testeCodigoAplicacaoSucesso();
+    testeCodigoAplicacaoFalha();
+    destruirCodigoAplicacao();
+    return estado;
+}
+
+void TCodigoBanco::inicializarCodigoBanco() {
+    codigoBanco = new CodigoBanco();
+    estado = SUCESSO;
+}
+
+void TCodigoBanco::destruirCodigoBanco() {
+    delete codigoBanco;
+}
+
+void TCodigoBanco::testeCodigoBancoSucesso() {
+    try {
+        codigoBanco->setCodigoBanco(VALOR_VALIDO);
+        if (codigoBanco->getCodigoBanco() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TCodigoBanco::testeCodigoBancoFalha() {
+    try{
+        codigoBanco->setCodigoBanco(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TCodigoBanco::rodarTeste() {
+    inicializarCodigoBanco();
+    testeCodigoBancoSucesso();
+    testeCodigoBancoFalha();
+    destruirCodigoBanco();
+    return estado;
+}
+
+void TCodigoProduto::inicializarCodigoProduto() {
+    codigoProduto = new CodigoProduto();
+    estado = SUCESSO;
+}
+
+void TCodigoProduto::destruirCodigoProduto() {
+    delete codigoProduto;
+}
+
+void TCodigoProduto::testeCodigoProdutoSucesso() {
+    try {
+        codigoProduto->setCodigoProduto(VALOR_VALIDO);
+        if (codigoProduto->getCodigoProduto() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TCodigoProduto::testeCodigoProdutoFalha() {
+    try{
+        codigoProduto->setCodigoProduto(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TCodigoProduto::rodarTeste() {
+    inicializarCodigoProduto();
+    testeCodigoProdutoSucesso();
+    testeCodigoProdutoFalha();
+    destruirCodigoProduto();
+    return estado;
+}
+
+void TCpf::inicializarCpf() {
+    cpf = new Cpf();
+    estado = SUCESSO;
+}
+
+void TCpf::destruirCpf() {
+    delete cpf;
+}
+
+void TCpf::testeCpfSucesso() {
+    try {
+        cpf->setCpf(VALOR_VALIDO);
+        if (cpf->getCpf() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TCpf::testeCpfFalha() {
+    try{
+        cpf->setCpf(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TCpf::rodarTeste() {
+    inicializarCpf();
+    testeCpfSucesso();
+    testeCpfFalha();
+    destruirCpf();
+    return estado;
+}
+
+void TData::inicializarData() {
+    data = new Data();
+    estado = SUCESSO;
+}
+
+void TData::destruirData() {
+    delete data;
+}
+
+void TData::testeDataSucesso() {
+    try {
+        data->setData(VALOR_VALIDO);
+        if (data->getData() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TData::testeDataFalha() {
+    try{
+        data->setData(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TData::rodarTeste() {
+    inicializarData();
+    testeDataSucesso();
+    testeDataFalha();
+    destruirData();
+    return estado;
+}
+
+void TEmissor::inicializarEmissor() {
+    emissor = new Emissor();
+    estado = SUCESSO;
+}
+
+void TEmissor::destruirEmissor() {
+    delete emissor;
+}
+
+void TEmissor::testeEmissorSucesso() {
+    try {
+        emissor->setEmissor(VALOR_VALIDO);
+        if (emissor->getEmissor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(const invalid_argument& excecao) {
+        estado = FALHA;
+    }
+}
+
+void TEmissor::testeEmissorFalha() {
+    try{
+        emissor->setEmissor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
+    }
+}
+
+int TEmissor::rodarTeste() {
+    inicializarEmissor();
+    testeEmissorSucesso();
+    testeEmissorFalha();
+    destruirEmissor();
+    return estado;
+}
 
 void TEndereco::inicializarEndereco() {
     endereco = new Endereco();
