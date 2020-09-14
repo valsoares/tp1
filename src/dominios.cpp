@@ -132,23 +132,37 @@ void Data::validaData(string data){
             throw invalid_argument("Argumento invalido!");
         }
     }
+    
+    int dia = stoi(data.substr(0,2));
+    int mes = stoi(data.substr(3,5));
+    int ano = stoi(data.substr(6,10));
 
     // Verifica que o ano vai de 2020 até 2099
-    if(data[6] != '2' || data[7] != '0' || data[8] < '2'){
+    if(ano < 2020 || ano > 2099){
         throw invalid_argument("Argumento invalido!");
     }
 
     // Verifica que não há dia nem mês 0
-    if((data[0] == '0' && data[1] == '0') || (data[3] == '0' && data[4] == '0')){
+    if(dia == 0 || mes == 0){
         throw invalid_argument("Argumento invalido!");
     }
 
-    // Verifica tanto o limite superior do mes e do dia
-    if(data[0] > '3' || data[3] > '1'){
+    // Verifica o limite superior do dia pra cada mes
+    if((mes  == 1 || mes  == 3 ||  mes  == 5 ||  mes  == 7 || 
+        mes  == 8 || mes  == 10 || mes  == 12) && dia > 31){
         throw invalid_argument("Argumento invalido!");
     }
 
-    if((data[0] == '3' && data[1] > '1') || (data[3] == '1' && data[4] > '2')){
+    if((mes  == 4 ||  mes  == 6 ||  mes  == 9 || mes  == 11 || mes  == 10) && dia > 30){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    // Tratamento especial para fevereiro
+    if(ano%4 == 0 && mes == 2 && dia > 29){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    if(ano%4 != 0 && mes == 2 && dia > 28){
         throw invalid_argument("Argumento invalido!");
     }
 }
@@ -158,11 +172,32 @@ void Data::setData(string data){
     this->data = data;
 }
 
-// Falta quase tudo
 void Emissor::validaEmissor(string emissor){
     if(emissor.length() < 5 || emissor.length() > 30){
         throw invalid_argument("Argumento invalido!");
     }
+
+    if(emissor[0] >= 'a' && emissor[0] <= 'z'){
+        throw invalid_argument("Argumento invalido!");
+    }
+
+    for(int i = 0; i < emissor.length(); i++){
+        // Restringe a entrada para letras, numeros, ponto, hifen e espaço
+        if(emissor[i] < 'A' && emissor[i] > 'z' && emissor[i]<'0' && emissor[i] > '9' && 
+           emissor[i] != '.' && emissor[i] != '-' && emissor[i] != ' '){
+               throw invalid_argument("Argumento invalido!");
+        }
+        // Apenas letras e numeros se sucedem
+        if(i+1 != emissor.length() && (emissor[i] == '.' || emissor[i] == '-' || emissor[i] == ' ') && 
+          (emissor[i+1] == '.' || emissor[i+1] == '-' || emissor[i+1] == ' ')) {
+               throw invalid_argument("Argumento invalido!");  
+        }
+        // Garante a letra maisucula no inicio de um texto
+        if(i+1 != emissor.length() && emissor[i] == ' ' && emissor[i+1] >= 'a' && emissor[i+1] <= 'z'){
+            throw invalid_argument("Argumento invalido!");
+        }
+    }
+
 }
 
 void Emissor::setEmissor(string emissor){
