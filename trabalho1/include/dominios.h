@@ -254,7 +254,7 @@ class ValorMinimo {
         void validaValorMinimo(double valorMinimo);
 
     public:
-        void setValorMinimo(int valorMinimo);
+        void setValorMinimo(double valorMinimo);
 
         double getValorMinimo() {
             return valorMinimo;

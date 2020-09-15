@@ -7,12 +7,12 @@
 using namespace std;
 
 int main() {
-    TCpf teste;
+    TValorMinimo teste;
     switch(teste.rodarTeste()) {
-        case TCpf::SUCESSO :
+        case TValorMinimo::SUCESSO :
             cout << "SUCESSO";
             break;
-        case TCpf::FALHA :
+        case TValorMinimo::FALHA :
             cout << "FALHA";
             break;
     }

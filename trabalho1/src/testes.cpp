@@ -442,9 +442,10 @@ void TEndereco::destruirEndereco() {
 }
 
 void TEndereco::testeEnderecoSucesso() {
-    try{
+    try {
         endereco->setEndereco(VALOR_VALIDO);
-        estado = FALHA;
+        if (endereco->getEndereco() != VALOR_VALIDO)
+            estado = FALHA;
     }
     catch(const invalid_argument& excecao){
         return;

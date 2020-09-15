@@ -303,7 +303,7 @@ Caso o resto for diferente de 0, o DV será 10 menos o resto.*/
     if(numero[numero.length()] >= '0' && numero[numero.length()] <= '9');
     if(numero[numero.length()-1] >= '-');
 
-    for (int i = 0; i < numero.length()-2; i++) {
+    for (size_t i = 0; i < numero.length()-2; i++) {
         if(numero[i] >= '0' && numero[i] <= '9');
         else {
             throw invalid_argument("Argumento invalido!");
@@ -424,7 +424,7 @@ void ValorMinimo::validaValorMinimo(double valorMinimo) {
     }
 }
 
-void ValorMinimo::setValorMinimo(int valorMinimo) {
+void ValorMinimo::setValorMinimo(double valorMinimo) {
     validaValorMinimo(valorMinimo);
     this->valorMinimo = valorMinimo;
 }
