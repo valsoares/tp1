@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-
+ 
 class Cep {
     private:
         int cep;
@@ -137,7 +137,7 @@ class Endereco {
     private:
         string endereco;
 
-        bool validaEndereco(string endereco);
+        void validaEndereco(string endereco);
 
     public:
         void setEndereco(string endereco);
@@ -151,7 +151,7 @@ class Horario {
    private:
         string horario;
 
-        bool validaHorario(string horario);
+        void validaHorario(string horario);
 
     public:
         void setHorario(string horario);
@@ -166,7 +166,7 @@ class Nome {
    private:
         string nome;
 
-        bool validaNome(string nome);
+        void validaNome(string nome);
 
     public:
         void setNome(string nome);
@@ -181,7 +181,7 @@ class Numero {
     private:
         string numero;
 
-        bool validaNumero(string numero);
+        void validaNumero(string numero);
 
     public:
         void setNumero(string numero);
@@ -195,7 +195,7 @@ class Prazo {
     private:
         int prazo;
 
-        bool validaPrazo(int prazo);
+        void validaPrazo(int prazo);
 
     public:
         void setPrazo(int prazo);
@@ -209,7 +209,7 @@ class Senha {
     private:
         string senha;
 
-        bool validaSenha(string senha);
+        void validaSenha(string senha);
 
     public:
         void setSenha(string senha);
@@ -223,7 +223,7 @@ class Taxa {
     private:
         int taxa;
 
-        bool validaTaxa(int taxa);
+        void validaTaxa(int taxa);
 
     public:
         void setTaxa(int taxa);
@@ -237,7 +237,7 @@ class ValorAplicacao {
     private:
         double valorAplicacao;
 
-        bool validaValorAplicacao(double valorAplicacao);
+        void validaValorAplicacao(double valorAplicacao);
 
     public:
         void setValorAplicacao(double valorAplicacao);
@@ -251,7 +251,7 @@ class ValorMinimo {
     private:
         double valorMinimo;
 
-        bool validaValorMinimo(double valorMinimo);
+        void validaValorMinimo(double valorMinimo);
 
     public:
         void setValorMinimo(int valorMinimo);

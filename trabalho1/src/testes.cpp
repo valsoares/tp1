@@ -9,7 +9,7 @@ const string TClasse::VALOR_VALIDO = "CDB";
 const string TClasse::VALOR_INVALIDO = "SBT";
 const int TClasse::SUCESSO;
 const int TClasse::FALHA;
-
+ 
 const string TCodigoAgencia::VALOR_VALIDO = "0356";
 const string TCodigoAgencia::VALOR_INVALIDO = "03561";
 const int TCodigoAgencia::SUCESSO;
@@ -442,13 +442,12 @@ void TEndereco::destruirEndereco() {
 }
 
 void TEndereco::testeEnderecoSucesso() {
-    try {
+    try{
         endereco->setEndereco(VALOR_VALIDO);
-        if (endereco->getEndereco() != VALOR_VALIDO)
-            estado = FALHA;
-    }
-    catch(const invalid_argument& excecao) {
         estado = FALHA;
+    }
+    catch(const invalid_argument& excecao){
+        return;
     }
 }
 
