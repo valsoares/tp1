@@ -10,7 +10,7 @@ int main() {
     TValorMinimo teste;
     switch(teste.rodarTeste()) {
         case TValorMinimo::SUCESSO :
-            cout << "SUCESSO";
+            cout << "SUCESSO"
             break;
         case TValorMinimo::FALHA :
             cout << "FALHA";

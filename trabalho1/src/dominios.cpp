@@ -268,13 +268,9 @@ void Endereco::setEndereco(string endereco) {
 void Horario::validaHorario(string horario) {
 /*Formato XY:ZW para representar horário entre 13:00 e 17:00 horas.*/
     int hora = stoi(horario.substr(0,2));
-    int minuto = stoi(horario.substr(3,5));
-    if(hora >= 13 && hora < 17 && minuto > 0 && minuto < 60) {
-        
-    }
-    else if(hora == 17 && minuto == 0) {
-        
-    }
+    int minuto = stoi(horario.substr(3,2));
+    if(hora >= 13 && hora < 17 && minuto > 0 && minuto < 60);
+    else if(hora == 17 && minuto == 0);
     else {
         throw invalid_argument("Argumento invalido!");
     }
@@ -325,18 +321,21 @@ Caso o resto for diferente de 0, o DV será 10 menos o resto.*/
         throw invalid_argument("Argumento invalido!");
     }
     
-    if(numero[numero.length()] >= '0' && numero[numero.length()] <= '9');
-    if(numero[numero.length()-1] >= '-');
+    if(!(numero[numero.length()-1] >= '0' && numero[numero.length()] <= '9')) {
+        throw invalid_argument("Argumento invalido!");
+    }
+    if(!(numero[numero.length()-2] >= '-')) {
+        throw invalid_argument("Argumento invalido!");
+    }
 
-    for (size_t i = 0; i < numero.length()-2; i++) {
-        if(numero[i] >= '0' && numero[i] <= '9');
-        else {
+    for(size_t i = 0; i < numero.length()-2; i++) {
+        if(!(numero[i] >= '0' && numero[i] <= '9')) {
             throw invalid_argument("Argumento invalido!");
         }
     }
 
     num = stoi(numero.substr(0,7));
-    dv = stoi(numero.substr(7,8));
+    dv = stoi(numero.substr(7,1));
 
     while (num > 0) {
         int aux = num % 10;
@@ -344,7 +343,7 @@ Caso o resto for diferente de 0, o DV será 10 menos o resto.*/
         soma += aux;
     }
 
-    if (soma % 10 != 0) {
+    if(soma % 10 != 0) {
         dv_calculado = 10 - (soma % 10);
     }
     else {
@@ -364,14 +363,11 @@ void Numero::setNumero(string numero) {
 }
 
 void Prazo::validaPrazo(int prazo) {
-    if(prazo == 6 || prazo == 12 || prazo == 18 || prazo == 24 || prazo == 30 ||
+    if(!(prazo == 6 || prazo == 12 || prazo == 18 || prazo == 24 || prazo == 30 ||
       prazo == 36 || prazo == 42 || prazo == 48 || prazo == 54 || prazo == 60 ||
-      prazo == 66 || prazo == 72) {
-          
-    }
-    else {
+      prazo == 66 || prazo == 72)) {
         throw invalid_argument("Argumento invalido!");
-    }
+      }
 }
 
 void Prazo::setPrazo(int prazo) {
@@ -387,8 +383,7 @@ void Senha::validaSenha(string senha) {
     }
 
     for (size_t i = 0; i < senha.length(); i++) {
-        if(senha[i] >= '0' && senha[i] <= '9');
-        else {
+        if(!(senha[i] >= '0' && senha[i] <= '9')) {
             throw invalid_argument("Argumento invalido!");
         }
 
@@ -411,11 +406,8 @@ void Senha::setSenha(string senha) {
 
 void Taxa::validaTaxa(int taxa) {
     /*taxa na faixa de 0 a 200*/
-    if(200 >= taxa && taxa >= 0) {
-        
-    }
-    else {
-        throw invalid_argument("Argumento invalido!");
+    if(!(200 >= taxa && taxa >= 0)) {
+        throw invalid_argument("Argumento invalido!");       
     }
 }
 
@@ -426,11 +418,8 @@ void Taxa::setTaxa(int taxa) {
 
 void ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
     /*Valor na faixa de 0 a 1.000.000,00*/
-    if(1000000.0 >= valorAplicacao && valorAplicacao >= 0.0) {
-        
-    }
-    else {
-        throw invalid_argument("Argumento invalido!");
+    if(!(1000000.0 >= valorAplicacao && valorAplicacao >= 0.0)) {
+        throw invalid_argument("Argumento invalido!");        
     }
 }
 
@@ -441,11 +430,8 @@ void ValorAplicacao::setValorAplicacao(double valorAplicacao) {
 
 void ValorMinimo::validaValorMinimo(double valorMinimo) {
     /*Valor 1.000,00, 5.000,00, 10.000 ou 50.000,00 */
-    if((valorMinimo == 1000.0) || (valorMinimo == 5000.0) || (valorMinimo == 10000.0) || (valorMinimo == 50000.0)) {
-        
-    }
-    else {
-        throw invalid_argument("Argumento invalido!");
+    if(!((valorMinimo == 1000.0) || (valorMinimo == 5000.0) || (valorMinimo == 10000.0) || (valorMinimo == 50000.0))) {
+        throw invalid_argument("Argumento invalido!");        
     }
 }
 
