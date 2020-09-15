@@ -30,8 +30,8 @@ const string TCodigoProduto::VALOR_INVALIDO = "3325";
 const int TCodigoProduto::SUCESSO;
 const int TCodigoProduto::FALHA;
 
-const string TCpf::VALOR_VALIDO = "020.258.468-98";
-const string TCpf::VALOR_INVALIDO = "031-256.842.75";
+const string TCpf::VALOR_VALIDO = "020.397.051-98";
+const string TCpf::VALOR_INVALIDO = "020.397.051-97";
 const int TCpf::SUCESSO;
 const int TCpf::FALHA;
 
