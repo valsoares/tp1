@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "dominios.h"
+#include "../include/dominios.h"
 
 using namespace std;
 
@@ -236,12 +236,8 @@ void Endereco::validaEndereco(string endereco) {
 }
 
 void Endereco::setEndereco(string endereco) {
-    if(validaEndereco(endereco)) {
-        this->endereco = endereco;
-    }
-    else {
-        cout << "Entre um endereço válido" << endl;
-    }
+    validaEndereco(endereco);
+    this->endereco = endereco;
 }
 
 void Horario::validaHorario(string horario) {
@@ -261,12 +257,8 @@ void Horario::validaHorario(string horario) {
 }
 
 void Horario::setHorario(string horario) {
-    if(validaHorario(horario)) {
-        this->horario = horario;
-    }
-    else {
-        cout << "Entre um horário válido" << endl;
-    }
+    validaHorario(horario);
+    this->horario = horario;
 }
 
 void Nome::validaNome(string nome) {
@@ -289,18 +281,11 @@ letra maiúscula*/
             }
         }
     }
-
-    return  true;
-
 }
 
 void Nome::setNome(string nome) {
-    if(validaNome(nome)) {
-        this->nome = nome;
-    }
-    else {
-        cout << "Entre um nome válido" << endl;
-    }
+    validaNome(nome);
+    this->nome = nome;
 }
 
 
@@ -349,12 +334,8 @@ Caso o resto for diferente de 0, o DV será 10 menos o resto.*/
 }
 
 void Numero::setNumero(string numero) {
-    if(validaNumero(numero)) {
-        this->numero = numero;
-    }
-    else {
-        cout << "Entre um número válido" << endl;
-    }
+    validaNumero(numero);
+    this->numero = numero;
 }
 
 void Prazo::validaPrazo(int prazo) {
@@ -369,12 +350,8 @@ void Prazo::validaPrazo(int prazo) {
 }
 
 void Prazo::setPrazo(int prazo) {
-    if(validaPrazo(prazo)) {
-        this->prazo = prazo;
-    }
-    else {
-        cout << "Entre um prazo válido" << endl;
-    }
+    validaPrazo(prazo);
+    this->prazo = prazo;
 }
 
 void Senha::validaSenha(string senha) {
@@ -403,12 +380,8 @@ void Senha::validaSenha(string senha) {
 }
 
 void Senha::setSenha(string senha) {
-    if(validaSenha(senha)) {
-        this->senha = senha;
-    }
-    else {
-        cout << "Entre uma senha válida" << endl;
-    }
+    validaSenha(senha);
+    this->senha = senha;
 }
 
 void Taxa::validaTaxa(int taxa) {
@@ -422,12 +395,8 @@ void Taxa::validaTaxa(int taxa) {
 }
 
 void Taxa::setTaxa(int taxa) {
-    if(validaTaxa(taxa)) {
-        this->taxa = taxa;
-    }
-    else {
-        cout << "Entre uma taxa válida" << endl;
-    }
+    validaTaxa(taxa);
+    this->taxa = taxa;
 }
 
 void ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
@@ -441,12 +410,8 @@ void ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
 }
 
 void ValorAplicacao::setValorAplicacao(double valorAplicacao) {
-    if(validaValorAplicacao(valorAplicacao)) {
-        this->valorAplicacao = valorAplicacao;
-    }
-    else {
-        cout << "Entre um valor de aplicação válido" << endl;
-    }
+    validaValorAplicacao(valorAplicacao);
+    this->valorAplicacao = valorAplicacao;
 }
 
 void ValorMinimo::validaValorMinimo(double valorMinimo) {
@@ -460,10 +425,6 @@ void ValorMinimo::validaValorMinimo(double valorMinimo) {
 }
 
 void ValorMinimo::setValorMinimo(int valorMinimo) {
-    if(validaValorMinimo(valorMinimo)) {
-        this->valorMinimo = valorMinimo;
-    }
-    else {
-        cout << "Entre um valor mínimo válido" << endl;
-    }
+    validaValorMinimo(valorMinimo);
+    this->valorMinimo = valorMinimo;
 }
