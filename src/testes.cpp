@@ -60,8 +60,8 @@ const string TNome::VALOR_INVALIDO = "valesca";
 const int TNome::SUCESSO;
 const int TNome::FALHA;
 
-const string TNumero::VALOR_VALIDO = "123456";
-const string TNumero::VALOR_INVALIDO = "11111111";
+const string TNumero::VALOR_VALIDO = "123456-9";
+const string TNumero::VALOR_INVALIDO = "111111-0";
 const int TNumero::SUCESSO;
 const int TNumero::FALHA;
 

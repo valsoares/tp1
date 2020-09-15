@@ -306,17 +306,43 @@ void Nome::setNome(string nome) {
 //falta calcular o digito verificador
 bool Numero::validaNumero(string numero) {
 /*Formato XXXXXX-Y onde cada X é dígito (0 – 9) e Y é dígito verificador calculado por
-meio de algorítmo apropriado.*/
-    
-    if(numero.length() != 6) {
+meio de algorítmo apropriado.
+Cálculo do dígito: Somam os dígitos das multiplicações e divide o resultado por 10. 
+Caso o resto for diferente de 0, o DV será 10 menos o resto.*/  
+    int dv_calculado = 0, soma = 0, num = 0, dv = 0;
+
+    if(numero.length() != 8) {
         return false;
     }
+    
+    if(numero[numero.length()] >= '0' && numero[numero.length()] <= '9');
+    if(numero[numero.length()-1] >= '-');
 
-    for (int i = 0; i < numero.length(); i++) {
+    for (int i = 0; i < numero.length()-2; i++) {
         if(numero[i] >= '0' && numero[i] <= '9');
         else {
             return false;
         }
+    }
+
+    num = stoi(numero.substr(0,7));
+    dv = stoi(numero.substr(7,8));
+
+    while (num > 0) {
+        int aux = num % 10;
+        num /= 10;
+        soma += aux;
+    }
+
+    if (soma % 10 != 0) {
+        dv_calculado = 10 - (soma % 10);
+    }
+    else {
+        dv_calculado = 0;
+    }
+
+    if(dv_calculado != dv) {
+        return false;
     }
 
     return true;
