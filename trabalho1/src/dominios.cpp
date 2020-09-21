@@ -5,6 +5,8 @@
 
 using namespace std;
 
+// Definições de métodos
+
 void Cep::validaCep(int cep) {
     // Verifica se o cep esta entre as faixas válidas de cep
     if((cep < 1000000 || cep >= 71000000) || (cep >= 6000000 && cep < 8000000) || 
@@ -231,28 +233,34 @@ void Emissor::setEmissor(string emissor) {
 }
 
 void Endereco::validaEndereco(string endereco) {
-    /*endereco composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito
-    (0 – 9), ponto ou espaço. Apenas letras e dígitos podem estar em sequência. Em termo cujo
-    primeiro caracter é letra, a mesma é maiúscula*/
+
+    // endereco composto por 5 a 20 caracteres
     if(endereco.length() < 5 || endereco.length() > 20) {
         throw invalid_argument("Argumento invalido!");
     }
 
     for (size_t i = 0; i < endereco.length(); i++) {
+        // cada caracter pode ser letra (A-Z ou a-z)
         if(endereco[i] >= 'A' && endereco[i] <= 'z');
+        // cada caracter pode ser ponto
         else if(endereco[i] == '.') {
+            // apenas letras e dígitos podem estar em sequência
             if(endereco[i+1] == '.' && (i+1) != endereco.length()) {
                 throw invalid_argument("Argumento invalido!");
             }
         }
+        // cada caracter pode ser espaço
         else if(endereco[i] == ' ') {
+            // apenas letras e dígitos podem estar em sequência
             if(endereco[i+1] == ' ' && (i+1) != endereco.length()) {
                 throw invalid_argument("Argumento invalido!");
             }
+            // em termo cujo primeiro caracter é letra, a mesma é maiúscula
             if((endereco[i+1] >= 'a' && endereco[i+1] <= 'z') && (i+1) != endereco.length()) {
                 throw invalid_argument("Argumento invalido!");
             }
         }
+        // cada caracter pode ser dígito(0-9)
         else if(endereco[i] >= '0' && endereco[i] <= '9');
     }
 
@@ -266,9 +274,10 @@ void Endereco::setEndereco(string endereco) {
 }
 
 void Horario::validaHorario(string horario) {
-/*Formato XY:ZW para representar horário entre 13:00 e 17:00 horas.*/
+
     int hora = stoi(horario.substr(0,2));
     int minuto = stoi(horario.substr(3,2));
+    // horário entre 13:00 e 17:00 horas
     if(hora >= 13 && hora < 17 && minuto > 0 && minuto < 60);
     else if(hora == 17 && minuto == 0);
     else {
@@ -283,20 +292,23 @@ void Horario::setHorario(string horario) {
 }
 
 void Nome::validaNome(string nome) {
-/*nome composto por 5 a 30 caracteres onde cada caracter pode ser letra (A-Z ou a-z) ou
-espaço, há pelo menos 5 letras, não há espaços em sequência, primeira letra de cada termo é
-letra maiúscula*/
+
+    // nome composto por 5 a 30 caracteres
     if(nome.length() < 5 || nome.length() > 30) {
         throw invalid_argument("Argumento invalido!");
     }
+    // primeira letra de cada termo é letra maiúscula
     if(nome[0] >= 'a' && nome[0] <= 'z') {
         throw invalid_argument("Argumento invalido!");
     }
     for (size_t i = 0; i < nome.length(); i++) {
+        // cada caracter pode ser espaço
         if(nome[i] == ' ') {
+            // primeira letra de cada termo é letra maiúscula
             if((nome[i+1] >= 'a' && nome[i+1] <= 'z') && (i+1) != nome.length()) {
                 throw invalid_argument("Argumento invalido!");
             }
+            // não há espaços em sequência
             else if(nome[i+1] == ' ' && (i+1) != nome.length()) {
                 throw invalid_argument("Argumento invalido!");
             }
@@ -311,16 +323,14 @@ void Nome::setNome(string nome) {
 
 
 void Numero::validaNumero(string numero) {
-/*Formato XXXXXX-Y onde cada X é dígito (0 – 9) e Y é dígito verificador calculado por
-meio de algorítmo apropriado.
-Cálculo do dígito: Somam os dígitos das multiplicações e divide o resultado por 10. 
-Caso o resto for diferente de 0, o DV será 10 menos o resto.*/  
+ 
     int dv_calculado = 0, soma = 0, num = 0, dv = 0;
 
+    // Formato XXXXXX-Y
     if(numero.length() != 8) {
         throw invalid_argument("Argumento invalido!");
     }
-    
+    // Y é dígito verificador 
     if(!(numero[numero.length()-1] >= '0' && numero[numero.length()] <= '9')) {
         throw invalid_argument("Argumento invalido!");
     }
@@ -329,11 +339,13 @@ Caso o resto for diferente de 0, o DV será 10 menos o resto.*/
     }
 
     for(size_t i = 0; i < numero.length()-2; i++) {
+        // cada X é dígito (0 – 9)
         if(!(numero[i] >= '0' && numero[i] <= '9')) {
             throw invalid_argument("Argumento invalido!");
         }
     }
 
+    // cálculo do dígito verificador
     num = stoi(numero.substr(0,7));
     dv = stoi(numero.substr(7,1));
 
@@ -363,6 +375,7 @@ void Numero::setNumero(string numero) {
 }
 
 void Prazo::validaPrazo(int prazo) {
+    // valor 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66 ou 72 (mêses)
     if(!(prazo == 6 || prazo == 12 || prazo == 18 || prazo == 24 || prazo == 30 ||
       prazo == 36 || prazo == 42 || prazo == 48 || prazo == 54 || prazo == 60 ||
       prazo == 66 || prazo == 72)) {
@@ -376,19 +389,21 @@ void Prazo::setPrazo(int prazo) {
 }
 
 void Senha::validaSenha(string senha) {
-/*Formato XXXXXX onde cada X é dígito (0 – 9) e não há dígito repetido*/
 
+    // Formato XXXXXX
     if(senha.length() != 6) {
         throw invalid_argument("Argumento invalido!");
     }
 
     for (size_t i = 0; i < senha.length(); i++) {
+        // cada X é dígito (0 – 9)
         if(!(senha[i] >= '0' && senha[i] <= '9')) {
             throw invalid_argument("Argumento invalido!");
         }
 
         for(size_t j = 0; j < senha.length(); j++) {
             if(i != j) {
+                // não há dígito repetido
                 if(senha[i] == senha[j]){
                     throw invalid_argument("Argumento invalido!");
                 }
@@ -405,7 +420,7 @@ void Senha::setSenha(string senha) {
 }
 
 void Taxa::validaTaxa(int taxa) {
-    /*taxa na faixa de 0 a 200*/
+    // taxa na faixa de 0 a 200
     if(!(200 >= taxa && taxa >= 0)) {
         throw invalid_argument("Argumento invalido!");       
     }
@@ -417,7 +432,7 @@ void Taxa::setTaxa(int taxa) {
 }
 
 void ValorAplicacao::validaValorAplicacao(double valorAplicacao) {
-    /*Valor na faixa de 0 a 1.000.000,00*/
+    // valor na faixa de 0 a 1.000.000,00
     if(!(1000000.0 >= valorAplicacao && valorAplicacao >= 0.0)) {
         throw invalid_argument("Argumento invalido!");        
     }
@@ -429,7 +444,7 @@ void ValorAplicacao::setValorAplicacao(double valorAplicacao) {
 }
 
 void ValorMinimo::validaValorMinimo(double valorMinimo) {
-    /*Valor 1.000,00, 5.000,00, 10.000 ou 50.000,00 */
+    // valor 1.000,00, 5.000,00, 10.000 ou 50.000,00 
     if(!((valorMinimo == 1000.0) || (valorMinimo == 5000.0) || (valorMinimo == 10000.0) || (valorMinimo == 50000.0))) {
         throw invalid_argument("Argumento invalido!");        
     }

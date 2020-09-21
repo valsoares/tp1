@@ -1,5 +1,7 @@
 #include "testes.h"
 
+// inicialização de constantes
+
 const int TCep::VALOR_VALIDO = 70510310;
 const int TCep::VALOR_INVALIDO = 71510310;
 const int TCep::SUCESSO;
@@ -89,6 +91,8 @@ const double TValorMinimo::VALOR_VALIDO = 5000;
 const double TValorMinimo::VALOR_INVALIDO = 1000.50;
 const int TValorMinimo::SUCESSO;
 const int TValorMinimo::FALHA;
+
+// Definições de métodos
 
 void TCep::inicializarCep() {
     cep = new Cep();

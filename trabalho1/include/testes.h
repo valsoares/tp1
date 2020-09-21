@@ -214,6 +214,10 @@ class TEmissor {
 
 };
 
+///
+/// Padrão para teste de endereço.
+///
+
 class TEndereco {
     private:
         const static string VALOR_VALIDO;
@@ -232,10 +236,18 @@ class TEndereco {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha do endereço e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de horário.
+///
 
 class THorario {
     private:
@@ -255,10 +267,18 @@ class THorario {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha do horário e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de nome.
+///
 
 class TNome {
     private:
@@ -278,10 +298,18 @@ class TNome {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha do nome e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de número.
+///
 
 class TNumero {
     private:
@@ -301,10 +329,18 @@ class TNumero {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha do número e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de prazo.
+///
 
 class TPrazo {
     private:
@@ -324,10 +360,18 @@ class TPrazo {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha do prazo e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de senha.
+///
 
 class TSenha {
     private:
@@ -347,10 +391,18 @@ class TSenha {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha da senha e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de taxa.
+///
 
 class TTaxa {
     private:
@@ -370,10 +422,18 @@ class TTaxa {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha da taxa e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de valor da aplicação.
+///
 
 class TValorAplicacao {
     private:
@@ -393,10 +453,18 @@ class TValorAplicacao {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha do valor da aplicação e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de valor mínimo.
+///
 
 class TValorMinimo {
     private:
@@ -416,7 +484,11 @@ class TValorMinimo {
 
         const static int SUCESSO = 0;
         const static int FALHA = -1;
-
+///
+/// Testa os casos de sucesso e falha do valor mínimo e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
