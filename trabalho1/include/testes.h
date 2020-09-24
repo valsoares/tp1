@@ -7,6 +7,10 @@
 
 using namespace std;
 
+///
+/// Padrão para teste de CEP.
+///
+
 class TCep {
     private:
         const static int VALOR_VALIDO;
@@ -26,9 +30,18 @@ class TCep {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha do CEP e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de classe.
+///
 
 class TClasse {
     private:
@@ -49,9 +62,18 @@ class TClasse {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha da classe e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de código da agência.
+///
 
 class TCodigoAgencia {
     private:
@@ -72,9 +94,18 @@ class TCodigoAgencia {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha do código da agência e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de código da aplicação.
+///
 
 class TCodigoAplicacao {
     private:
@@ -95,9 +126,18 @@ class TCodigoAplicacao {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha do código da aplicação e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de código do banco.
+///
 
 class TCodigoBanco {
     private:
@@ -118,9 +158,18 @@ class TCodigoBanco {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha do código do banco e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de código do produto.
+///
 
 class TCodigoProduto {
     private:
@@ -141,9 +190,18 @@ class TCodigoProduto {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha do código do produto e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de CPF.
+///
 
 class TCpf {
     private:
@@ -164,9 +222,18 @@ class TCpf {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha do CPF e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de data.
+///
 
 class TData {
     private:
@@ -187,9 +254,18 @@ class TData {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha da data e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
+
+///
+/// Padrão para teste de emissor.
+///
 
 class TEmissor {
     private:
@@ -210,6 +286,11 @@ class TEmissor {
         const static int SUCESSO = 0;
         const static int FALHA = -1;
 
+///
+/// Testa os casos de sucesso e falha do emissor e retorna o estado.
+///
+/// @return valor do estado.
+///
         int rodarTeste();
 
 };
