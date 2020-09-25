@@ -88,16 +88,84 @@ $(document).ready(function(){initNavTree('class_data.html',''); initResizable();
 <div class="title">Data Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dominios_8h_source.html">dominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5245638838a033c98a8b760836dddb7d"><td class="memItemLeft" align="right" valign="top"><a id="a5245638838a033c98a8b760836dddb7d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setData</b> (string data)</td></tr>
+<tr class="memitem:a5245638838a033c98a8b760836dddb7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a5245638838a033c98a8b760836dddb7d">setData</a> (string data)</td></tr>
 <tr class="separator:a5245638838a033c98a8b760836dddb7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc7b15a5e81334858e48709b2f45cdc3"><td class="memItemLeft" align="right" valign="top"><a id="afc7b15a5e81334858e48709b2f45cdc3"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> ()</td></tr>
+<tr class="memitem:afc7b15a5e81334858e48709b2f45cdc3"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#afc7b15a5e81334858e48709b2f45cdc3">getData</a> ()</td></tr>
 <tr class="separator:afc7b15a5e81334858e48709b2f45cdc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Padrão para representação de data.</p>
+<p>Regras de formato:</p><ul>
+<li>Formato DD/MM/AAAA</li>
+<li>DD é um numero de 1 a 31</li>
+<li>MM é um numero de 1 a 12</li>
+<li>AAAA é um numero de 2020 a 2099</li>
+<li>O valor da data deve considerar a ocorrência de anos que sejam bissextos. </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afc7b15a5e81334858e48709b2f45cdc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc7b15a5e81334858e48709b2f45cdc3">&#9670;&nbsp;</a></span>getData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Data::getData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retorna data</p>
+<dl class="section return"><dt>Returns</dt><dd>data </dd></dl>
+
+</div>
+</div>
+<a id="a5245638838a033c98a8b760836dddb7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5245638838a033c98a8b760836dddb7d">&#9670;&nbsp;</a></span>setData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Data::setData </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inicializa o objeto com a data informada se ela for válida.</p>
+<p>Lança exceção caso a data informada seja inválida </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>da data</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dominios_8h_source.html">dominios.h</a></li>
 <li>dominios.cpp</li>
@@ -108,7 +176,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> ()</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_data.html">Data</a></li>
-    <li class="footer">Generated on Sun Sep 20 2020 22:29:50 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+    <li class="footer">Generated on Thu Sep 24 2020 20:34:32 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>
 </body>

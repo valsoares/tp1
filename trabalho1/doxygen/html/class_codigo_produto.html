@@ -88,16 +88,80 @@ $(document).ready(function(){initNavTree('class_codigo_produto.html',''); initRe
 <div class="title">CodigoProduto Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dominios_8h_source.html">dominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9dc1e42fd4327e0026dcc3e56bf77acb"><td class="memItemLeft" align="right" valign="top"><a id="a9dc1e42fd4327e0026dcc3e56bf77acb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCodigoProduto</b> (string codigoProduto)</td></tr>
+<tr class="memitem:a9dc1e42fd4327e0026dcc3e56bf77acb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_codigo_produto.html#a9dc1e42fd4327e0026dcc3e56bf77acb">setCodigoProduto</a> (string codigoProduto)</td></tr>
 <tr class="separator:a9dc1e42fd4327e0026dcc3e56bf77acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85628b43ff61fe78758ccb4f06f2183"><td class="memItemLeft" align="right" valign="top"><a id="ac85628b43ff61fe78758ccb4f06f2183"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getCodigoProduto</b> ()</td></tr>
+<tr class="memitem:ac85628b43ff61fe78758ccb4f06f2183"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_codigo_produto.html#ac85628b43ff61fe78758ccb4f06f2183">getCodigoProduto</a> ()</td></tr>
 <tr class="separator:ac85628b43ff61fe78758ccb4f06f2183"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Padrão para representação de código de produto.</p>
+<p>Regras de formato:</p><ul>
+<li>Formato XXX onde cada X é dígito (0 – 9) e o código não pode ser 000. </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac85628b43ff61fe78758ccb4f06f2183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac85628b43ff61fe78758ccb4f06f2183">&#9670;&nbsp;</a></span>getCodigoProduto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CodigoProduto::getCodigoProduto </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retorna código do produto</p>
+<dl class="section return"><dt>Returns</dt><dd>código do produto </dd></dl>
+
+</div>
+</div>
+<a id="a9dc1e42fd4327e0026dcc3e56bf77acb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dc1e42fd4327e0026dcc3e56bf77acb">&#9670;&nbsp;</a></span>setCodigoProduto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CodigoProduto::setCodigoProduto </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>codigoProduto</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inicializa o objeto com o código do produto informado se ele for válido.</p>
+<p>Lança exceção caso o código do produto informado seja inválido </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>do código do produto</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dominios_8h_source.html">dominios.h</a></li>
 <li>dominios.cpp</li>
@@ -108,7 +172,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>getCodigoProduto</b
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_codigo_produto.html">CodigoProduto</a></li>
-    <li class="footer">Generated on Sun Sep 20 2020 22:29:50 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+    <li class="footer">Generated on Thu Sep 24 2020 20:34:32 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>
 </body>

@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
- 
+
 ///
 /// Padrão para representação de CEP.
 ///
@@ -332,9 +332,9 @@ class Emissor {
 /// Padrão para representação de endereço.
 ///
 /// Regras de formato:
-/// - Código é válido caso o endereco seja composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito (0 – 9), ponto ou espaço. 
-/// - Apenas letras e dígitos podem estar em sequência. 
-/// - Em termo cujo primeiro caracter é letra, a mesma é maiúscula. 
+/// - Código é válido caso o endereco seja composto por 5 a 20 caracteres onde cada caracter pode ser letra (A-Z ou a-z), dígito (0 – 9), ponto ou espaço.
+/// - Apenas letras e dígitos podem estar em sequência.
+/// - Em termo cujo primeiro caracter é letra, a mesma é maiúscula.
 ///
 
 class Endereco {

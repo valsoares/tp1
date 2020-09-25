@@ -88,16 +88,80 @@ $(document).ready(function(){initNavTree('class_codigo_aplicacao.html',''); init
 <div class="title">CodigoAplicacao Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dominios_8h_source.html">dominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8feb1336fc3ca5990a981a6ac9422de2"><td class="memItemLeft" align="right" valign="top"><a id="a8feb1336fc3ca5990a981a6ac9422de2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCodigoAplicacao</b> (string codigoAplicacao)</td></tr>
+<tr class="memitem:a8feb1336fc3ca5990a981a6ac9422de2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_codigo_aplicacao.html#a8feb1336fc3ca5990a981a6ac9422de2">setCodigoAplicacao</a> (string codigoAplicacao)</td></tr>
 <tr class="separator:a8feb1336fc3ca5990a981a6ac9422de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3566ae14ea0b2e783d03e5786e04dcc"><td class="memItemLeft" align="right" valign="top"><a id="aa3566ae14ea0b2e783d03e5786e04dcc"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getCodigoAplicacao</b> ()</td></tr>
+<tr class="memitem:aa3566ae14ea0b2e783d03e5786e04dcc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_codigo_aplicacao.html#aa3566ae14ea0b2e783d03e5786e04dcc">getCodigoAplicacao</a> ()</td></tr>
 <tr class="separator:aa3566ae14ea0b2e783d03e5786e04dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Padrão para representação de código da aplicação.</p>
+<p>Regras de formato:</p><ul>
+<li>Formato XXXXX onde cada X é dígito (0 – 9) e o código não pode 00000. </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa3566ae14ea0b2e783d03e5786e04dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3566ae14ea0b2e783d03e5786e04dcc">&#9670;&nbsp;</a></span>getCodigoAplicacao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CodigoAplicacao::getCodigoAplicacao </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retorna código da aplicação</p>
+<dl class="section return"><dt>Returns</dt><dd>código da aplicação </dd></dl>
+
+</div>
+</div>
+<a id="a8feb1336fc3ca5990a981a6ac9422de2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8feb1336fc3ca5990a981a6ac9422de2">&#9670;&nbsp;</a></span>setCodigoAplicacao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CodigoAplicacao::setCodigoAplicacao </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>codigoAplicacao</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inicializa o objeto com o codigo da aplicação informado se ele for válido.</p>
+<p>Lança exceção caso o codigo da aplicação informado seja inválido </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>do codigo da aplicação</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dominios_8h_source.html">dominios.h</a></li>
 <li>dominios.cpp</li>
@@ -108,7 +172,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>getCodigoAplicacao<
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_codigo_aplicacao.html">CodigoAplicacao</a></li>
-    <li class="footer">Generated on Sun Sep 20 2020 22:29:50 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+    <li class="footer">Generated on Thu Sep 24 2020 20:34:32 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>
 </body>

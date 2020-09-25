@@ -88,16 +88,80 @@ $(document).ready(function(){initNavTree('class_cep.html',''); initResizable(); 
 <div class="title">Cep Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dominios_8h_source.html">dominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adeb46e6d9692d01b92af95dc5b9e79bb"><td class="memItemLeft" align="right" valign="top"><a id="adeb46e6d9692d01b92af95dc5b9e79bb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCep</b> (int cep)</td></tr>
+<tr class="memitem:adeb46e6d9692d01b92af95dc5b9e79bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cep.html#adeb46e6d9692d01b92af95dc5b9e79bb">setCep</a> (int cep)</td></tr>
 <tr class="separator:adeb46e6d9692d01b92af95dc5b9e79bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328f2f8018c0a0719fcfec286bec467d"><td class="memItemLeft" align="right" valign="top"><a id="a328f2f8018c0a0719fcfec286bec467d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getCep</b> ()</td></tr>
+<tr class="memitem:a328f2f8018c0a0719fcfec286bec467d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cep.html#a328f2f8018c0a0719fcfec286bec467d">getCep</a> ()</td></tr>
 <tr class="separator:a328f2f8018c0a0719fcfec286bec467d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Padrão para representação de CEP.</p>
+<p>Regras de formato:</p><ul>
+<li>Valor nas seguintes faixas: 1000000 a 5999999 e 8000000 a 8499999 (São Paulo), 20000000 a 26600999 (Rio de Janeiro), 70000000 a 70999999 (Brasília), 40000000 a 41999999 (Salvador) e 60000000 a 60999999 (Fortaleza). </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a328f2f8018c0a0719fcfec286bec467d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a328f2f8018c0a0719fcfec286bec467d">&#9670;&nbsp;</a></span>getCep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Cep::getCep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retorna CEP</p>
+<dl class="section return"><dt>Returns</dt><dd>CEP </dd></dl>
+
+</div>
+</div>
+<a id="adeb46e6d9692d01b92af95dc5b9e79bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeb46e6d9692d01b92af95dc5b9e79bb">&#9670;&nbsp;</a></span>setCep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cep::setCep </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inicializa o objeto com o cep informado se ele for válido.</p>
+<p>Lança exceção caso o cep informado seja inválido </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>do cep</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dominios_8h_source.html">dominios.h</a></li>
 <li>dominios.cpp</li>
@@ -108,7 +172,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getCep</b> ()</td></tr
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_cep.html">Cep</a></li>
-    <li class="footer">Generated on Sun Sep 20 2020 22:29:50 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+    <li class="footer">Generated on Thu Sep 24 2020 20:34:32 for trabalho1 by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>
 </body>

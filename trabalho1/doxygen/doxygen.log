@@ -1,27 +1,54 @@
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:153: warning: argument 'valor' of command @param is not found in the argument list of Endereco::setEndereco(string endereco)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:161: warning: The following parameter of Endereco::setEndereco(string endereco) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:23: warning: argument 'valor' of command @param is not found in the argument list of Cep::setCep(int cep)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:31: warning: The following parameter of Cep::setCep(int cep) is not documented:
+  parameter 'cep'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:59: warning: argument 'valor' of command @param is not found in the argument list of Classe::setClasse(string classe)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:67: warning: The following parameter of Classe::setClasse(string classe) is not documented:
+  parameter 'classe'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:94: warning: argument 'valor' of command @param is not found in the argument list of CodigoAgencia::setCodigoAgencia(string codigoAgencia)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:102: warning: The following parameter of CodigoAgencia::setCodigoAgencia(string codigoAgencia) is not documented:
+  parameter 'codigoAgencia'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:129: warning: argument 'valor' of command @param is not found in the argument list of CodigoAplicacao::setCodigoAplicacao(string codigoAplicacao)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:137: warning: The following parameter of CodigoAplicacao::setCodigoAplicacao(string codigoAplicacao) is not documented:
+  parameter 'codigoAplicacao'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:165: warning: argument 'valor' of command @param is not found in the argument list of CodigoBanco::setCodigoBanco(string codigoBanco)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:173: warning: The following parameter of CodigoBanco::setCodigoBanco(string codigoBanco) is not documented:
+  parameter 'codigoBanco'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:200: warning: argument 'valor' of command @param is not found in the argument list of CodigoProduto::setCodigoProduto(string codigoProduto)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:208: warning: The following parameter of CodigoProduto::setCodigoProduto(string codigoProduto) is not documented:
+  parameter 'codigoProduto'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:235: warning: argument 'valor' of command @param is not found in the argument list of Cpf::setCpf(string cpf)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:243: warning: The following parameter of Cpf::setCpf(string cpf) is not documented:
+  parameter 'cpf'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:274: warning: argument 'valor' of command @param is not found in the argument list of Data::setData(string data)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:282: warning: The following parameter of Data::setData(string data) is not documented:
+  parameter 'data'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:311: warning: argument 'valor' of command @param is not found in the argument list of Emissor::setEmissor(string emissor)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:319: warning: The following parameter of Emissor::setEmissor(string emissor) is not documented:
+  parameter 'emissor'
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:348: warning: argument 'valor' of command @param is not found in the argument list of Endereco::setEndereco(string endereco)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:356: warning: The following parameter of Endereco::setEndereco(string endereco) is not documented:
   parameter 'endereco'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:186: warning: argument 'valor' of command @param is not found in the argument list of Horario::setHorario(string horario)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:194: warning: The following parameter of Horario::setHorario(string horario) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:381: warning: argument 'valor' of command @param is not found in the argument list of Horario::setHorario(string horario)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:389: warning: The following parameter of Horario::setHorario(string horario) is not documented:
   parameter 'horario'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:221: warning: argument 'valor' of command @param is not found in the argument list of Nome::setNome(string nome)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:229: warning: The following parameter of Nome::setNome(string nome) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:416: warning: argument 'valor' of command @param is not found in the argument list of Nome::setNome(string nome)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:424: warning: The following parameter of Nome::setNome(string nome) is not documented:
   parameter 'nome'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:256: warning: argument 'valor' of command @param is not found in the argument list of Numero::setNumero(string numero)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:264: warning: The following parameter of Numero::setNumero(string numero) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:451: warning: argument 'valor' of command @param is not found in the argument list of Numero::setNumero(string numero)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:459: warning: The following parameter of Numero::setNumero(string numero) is not documented:
   parameter 'numero'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:289: warning: argument 'valor' of command @param is not found in the argument list of Prazo::setPrazo(int prazo)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:297: warning: The following parameter of Prazo::setPrazo(int prazo) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:484: warning: argument 'valor' of command @param is not found in the argument list of Prazo::setPrazo(int prazo)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:492: warning: The following parameter of Prazo::setPrazo(int prazo) is not documented:
   parameter 'prazo'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:322: warning: argument 'valor' of command @param is not found in the argument list of Senha::setSenha(string senha)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:330: warning: The following parameter of Senha::setSenha(string senha) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:517: warning: argument 'valor' of command @param is not found in the argument list of Senha::setSenha(string senha)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:525: warning: The following parameter of Senha::setSenha(string senha) is not documented:
   parameter 'senha'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:355: warning: argument 'valor' of command @param is not found in the argument list of Taxa::setTaxa(int taxa)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:363: warning: The following parameter of Taxa::setTaxa(int taxa) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:550: warning: argument 'valor' of command @param is not found in the argument list of Taxa::setTaxa(int taxa)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:558: warning: The following parameter of Taxa::setTaxa(int taxa) is not documented:
   parameter 'taxa'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:388: warning: argument 'valor' of command @param is not found in the argument list of ValorAplicacao::setValorAplicacao(double valorAplicacao)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:396: warning: The following parameter of ValorAplicacao::setValorAplicacao(double valorAplicacao) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:583: warning: argument 'valor' of command @param is not found in the argument list of ValorAplicacao::setValorAplicacao(double valorAplicacao)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:591: warning: The following parameter of ValorAplicacao::setValorAplicacao(double valorAplicacao) is not documented:
   parameter 'valorAplicacao'
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:421: warning: argument 'valor' of command @param is not found in the argument list of ValorMinimo::setValorMinimo(double valorMinimo)
-C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:429: warning: The following parameter of ValorMinimo::setValorMinimo(double valorMinimo) is not documented:
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:616: warning: argument 'valor' of command @param is not found in the argument list of ValorMinimo::setValorMinimo(double valorMinimo)
+C:/Users/vales/Documents/UnB/TP1/tp1/trabalho1/include/dominios.h:624: warning: The following parameter of ValorMinimo::setValorMinimo(double valorMinimo) is not documented:
   parameter 'valorMinimo'
