@@ -120,7 +120,6 @@ void TUProduto::testarCenarioSucessoValor(){
 
 int TUProduto::run(){
     setUp();
-    tearDown();
     testarCenarioSucessoCodigo();
     testarCenarioSucessoClasse();
     testarCenarioSucessoEmissor();
@@ -129,5 +128,6 @@ int TUProduto::run(){
     testarCenarioSucessoTaxa();
     testarCenarioSucessoHorario();
     testarCenarioSucessoValor();
+    tearDown();
     return estado;
 }
