@@ -15,13 +15,13 @@ class TUAplicacao {
 
 private:
 
-    // Defini��es de constantes para evitar n�meros m�gicos.
+    // Definições de constantes para evitar números mágicos.
 
     const string VALOR_VALIDO_CODIGO = "33256";
     static const int VALOR_VALIDO_VALOR = 100;
     const string VALOR_VALIDO_DATA = "01/12/2021";
 
-    // Refer�ncia para o objeto a ser testado.
+    // Referência para o objeto a ser testado.
 
     Aplicacao *aplicacao;
 
@@ -29,7 +29,7 @@ private:
 
     int estado;
 
-    // Declara��es de m�todos.
+    // Declarações de métodos.
 
     void setUp();
     void tearDown();
@@ -39,7 +39,7 @@ private:
 
 public:
 
-    // Defini��es de constantes para reportar resultado do teste.
+    // Definições de constantes para reportar resultado do teste.
 
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
@@ -47,7 +47,7 @@ public:
     ///
     /// Testa os casos de sucesso para cada atributo da classe
     ///
-    /// @return valor do estado 
+    /// @return valor do estado
     ///
 
     int run();
@@ -61,7 +61,7 @@ class TUProduto {
 
 private:
 
-    // Defini��es de constantes para evitar n�meros m�gicos.
+    // Definições de constantes para evitar números mágicos.
 
     const string VALOR_VALIDO_CODIGO = "105";
     const string VALOR_VALIDO_CLASSE = "CDB";
@@ -72,7 +72,7 @@ private:
     const string VALOR_VALIDO_HORARIO = "14:45";
     static const int VALOR_VALIDO_VALOR = 5000;
 
-    // Refer�ncia para o objeto a ser testado.
+    // Referência para o objeto a ser testado.
 
     Produto *produto;
 
@@ -80,7 +80,7 @@ private:
 
     int estado;
 
-    // Declara��es de m�todos.
+    // Declarações de métodos.
 
     void setUp();
     void tearDown();
@@ -95,7 +95,7 @@ private:
 
 public:
 
-    // Defini��es de constantes para reportar resultado do teste.
+    // Definições de constantes para reportar resultado do teste.
 
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
@@ -103,20 +103,24 @@ public:
     ///
     /// Testa os casos de sucesso para cada atributo da classe
     ///
-    /// @return valor do estado 
+    /// @return valor do estado
     ///
 
     int run();
 };
 
+///
+/// Padrão para teste de unidade de Conta
+///
+
 class TUConta {
 private:
-    // Defini��es de constantes para evitar n�meros m�gicos.
+    // Definições de constantes para evitar números mágicos.
     const string VALOR_VALIDO_CODIGO_BANCO = "001";
     const string VALOR_VALIDO_CODIGO_AGENCIA = "0356";
     const string VALOR_VALIDO_NUMERO = "123456-9";
 
-    // Refer�ncia para o objeto a ser testado.
+    // Referência para o objeto a ser testado.
 
     Conta *conta;
 
@@ -124,7 +128,7 @@ private:
 
     int estado;
 
-    // Declara��es de m�todos.
+    // Declarações de métodos.
 
     void setUp();
     void tearDown();
@@ -134,24 +138,33 @@ private:
 
 public:
 
-    // Defini��es de constantes para reportar resultado do teste.
+    // Definições de constantes para reportar resultado do teste.
 
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
+    ///
+    /// Testa os casos de sucesso para cada atributo da classe
+    ///
+    /// @return valor do estado
+    ///
 
     int run();
 };
 
+///
+/// Padrão para teste de unidade de Usuário
+///
+
 class TUUsuario {
 private:
-    // Defini��es de constantes para evitar n�meros m�gicos.
+    // Definições de constantes para evitar números mágicos.
     const string VALOR_VALIDO_NOME = "Valesca Gomes Soares";
     const string VALOR_VALIDO_ENDERECO = "Rua 23. Casa 18.";
     static const int VALOR_VALIDO_CEP = 70510310;
     const string VALOR_VALIDO_CPF = "020.397.051-98";
     const string VALOR_VALIDO_SENHA = "123456";
 
-    // Refer�ncia para o objeto a ser testado.
+    // Referência para o objeto a ser testado.
 
     Usuario *usuario;
 
@@ -159,7 +172,7 @@ private:
 
     int estado;
 
-    // Declara��es de m�todos.
+    // Declarações de métodos.
 
     void setUp();
     void tearDown();
@@ -171,10 +184,16 @@ private:
 
 public:
 
-    // Defini��es de constantes para reportar resultado do teste.
+    // Definições de constantes para reportar resultado do teste.
 
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
+
+    ///
+    /// Testa os casos de sucesso para cada atributo da classe
+    ///
+    /// @return valor do estado
+    ///
 
     int run();
 };

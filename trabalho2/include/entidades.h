@@ -1,7 +1,11 @@
 #ifndef ENTIDADES_H
 #define ENTIDADES_H
 
-#include "dominios.h" // Nao precisa desse include no codeblocks
+#include "dominios.h"
+
+///
+/// Entidade para representação de Aplicação.
+///
 
 class Aplicacao {
 
@@ -23,9 +27,9 @@ public:
     void setCodigoAplicacao(const CodigoAplicacao &codigo);
 
     ///
-    /// Retorna o atributo c�digo da aplicação
+    /// Retorna o atributo código da aplicação
     ///
-    /// @return c�digo da aplicação
+    /// @return código da aplicação
     ///
 
     CodigoAplicacao getCodigoAplicacao(){
@@ -59,7 +63,7 @@ public:
     ///
 
     void setData(const Data &data);
-    
+
     ///
     /// Retorna o atributo data da aplicação
     ///
@@ -71,6 +75,9 @@ public:
     }
 };
 
+///
+/// Entidade para representação de Produto.
+///
 
 class Produto {
 
@@ -97,7 +104,7 @@ public:
     void setCodigoProduto(const CodigoProduto &codigo);
 
     ///
-    /// Retorna o atributo c�digo do produto
+    /// Retorna o atributo código do produto
     ///
     /// @return c�digo do produto
     ///
@@ -241,7 +248,7 @@ public:
 };
 
 ///
-/// Padr�o para representa��o de Conta.
+/// Entidade para representação de Conta.
 ///
 
 class Conta {
@@ -253,36 +260,66 @@ private:
 public:
 
     ///
-    /// Inicializa o objeto com o c�digo do banco informado se ele for v�lido.
+    /// Inicializa o atributo código do banco com o parâmetro informado.
     ///
-    /// @param valor do c�digo do banco
+    /// @param valor do código do banco
     ///
     ///
 
     void setCodigoBanco(const CodigoBanco &codigoBanco);
 
     ///
-    /// Retorna c�digo do banco
+    /// Retorna atributo código do banco
     ///
-    /// @return c�digo do banco
+    /// @return código do banco
     ///
 
     CodigoBanco getCodigoBanco(){
         return codigoBanco;
     }
 
+    ///
+    /// Inicializa o atributo código da agência com o parâmetro informado.
+    ///
+    /// @param valor do código da agência
+    ///
+    ///
+
     void setCodigoAgencia (const CodigoAgencia &codigoAgencia);
+
+    ///
+    /// Retorna atributo código da agência
+    ///
+    /// @return código da agência
+    ///
 
     CodigoAgencia getCodigoAgencia(){
         return codigoAgencia;
     }
 
+    ///
+    /// Inicializa o atributo número com o parâmetro informado.
+    ///
+    /// @param valor do número
+    ///
+    ///
+
     void setNumero (const Numero &numero);
+
+    ///
+    /// Retorna atributo número
+    ///
+    /// @return número
+    ///
 
     Numero getNumero(){
         return numero;
     }
 };
+
+///
+/// Entidade para representação de Usuário.
+///
 
 class Usuario {
 private:
@@ -293,31 +330,97 @@ private:
     Senha senha;
 
 public:
+
+    ///
+    /// Inicializa o atributo nome com o parâmetro informado.
+    ///
+    /// @param valor do nome
+    ///
+    ///
+
     void setNome(const Nome &nome);
+
+    ///
+    /// Retorna atributo nome
+    ///
+    /// @return nome
+    ///
 
     Nome getNome(){
         return nome;
     }
 
+    ///
+    /// Inicializa o atributo endereço com o parâmetro informado.
+    ///
+    /// @param valor do endereço
+    ///
+    ///
+
     void setEndereco(const Endereco &endereco);
+
+    ///
+    /// Retorna atributo endereço
+    ///
+    /// @return endereço
+    ///
 
     Endereco getEndereco(){
         return endereco;
     }
 
+    ///
+    /// Inicializa o atributo cep com o parâmetro informado.
+    ///
+    /// @param valor do cep
+    ///
+    ///
+
     void setCep(const Cep &cep);
+
+    ///
+    /// Retorna atributo cep
+    ///
+    /// @return cep
+    ///
 
     Cep getCep(){
         return cep;
     }
 
+    ///
+    /// Inicializa o atributo cpf com o parâmetro informado.
+    ///
+    /// @param valor do cpf
+    ///
+    ///
+
     void setCpf(const Cpf &cpf);
+
+    ///
+    /// Retorna atributo cpf
+    ///
+    /// @return cpf
+    ///
 
     Cpf getCpf(){
         return cpf;
     }
 
+    ///
+    /// Inicializa o atributo senha com o parâmetro informado.
+    ///
+    /// @param valor do senha
+    ///
+    ///
+
     void setSenha(const Senha &senha);
+
+    ///
+    /// Retorna atributo senha
+    ///
+    /// @return senha
+    ///
 
     Senha getSenha(){
         return senha;
