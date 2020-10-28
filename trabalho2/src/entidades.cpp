@@ -1,5 +1,7 @@
 #include "entidades.h"
 
+// Definições de métodos
+
 void Aplicacao::setCodigoAplicacao(const CodigoAplicacao &codigo){
     this->codigo = codigo;
 }
@@ -49,4 +51,36 @@ void Produto::setValorMinimo(const ValorMinimo &valor){
 
 
 
+void Conta::setCodigoBanco(const CodigoBanco &codigoBanco){
+    this->codigoBanco = codigoBanco;
+}
 
+void Conta::setCodigoAgencia(const CodigoAgencia &codigoAgencia){
+    this->codigoAgencia = codigoAgencia;
+}
+
+void Conta::setNumero(const Numero &numero){
+    this->numero = numero;
+}
+
+
+
+void Usuario::setNome(const Nome &nome){
+    this->nome = nome;
+}
+
+void Usuario::setEndereco(const Endereco &endereco){
+    this->endereco = endereco;
+}
+
+void Usuario::setCep(const Cep &cep){
+    this->cep = cep;
+}
+
+void Usuario::setCpf(const Cpf &cpf){
+    this->cpf = cpf;
+}
+
+void Usuario::setSenha(const Senha &senha){
+    this->senha = senha;
+}

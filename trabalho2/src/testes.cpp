@@ -131,3 +131,111 @@ int TUProduto::run(){
     tearDown();
     return estado;
 }
+
+
+
+void TUConta::setUp(){
+    conta = new Conta();
+    estado = SUCESSO;
+}
+
+void TUConta::tearDown(){
+    delete conta;
+}
+
+void TUConta::testarCenarioSucessoCodigoBanco(){
+    CodigoBanco codigoBanco;
+    codigoBanco.setCodigoBanco(VALOR_VALIDO_CODIGO_BANCO);
+    conta->setCodigoBanco(codigoBanco);
+    if(conta->getCodigoBanco().getCodigoBanco() != VALOR_VALIDO_CODIGO_BANCO)
+        estado = FALHA;
+}
+
+void TUConta::testarCenarioSucessoCodigoAgencia(){
+    CodigoAgencia codigo;
+    codigo.setCodigoAgencia(VALOR_VALIDO_CODIGO_AGENCIA);
+    conta->setCodigoAgencia(codigo);
+    if(conta->getCodigoAgencia().getCodigoAgencia() != VALOR_VALIDO_CODIGO_AGENCIA)
+        estado = FALHA;
+}
+
+void TUConta::testarCenarioSucessoNumero(){
+    Numero numero;
+    numero.setNumero(VALOR_VALIDO_NUMERO);
+    conta->setNumero(numero);
+    if(conta->getNumero().getNumero() != VALOR_VALIDO_NUMERO)
+        estado = FALHA;
+}
+
+int TUConta::run(){
+    setUp();
+    testarCenarioSucessoCodigoBanco();
+    testarCenarioSucessoCodigoAgencia();
+    testarCenarioSucessoNumero();
+
+    tearDown();
+    return estado;
+}
+
+
+
+void TUUsuario::setUp(){
+    usuario = new Usuario();
+    estado = SUCESSO;
+}
+
+void TUUsuario::tearDown(){
+    delete usuario;
+}
+
+void TUUsuario::testarCenarioSucessoNome(){
+    Nome nome;
+    nome.setNome(VALOR_VALIDO_NOME);
+    usuario->setNome(nome);
+    if(usuario->getNome().getNome() != VALOR_VALIDO_NOME)
+        estado = FALHA;
+}
+
+void TUUsuario::testarCenarioSucessoEndereco(){
+    Endereco endereco;
+    endereco.setEndereco(VALOR_VALIDO_ENDERECO);
+    usuario->setEndereco(endereco);
+    if(usuario->getEndereco().getEndereco() != VALOR_VALIDO_ENDERECO)
+        estado = FALHA;
+}
+
+void TUUsuario::testarCenarioSucessoCep(){
+    Cep cep;
+    cep.setCep(VALOR_VALIDO_CEP);
+    usuario->setCep(cep);
+    if(usuario->getCep().getCep() != VALOR_VALIDO_CEP)
+        estado = FALHA;
+}
+
+void TUUsuario::testarCenarioSucessoCpf(){
+    Cpf cpf;
+    cpf.setCpf(VALOR_VALIDO_CPF);
+    usuario->setCpf(cpf);
+    if(usuario->getCpf().getCpf() != VALOR_VALIDO_CPF)
+        estado = FALHA;
+}
+
+void TUUsuario::testarCenarioSucessoSenha(){
+    Senha senha;
+    senha.setSenha(VALOR_VALIDO_SENHA);
+    usuario->setSenha(senha);
+    if(usuario->getSenha().getSenha() != VALOR_VALIDO_SENHA)
+        estado = FALHA;
+}
+
+int TUUsuario::run(){
+    setUp();
+    testarCenarioSucessoNome();
+    testarCenarioSucessoEndereco();
+    testarCenarioSucessoCep();
+    testarCenarioSucessoCpf();
+    testarCenarioSucessoSenha();
+
+    tearDown();
+    return estado;
+}

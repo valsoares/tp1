@@ -6,7 +6,7 @@
 
 int main(){
 
-    int contador = 1;    
+    int contador = 1;
 
     TUAplicacao teste1;
     switch(teste1.run()){
@@ -24,6 +24,26 @@ int main(){
             cout << "SUCESSO TESTE " << contador++ << endl;
             break;
         case TUProduto::FALHA:
+            cout << "FALHA TESTE " << contador++ << endl;
+            break;
+    }
+
+    TUConta teste3;
+    switch(teste3.run()){
+        case TUConta::SUCESSO:
+            cout << "SUCESSO TESTE " << contador++ << endl;
+            break;
+        case TUConta::FALHA:
+            cout << "FALHA TESTE " << contador++ << endl;
+            break;
+    }
+
+    TUUsuario teste4;
+    switch(teste4.run()){
+        case TUUsuario::SUCESSO:
+            cout << "SUCESSO TESTE " << contador++ << endl;
+            break;
+        case TUUsuario::FALHA:
             cout << "FALHA TESTE " << contador++ << endl;
             break;
     }

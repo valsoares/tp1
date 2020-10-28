@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1603754502 source:c:\users\vales\documents\unb\tp1\tp1\trabalho2\src\entidades.cpp
+	"entidades.h"
+
+1603855044 c:\users\vales\documents\unb\tp1\tp1\trabalho2\include\entidades.h
+	"dominios.h"
+
+1603752596 c:\users\vales\documents\unb\tp1\tp1\trabalho2\include\dominios.h
+	<iostream>
+
+1603752596 source:c:\users\vales\documents\unb\tp1\tp1\trabalho2\src\dominios.cpp
+	<iostream>
+	<string>
+	"dominios.h"
+
+1603852032 source:c:\users\vales\documents\unb\tp1\tp1\trabalho2\src\main.cpp
+	<iostream>
+	"testes.h"
+	"entidades.h"
+	"dominios.h"
+
+1603760515 c:\users\vales\documents\unb\tp1\tp1\trabalho2\include\testes.h
+	<iostream>
+	<string>
+	"entidades.h"
+	"dominios.h"
+
+1603761060 source:c:\users\vales\documents\unb\tp1\tp1\trabalho2\src\testes.cpp
+	"testes.h"
+

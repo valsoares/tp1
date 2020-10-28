@@ -97,4 +97,88 @@ public:
     }
 };
 
+///
+/// Padrão para representação de Conta.
+///
+
+class Conta {
+private:
+    CodigoBanco codigoBanco;
+    CodigoAgencia codigoAgencia;
+    Numero numero;
+
+public:
+
+    ///
+    /// Inicializa o objeto com o código do banco informado se ele for válido.
+    ///
+    /// @param valor do código do banco
+    ///
+    ///
+
+    void setCodigoBanco(const CodigoBanco &codigoBanco);
+
+    ///
+    /// Retorna código do banco
+    ///
+    /// @return código do banco
+    ///
+
+    CodigoBanco getCodigoBanco(){
+        return codigoBanco;
+    }
+
+    void setCodigoAgencia (const CodigoAgencia &codigoAgencia);
+
+    CodigoAgencia getCodigoAgencia(){
+        return codigoAgencia;
+    }
+
+    void setNumero (const Numero &numero);
+
+    Numero getNumero(){
+        return numero;
+    }
+};
+
+class Usuario {
+private:
+    Nome nome;
+    Endereco endereco;
+    Cep cep;
+    Cpf cpf;
+    Senha senha;
+
+public:
+    void setNome(const Nome &nome);
+
+    Nome getNome(){
+        return nome;
+    }
+
+    void setEndereco(const Endereco &endereco);
+
+    Endereco getEndereco(){
+        return endereco;
+    }
+
+    void setCep(const Cep &cep);
+
+    Cep getCep(){
+        return cep;
+    }
+
+    void setCpf(const Cpf &cpf);
+
+    Cpf getCpf(){
+        return cpf;
+    }
+
+    void setSenha(const Senha &senha);
+
+    Senha getSenha(){
+        return senha;
+    }
+};
+
 #endif // ENTIDADES_H
