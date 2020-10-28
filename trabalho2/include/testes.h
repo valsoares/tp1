@@ -7,6 +7,10 @@
 #include "entidades.h"
 #include "dominios.h"
 
+///
+/// Padrão para teste de unidade de aplicação
+///
+
 class TUAplicacao {
 
 private:
@@ -40,8 +44,18 @@ public:
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
 
+    ///
+    /// Testa os casos de sucesso para cada atributo da classe
+    ///
+    /// @return valor do estado 
+    ///
+
     int run();
 };
+
+///
+///Padrão para teste de unidade de Produto
+///
 
 class TUProduto {
 
@@ -85,6 +99,12 @@ public:
 
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
+
+    ///
+    /// Testa os casos de sucesso para cada atributo da classe
+    ///
+    /// @return valor do estado 
+    ///
 
     int run();
 };
