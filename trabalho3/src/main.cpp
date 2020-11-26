@@ -1,51 +1,32 @@
+#include <string.h>
+#include <stdexcept>
 #include <iostream>
 
-#include "testes.h"
-#include "entidades.h"
-#include "dominios.h"
+#include "builders.h"
+#include "controladorasapresentacao.h"
+
+using namespace std;
 
 int main(){
 
-    int contador = 1;
+    // Instancia Builder.
 
-    TUAplicacao teste1;
-    switch(teste1.run()){
-        case TUAplicacao::SUCESSO:
-            cout << "SUCESSO TESTE " << contador++ << endl;
-            break;
-        case TUAplicacao::FALHA:
-            cout << "FALHA TESTE " << contador++ << endl;
-            break;
-    }
+    BuilderSistema *builder;
+    builder = new BuilderSistema();
 
-    TUProduto teste2;
-    switch(teste2.run()){
-        case TUProduto::SUCESSO:
-            cout << "SUCESSO TESTE " << contador++ << endl;
-            break;
-        case TUProduto::FALHA:
-            cout << "FALHA TESTE " << contador++ << endl;
-            break;
-    }
+    // Constroi sistema.
 
-    TUConta teste3;
-    switch(teste3.run()){
-        case TUConta::SUCESSO:
-            cout << "SUCESSO TESTE " << contador++ << endl;
-            break;
-        case TUConta::FALHA:
-            cout << "FALHA TESTE " << contador++ << endl;
-            break;
-    }
+    CntrApresentacaoControle *cntrApresentacaoControle;
+    cntrApresentacaoControle = builder->construir();
 
-    TUUsuario teste4;
-    switch(teste4.run()){
-        case TUUsuario::SUCESSO:
-            cout << "SUCESSO TESTE " << contador++ << endl;
-            break;
-        case TUUsuario::FALHA:
-            cout << "FALHA TESTE " << contador++ << endl;
-            break;
-    }
+    // Solicita servi�o de apresentacao.
+
+    cntrApresentacaoControle->executar();
+
+    // Destroi builder.
+
+    delete builder;
+
+    return 0;
 
 }
