@@ -7,33 +7,33 @@ const string StubServicoPessoal::INVALIDO = "12345";
 const string StubServicoProdutosFinanceiros::INVALIDO = "12345";
 
 //--------------------------------------------------------------------------------------------
-// Implementações dos métodos dos stubs.
+// Implementaï¿½ï¿½es dos mï¿½todos dos stubs.
 
-bool StubServicoAutenticacao::autenticar(CPF cpf, Senha senha){
-    if(cpf.getValor().compare(INVALIDO) == 0)
+bool StubServicoAutenticacao::autenticar(Cpf cpf, Senha senha){
+    if(cpf.getCpf().compare(INVALIDO) == 0)
         return false;
     return true;
 }
 
 bool StubServicoPessoal::cadastrarUsuario(Usuario usuario){
-    if(usuario.getCPF().getValor().compare(INVALIDO) == 0)
+    if(usuario.getCpf().getCpf().compare(INVALIDO) == 0)
         return false;
     return true;
 }
 
 bool StubServicoProdutosFinanceiros::cadastrarConta(Conta conta){
-    if(conta.getNumero().getValor().compare(INVALIDO) == 0)
+    if(conta.getNumero().getNumero().compare(INVALIDO) == 0)
         return false;
     return true;
 }
 
 bool StubServicoProdutosFinanceiros::consultarConta(Conta *conta){
-    if(conta->getNumero().getValor().compare(INVALIDO) == 0)
+    if(conta->getNumero().getNumero().compare(INVALIDO) == 0)
         return false;
 
     //--------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------
-    // Implementar código que atribui valores ao objeto identificado por conta.
+    // Implementar cï¿½digo que atribui valores ao objeto identificado por conta.
     //--------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------
 
@@ -41,30 +41,30 @@ bool StubServicoProdutosFinanceiros::consultarConta(Conta *conta){
 }
 
 bool StubServicoProdutosFinanceiros::cadastrarProdutoInvestimento(Produto produto){
-    if(produto.getCodigo().getValor().compare(INVALIDO) == 0)
+    if(produto.getCodigoProduto().getCodigoProduto().compare(INVALIDO) == 0)
         return false;
     return true;
 }
 
-bool StubServicoProdutosFinanceiros::descadastrarProdutoInvestimento(Codigo codigo){
-    if(codigo.getValor().compare(INVALIDO) == 0)
+bool StubServicoProdutosFinanceiros::descadastrarProdutoInvestimento(CodigoProduto codigo){
+    if(codigo.getCodigoProduto().compare(INVALIDO) == 0)
         return false;
     return true;
 }
 
 bool StubServicoProdutosFinanceiros::realizarAplicacao(Aplicacao aplicacao){
-    if(aplicacao.getCodigo().getValor().compare(INVALIDO) == 0)
+    if(aplicacao.getCodigoAplicacao().getCodigoAplicacao().compare(INVALIDO) == 0)
         return false;
     return true;
 }
 
 bool StubServicoProdutosFinanceiros::recuperarAplicacao(Aplicacao *aplicacao){
-    if(aplicacao->getCodigo().getValor().compare(INVALIDO) == 0)
+    if(aplicacao->getCodigoAplicacao().getCodigoAplicacao().compare(INVALIDO) == 0)
         return false;
 
     //--------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------
-    // Implementar código que atribui valores ao objeto identificado por aplicacao.
+    // Implementar cï¿½digo que atribui valores ao objeto identificado por aplicacao.
     //--------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------
 

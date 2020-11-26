@@ -6,7 +6,7 @@
 
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
-// Adequar as declarações das interfaces de acordo com as necessidades.
+// Adequar as declaraï¿½ï¿½es das interfaces de acordo com as necessidades.
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 
@@ -17,18 +17,18 @@ class IServicoPessoal;
 class IServicoProdutosFinanceiros;
 
 //--------------------------------------------------------------------------------------------
-// Declarações das interfaces da camada de apresentação.
+// Declaraï¿½ï¿½es das interfaces da camada de apresentaï¿½ï¿½o.
 
 class IApresentacaoAutenticacao {
     public:
-        virtual bool autenticar(CPF*) = 0;
+        virtual bool autenticar(Cpf*) = 0;
         virtual void setCntrServicoAutenticacao(IServicoAutenticacao*) = 0;
         virtual ~IApresentacaoAutenticacao(){}
 };
 
 class IApresentacaoPessoal{
     public:
-        virtual void executar(CPF) = 0;
+        virtual void executar(Cpf) = 0;
         virtual void cadastrar() = 0;
         virtual void setCntrServicoPessoal(IServicoPessoal*) = 0;
         virtual void setCntrServicoProdutosFinanceiros(IServicoProdutosFinanceiros*) = 0;
@@ -38,17 +38,17 @@ class IApresentacaoPessoal{
 class IApresentacaoProdutosFinanceiros{
     public:
         virtual void executar() = 0;
-        virtual void executar(CPF) = 0;
+        virtual void executar(Cpf) = 0;
         virtual void setCntrServicoProdutosFinanceiros(IServicoProdutosFinanceiros*) = 0;
         virtual ~IApresentacaoProdutosFinanceiros(){}
 };
 
 //--------------------------------------------------------------------------------------------
-// Declarações das interfaces da camada de serviço.
+// Declaraï¿½ï¿½es das interfaces da camada de serviï¿½o.
 
 class IServicoAutenticacao {
     public:
-        virtual bool autenticar(CPF, Senha) = 0;
+        virtual bool autenticar(Cpf, Senha) = 0;
         virtual ~IServicoAutenticacao(){}
 };
 
@@ -63,7 +63,7 @@ public:
         virtual bool cadastrarConta(Conta) = 0;
         virtual bool consultarConta(Conta*) = 0;
         virtual bool cadastrarProdutoInvestimento(Produto) = 0;
-        virtual bool descadastrarProdutoInvestimento(Codigo) = 0;
+        virtual bool descadastrarProdutoInvestimento(CodigoProduto) = 0;
         virtual bool realizarAplicacao(Aplicacao) = 0;
         virtual bool recuperarAplicacao(Aplicacao*) = 0;                        // Adaptar aos requisitos.
         virtual ~IServicoProdutosFinanceiros(){}

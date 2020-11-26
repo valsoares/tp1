@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1606425677 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\controladorasservico.cpp
+	"controladorasservico.h"
+
+1606423806 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\controladorasservico.h
+	"dominios.h"
+	"entidades.h"
+	"interfaces.h"
+	"containers.h"
+
+1606420997 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\dominios.h
+	<iostream>
+
+1606420997 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\entidades.h
+	"dominios.h"
+
+1606426770 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\interfaces.h
+	"dominios.h"
+	"entidades.h"
+
+1606423716 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\containers.h
+	"dominios.h"
+	"entidades.h"
+	<list>
+
+1606425861 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\containers.cpp
+	"containers.h"
+
+1606420997 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\dominios.cpp
+	<iostream>
+	<string>
+	"dominios.h"
+
+1606420997 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\entidades.cpp
+	"entidades.h"
+
+1606420997 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\main.cpp
+	<iostream>
+	"testes.h"
+	"entidades.h"
+	"dominios.h"
+
+1606420997 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\testes.h
+	<iostream>
+	<string>
+	"entidades.h"
+	"dominios.h"
+
+1606420997 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\testes.cpp
+	"testes.h"
+
+1606426225 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\stubs.cpp
+	"stubs.h"
+
+1606423761 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\stubs.h
+	<string>
+	"dominios.h"
+	"interfaces.h"
+
+1606426515 source:c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\src\controladorasapresentacao.cpp
+	"controladorasapresentacao.h"
+
+1606422616 c:\users\vales\documents\2_unb\tp1\tp1\trabalho3\include\controladorasapresentacao.h
+	<conio.h>
+	<iostream>
+	<string.h>
+	"dominios.h"
+	"entidades.h"
+	"interfaces.h"
+

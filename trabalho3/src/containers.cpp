@@ -10,7 +10,7 @@ ContainerUsuario* ContainerUsuario::getInstancia() {
 
 bool ContainerUsuario::incluir(Usuario usuario){
     for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
-        if (elemento->getCPF().getValor() == usuario.getCPF().getValor()){
+        if (elemento->getCpf().getCpf() == usuario.getCpf().getCpf()){
             return false;
         }
     }
@@ -20,9 +20,9 @@ bool ContainerUsuario::incluir(Usuario usuario){
 }
 
 
-bool ContainerUsuario::remover(CPF cpf){
+bool ContainerUsuario::remover(Cpf cpf){
     for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
-        if (elemento->getCPF().getValor() == cpf.getValor()){
+        if (elemento->getCpf().getCpf() == cpf.getCpf()){
             // Remove objeto localizado.
             container.erase(elemento);
             return true;
@@ -33,10 +33,10 @@ bool ContainerUsuario::remover(CPF cpf){
 
 bool ContainerUsuario::pesquisar(Usuario* usuario){
     for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
-        if (elemento->getCPF().getValor() == usuario->getCPF().getValor()){
+        if (elemento->getCpf().getCpf() == usuario->getCpf().getCpf()){
             // Copia dados do objeto localizado.
             usuario->setEndereco(elemento->getEndereco());
-            usuario->setCEP(elemento->getCEP());
+            usuario->setCep(elemento->getCep());
             usuario->setSenha(elemento->getSenha());
 
             return true;
@@ -47,9 +47,9 @@ bool ContainerUsuario::pesquisar(Usuario* usuario){
 
 bool ContainerUsuario::atualizar(Usuario usuario){
     for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
-        if (elemento->getCPF().getValor() == usuario.getCPF().getValor()){
+        if (elemento->getCpf().getCpf() == usuario.getCpf().getCpf()){
             elemento->setEndereco(usuario.getEndereco());
-            elemento->setCEP(usuario.getCEP());
+            elemento->setCep(usuario.getCep());
             elemento->setSenha(usuario.getSenha());
             return true;
         }

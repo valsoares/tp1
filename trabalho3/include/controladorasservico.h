@@ -8,23 +8,23 @@
 
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
-// Implementar as controladoras de serviço.
+// Implementar as controladoras de serviï¿½o.
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------
-// Classes controladoras da camada de serviços.
+// Classes controladoras da camada de serviï¿½os.
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de serviço autenticação.
+// Classe controladora de serviï¿½o autenticaï¿½ï¿½o.
 
 class CntrServicoAutenticacao:public IServicoAutenticacao{
     public:
-        bool autenticar(CPF, Senha);
+        bool autenticar(Cpf, Senha);
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de serviço pessoal.
+// Classe controladora de serviï¿½o pessoal.
 
 class CntrServicoPessoal:public IServicoPessoal{
     public:
@@ -32,7 +32,7 @@ class CntrServicoPessoal:public IServicoPessoal{
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de serviço produtos financeiros.
+// Classe controladora de serviï¿½o produtos financeiros.
 
 class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
 };

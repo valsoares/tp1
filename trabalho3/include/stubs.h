@@ -8,17 +8,17 @@
 using namespace std;
 
 //--------------------------------------------------------------------------------------------
-// Classe stub do serviço autenticação.
+// Classe stub do serviï¿½o autenticaï¿½ï¿½o.
 
 class StubServicoAutenticacao:public IServicoAutenticacao {
     private:
         static const string INVALIDO;
     public:
-        bool autenticar(CPF, Senha);
+        bool autenticar(Cpf, Senha);
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe stub do serviço pessoal.
+// Classe stub do serviï¿½o pessoal.
 
 class StubServicoPessoal:public IServicoPessoal {
     private:
@@ -28,7 +28,7 @@ class StubServicoPessoal:public IServicoPessoal {
 };
 
 //--------------------------------------------------------------------------------------------
-// Classe stub do serviço produtos financeiros.
+// Classe stub do serviï¿½o produtos financeiros.
 
 class StubServicoProdutosFinanceiros:public IServicoProdutosFinanceiros {
     private:
@@ -37,7 +37,7 @@ class StubServicoProdutosFinanceiros:public IServicoProdutosFinanceiros {
         bool cadastrarConta(Conta);
         bool consultarConta(Conta*);
         bool cadastrarProdutoInvestimento(Produto);
-        bool descadastrarProdutoInvestimento(Codigo);
+        bool descadastrarProdutoInvestimento(CodigoProduto);
         bool realizarAplicacao(Aplicacao);
         bool recuperarAplicacao(Aplicacao*);                        // Adaptar assinatura.
 };

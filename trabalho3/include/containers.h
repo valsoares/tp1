@@ -20,7 +20,7 @@ class ContainerUsuario{
     public:
         static  ContainerUsuario* getInstancia();       // M�todo para instanciar a classe.
         bool incluir(Usuario);                          // M�todos respons�veis por presta��o de servi�o.
-        bool remover(CPF);
+        bool remover(Cpf);
         bool pesquisar(Usuario*);
         bool atualizar(Usuario);
 };

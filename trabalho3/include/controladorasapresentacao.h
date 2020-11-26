@@ -13,20 +13,20 @@
 
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
-// Adequar as controladoras de apresentação de acordo com as necessidades.
+// Adequar as controladoras de apresentaï¿½ï¿½o de acordo com as necessidades.
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 
 
 //--------------------------------------------------------------------------------------------
-// Classes controladoras da camada de apresentação.
+// Classes controladoras da camada de apresentaï¿½ï¿½o.
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de apresentação controle.
+// Classe controladora de apresentaï¿½ï¿½o controle.
 
 class CntrApresentacaoControle{
     private:
-        CPF cpf;
+        Cpf cpf;
         IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
         IApresentacaoPessoal *cntrApresentacaoPessoal;
         IApresentacaoProdutosFinanceiros *cntrApresentacaoProdutosFinanceiros;
@@ -50,13 +50,13 @@ inline void CntrApresentacaoControle::setCntrApresentacaoProdutosFinanceiros(IAp
 }
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de apresentação autenticação.
+// Classe controladora de apresentaï¿½ï¿½o autenticaï¿½ï¿½o.
 
 class CntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
     private:
         IServicoAutenticacao *cntr;
     public:
-        bool autenticar(CPF*);
+        bool autenticar(Cpf*);
         void setCntrServicoAutenticacao(IServicoAutenticacao*);
 };
 
@@ -65,7 +65,7 @@ inline void CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAut
 }
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de apresentação pessoal.
+// Classe controladora de apresentaï¿½ï¿½o pessoal.
 
 class CntrApresentacaoPessoal:public IApresentacaoPessoal{
     private:
@@ -73,7 +73,7 @@ class CntrApresentacaoPessoal:public IApresentacaoPessoal{
         IServicoProdutosFinanceiros *cntrServicoProdutosFinanceiros;
         void consultarDadosPessoais();
     public:
-        void executar(CPF);
+        void executar(Cpf);
         void cadastrar();
         void setCntrServicoPessoal(IServicoPessoal*);
         void setCntrServicoProdutosFinanceiros(IServicoProdutosFinanceiros*);
@@ -88,7 +88,7 @@ inline void CntrApresentacaoPessoal::setCntrServicoProdutosFinanceiros(IServicoP
 }
 
 //--------------------------------------------------------------------------------------------
-// Classe controladora de apresentação produtos financeiros.
+// Classe controladora de apresentaï¿½ï¿½o produtos financeiros.
 
 class CntrApresentacaoProdutosFinanceiros:public IApresentacaoProdutosFinanceiros{
     private:
@@ -101,7 +101,7 @@ class CntrApresentacaoProdutosFinanceiros:public IApresentacaoProdutosFinanceiro
         void listarAplicacoes();
     public:
         void executar();
-        void executar(CPF);
+        void executar(Cpf);
         void setCntrServicoProdutosFinanceiros(IServicoProdutosFinanceiros*);
 };
 
