@@ -48,6 +48,17 @@ bool ContainerUsuario::pesquisar(Usuario* usuario){
     return false;
 }
 
+bool ContainerUsuario::autenticar(Cpf cpf, Senha senha){
+    for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getCpf().getCpf() == cpf.getCpf()){
+            if(elemento->getSenha().getSenha() == senha.getSenha()) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 
 bool ContainerUsuario::atualizar(Usuario usuario){
     for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
@@ -193,6 +204,6 @@ bool ContainerConta::pesquisar(Conta* conta){
             }
         }
     }
-    
+
     return false;
 }
