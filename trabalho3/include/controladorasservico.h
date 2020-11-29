@@ -29,12 +29,23 @@ class CntrServicoAutenticacao:public IServicoAutenticacao{
 class CntrServicoPessoal:public IServicoPessoal{
     public:
         bool cadastrarUsuario(Usuario);
+        bool descadastrarUsuario(Cpf);
+        bool pesquisarUsuario(Usuario*);
+        bool atualizarUsuario(Usuario);
 };
 
 //--------------------------------------------------------------------------------------------
 // Classe controladora de servi�o produtos financeiros.
 
 class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
+    public:
+        bool cadastrarConta(Conta);
+        bool consultarConta(Conta*);
+        bool cadastrarProdutoInvestimento(Produto);
+        bool pesquisarProduto(Produto*);
+        bool descadastrarProdutoInvestimento(CodigoProduto);
+        bool realizarAplicacao(Aplicacao);
+        bool recuperarAplicacao(Aplicacao*);
 };
 
 
