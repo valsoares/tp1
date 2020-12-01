@@ -17,13 +17,13 @@ CntrApresentacaoControle* BuilderSistema::construir(){
     // Substituir instancia de stub de CntrServicoAutenticacao por instância da controladora.
     // --------------------------------------------------------------------------------------------
 
-    cntrServicoAutenticacao = new StubServicoAutenticacao();
+    cntrServicoAutenticacao = new CntrServicoAutenticacao();
 
     // ---------------------------------------------------------------------------------------------
     // Substituir instancia de stub de CntrServicoProdutosFinanceiros por instância da controladora.
     // ---------------------------------------------------------------------------------------------
 
-    cntrServicoProdutosFinanceiros = new StubServicoProdutosFinanceiros();
+    cntrServicoProdutosFinanceiros = new CntrServicoProdutosFinanceiros();
 
     // Interliga as controladoras.
 

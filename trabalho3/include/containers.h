@@ -47,6 +47,7 @@ class ContainerProduto{
         bool incluir(Produto);                          // M�todos respons�veis por presta��o de servi�o.
         bool remover(CodigoProduto);
         bool pesquisar(Produto*);
+        //bool pesquisarAplicacao(Produto*);
 };
 
 class ContainerConta{ 

@@ -8,6 +8,7 @@
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"
+#include "containers.h"
 
 #define CLR_SCR system("cls");
 
@@ -71,7 +72,7 @@ class CntrApresentacaoPessoal:public IApresentacaoPessoal{
     private:
         IServicoPessoal *cntrServicoPessoal;
         IServicoProdutosFinanceiros *cntrServicoProdutosFinanceiros;
-        void consultarDadosPessoais();
+        void consultarDadosPessoais(Cpf);
     public:
         void executar(Cpf);
         void cadastrar();

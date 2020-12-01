@@ -55,6 +55,9 @@ class IServicoAutenticacao {
 class IServicoPessoal{
 public:
         virtual bool cadastrarUsuario(Usuario) = 0;
+        virtual bool descadastrarUsuario(Cpf) = 0;
+        virtual bool pesquisarUsuario(Usuario*) = 0;
+        virtual bool atualizarUsuario(Usuario) = 0;
         virtual ~IServicoPessoal(){}
 };
 
@@ -63,6 +66,7 @@ public:
         virtual bool cadastrarConta(Conta) = 0;
         virtual bool consultarConta(Conta*) = 0;
         virtual bool cadastrarProdutoInvestimento(Produto) = 0;
+        virtual bool pesquisarProduto(Produto*) = 0;
         virtual bool descadastrarProdutoInvestimento(CodigoProduto) = 0;
         virtual bool realizarAplicacao(Aplicacao) = 0;
         virtual bool recuperarAplicacao(Aplicacao*) = 0;                        // Adaptar aos requisitos.

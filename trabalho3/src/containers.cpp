@@ -93,13 +93,12 @@ bool ContainerAplicacao::incluir(Aplicacao aplicacao){
 
 bool ContainerAplicacao::pesquisar(Aplicacao* aplicacao){
     for(list<Aplicacao>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
-        if (elemento->getCodigoAplicacao().getCodigoAplicacao() == aplicacao->getCodigoAplicacao().getCodigoAplicacao()){
             // Copia dados do objeto localizado.
-            aplicacao->setData(elemento->getData());
-            aplicacao->setValorAplicacao(elemento->getValorAplicacao());
+        aplicacao->setCodigoAplicacao(elemento->getCodigoAplicacao());
+        aplicacao->setData(elemento->getData());
+        aplicacao->setValorAplicacao(elemento->getValorAplicacao());
 
-            return true;
-        }
+        return true;
     }
     return false;
 }
@@ -139,6 +138,25 @@ bool ContainerProduto::remover(CodigoProduto codigo){
 
 bool ContainerProduto::pesquisar(Produto* produto){
     for(list<Produto>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if (elemento->getClasse().getClasse() == produto->getClasse().getClasse()){
+            // Copia dados do objeto localizado.
+            produto->setCodigoProduto(elemento->getCodigoProduto());
+            produto->setEmissor(elemento->getEmissor());
+            produto->setPrazo(elemento->getPrazo());
+            produto->setData(elemento->getData());
+            produto->setTaxa(elemento->getTaxa());
+            produto->setHorario(elemento->getHorario());
+            produto->setValorMinimo(elemento->getValorMinimo());
+
+            return true;
+        }
+    }
+    return false;
+}
+
+/*
+bool ContainerProduto::pesquisarAplicacao(Produto* produto){
+    for(list<Produto>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
         if (elemento->getCodigoProduto().getCodigoProduto() == produto->getCodigoProduto().getCodigoProduto()){
             // Copia dados do objeto localizado.
             produto->setClasse(elemento->getClasse());
@@ -154,6 +172,7 @@ bool ContainerProduto::pesquisar(Produto* produto){
     }
     return false;
 }
+*/
 
 // Containers Conta
 
@@ -196,13 +215,10 @@ bool ContainerConta::remover(Conta conta){
 
 bool ContainerConta::pesquisar(Conta* conta){
     for(list<Conta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
-        if (elemento->getCodigoBanco().getCodigoBanco() == conta->getCodigoBanco().getCodigoBanco()){
-            if(elemento->getCodigoAgencia().getCodigoAgencia() == conta->getCodigoAgencia().getCodigoAgencia()){
-                if(elemento->getNumero().getNumero() == conta->getNumero().getNumero()){
-                    return true;
-                }
-            }
-        }
+        conta->setCodigoAgencia(elemento->getCodigoAgencia());
+        conta->setCodigoBanco(elemento->getCodigoBanco());
+        conta->setNumero(elemento->getNumero());
+        return true;
     }
 
     return false;

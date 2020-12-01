@@ -1,4 +1,5 @@
 #include "controladorasapresentacao.h"
+#include "containers.h"
 
 //--------------------------------------------------------------------------------------------
 // Implementa��es dos m�todos das classes controladoras da camada de apresenta��o.
@@ -8,8 +9,6 @@
 // Implementa��es dos m�todos da classe controladora apresenta��o controle.
 
 void CntrApresentacaoControle::executar(){
-
-
     int campo;                                                                                  // Campo de entrada.
 
     bool apresentar = true;                                                                     // Controle de la�o.
@@ -78,8 +77,8 @@ bool CntrApresentacaoAutenticacao::autenticar(Cpf *cpf){
 
     // Campos de entrada.
 
-    char campo1[80];
-    char campo2[80];
+    string campo1;
+    string campo2;
 
     Senha senha;                                                                                // Instancia a classe Senha.
 
@@ -95,8 +94,8 @@ bool CntrApresentacaoAutenticacao::autenticar(Cpf *cpf){
         cin >> campo2;                                                                          // L� valor do campo.
 
         try{
-            cpf->setCpf(string(campo1));                                                      // Atribui valor ao CPF.
-            senha.setSenha(string(campo2));                                                     // Atribui Valor � senha.
+            cpf->setCpf(campo1);                                                      // Atribui valor ao CPF.
+            senha.setSenha(campo2);                                                     // Atribui Valor � senha.
             break;                                                                              // Abandona la�o em caso de formatos corretos.
         }
         catch(invalid_argument &exp){                                                           // Captura exce��o devido a formato incorreto.
@@ -119,7 +118,7 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
 
     while(apresentar){
 
-        // Apresenta tela de sela��o de servi�o.
+        // Apresenta tela de sele��o de servi�o.
 
         CLR_SCR;                                                                                // Limpa janela.
 
@@ -130,7 +129,7 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
         campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
-            case 1: consultarDadosPessoais();
+            case 1: consultarDadosPessoais(cpf);
                     break;
             case 2: apresentar = false;
                     break;
@@ -142,8 +141,8 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
 
 void CntrApresentacaoPessoal::cadastrar(){
 
-    char campo1[80], campo2[80], campo3[80], campo4[80], campo5[80];                            // Cria campos para entrada dos dados.
-    char campo6[80], campo7[80], campo8[80];                                                    // Cria campos para entrada dos dados.
+    string campo1, campo2, campo4, campo5, campo6, campo7, campo8;
+    int campo3;
 
     // Instancia os dom�nios.
 
@@ -179,14 +178,14 @@ void CntrApresentacaoPessoal::cadastrar(){
     cin >> campo8;                                                                             // L� valor do campo.
 
     try{
-        nome.setNome(string(campo1));
-        endereco.setEndereco(string(campo2));
-        cep.setCep(stoi(campo3));
-        cpf.setCpf(string(campo4));
-        senha.setSenha(string(campo5));
-        numero.setNumero(string(campo6));
-        agencia.setCodigoAgencia(string(campo7));
-        banco.setCodigoBanco(string(campo8));
+        nome.setNome(campo1);
+        endereco.setEndereco(campo2);
+        cep.setCep(campo3);
+        cpf.setCpf(campo4);
+        senha.setSenha(campo5);
+        numero.setNumero(campo6);
+        agencia.setCodigoAgencia(campo7);
+        banco.setCodigoBanco(campo8);
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
@@ -227,20 +226,12 @@ void CntrApresentacaoPessoal::cadastrar(){
 
 //--------------------------------------------------------------------------------------------
 
-void CntrApresentacaoPessoal::consultarDadosPessoais(){
+void CntrApresentacaoPessoal::consultarDadosPessoais(Cpf cpf){
+    Usuario usuario;
 
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
+    usuario.setCpf(cpf);
 
-    // Mensagens a serem apresentadas na tela de apresenta��o de dados pessoais.
-
-    CLR_SCR;                                                                                    // Limpa janela.
-    cout << "Servico consultar dados pessoais nao implementado. Pressione Enter para continuar." << endl;                                                      // Imprime nome do campo.
-    getch();
-
+    cntrServicoPessoal->pesquisarUsuario(&usuario);
 }
 
 //--------------------------------------------------------------------------------------------
@@ -274,7 +265,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
 
 //--------------------------------------------------------------------------------------------
 
-void CntrApresentacaoProdutosFinanceiros::executar(Cpf){
+void CntrApresentacaoProdutosFinanceiros::executar(Cpf cpf){
 
     int campo;                                                                                  // Campo de entrada.
 
@@ -319,96 +310,202 @@ void CntrApresentacaoProdutosFinanceiros::executar(Cpf){
 //--------------------------------------------------------------------------------------------
 
 void CntrApresentacaoProdutosFinanceiros::consultarConta(){
+    Conta conta;
 
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-
-
-    CLR_SCR;                                                                                    // Limpa janela.
-    cout << "Servico consultar conta nao implementado. Pressione Enter para continuar." << endl;                                                                      // Imprime nome do campo.
-    getch();
+    cntr->consultarConta(&conta);
 }
 
 //--------------------------------------------------------------------------------------------
 
 void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
 
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
+    string campo1, campo2, campo3, campo5, campo7;
+    int campo4, campo6;
+    double campo8;
+
+    // Instancia os dom�nios.
+
+    CodigoProduto codigoproduto;
+    Classe classe;
+    Emissor emissor;
+    Prazo prazo;
+    Data vencimento;                              //CONFIRMAR ISSO AKIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+    Taxa taxa;
+    Horario horario;
+    ValorMinimo valor;
+
+    // Apresenta tela de cadastramento.
+
+    CLR_SCR;                                                                                   // Limpa janela.
+
+    cout << "Preencha os seguintes campos: " << endl;                                                                    // Imprime solicita��o ao usu�rio.
+    cout << "Coodigo         : ";                                                                     // Imprime nome do campo.
+    cin >> campo1;                                                                             // L� valor do campo.
+    cout << "Classe          : ";                                                                     // Imprime nome do campo.
+    cin >> campo2;                                                                             // L� valor do campo.
+    cout << "Emissor         : ";                                                                     // Imprime nome do campo.
+    cin >> campo3;                                                                             // L� valor do campo.
+    cout << "Prazo           : ";                                                                     // Imprime nome do campo.
+    cin >> campo4;                                                                             // L� valor do campo.
+    cout << "Vencimento      : ";                                                                     // Imprime nome do campo.
+    cin >> campo5;                                                                             // L� valor do campo.
+    cout << "Taxa            : ";                                                                     // Imprime nome do campo.
+    cin >> campo6;                                                                             // L� valor do campo.
+    cout << "Horario         : ";                                                                     // Imprime nome do campo.
+    cin >> campo7;                                                                             // L� valor do campo.
+    cout << "Valor Minimo    : ";                                                                     // Imprime nome do campo.
+    cin >> campo8;                                                                             // L� valor do campo.
 
 
-    CLR_SCR;                                                                                    // Limpa janela.
-    cout << "Servico cadastrar produto investimento nao implementado. Pressione Enter para continuar." << endl;                                                                      // Imprime nome do campo.
+    try{
+        codigoproduto.setCodigoProduto(campo1);
+        classe.setClasse(campo2);
+        emissor.setEmissor(campo3);
+        prazo.setPrazo(campo4);
+        vencimento.setData(campo5);
+        taxa.setTaxa(stoi(campo6));
+        horario.setHorario(campo7);
+        valor.setValorMinimo(campo8);
+    }
+    catch(invalid_argument &exp){
+        cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
+        getch();                                                                                // Leitura de caracter digitado.
+        return;
+    }
+
+    Produto produto;
+
+    produto.setCodigoProduto(codigoproduto);
+    produto.setClasse(classe);
+    produto.setEmissor(emissor);
+    produto.setPrazo(prazo);
+    produto.setData(vencimento);
+    produto.setTaxa(taxa);
+    produto.setHorario(horario);
+    produto.setValorMinimo(valor);
+
+    if(cntr->cadastrarProdutoInvestimento(produto)){
+        cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
+        getch();
+        return;
+    }
+
+    cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
     getch();
 
+    return;
 }
 
 //--------------------------------------------------------------------------------------------
 
 void CntrApresentacaoProdutosFinanceiros::descadastrarProdutoInvestimento(){
-
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
+    string campo1;
+    CodigoProduto codigoproduto;
 
     CLR_SCR;                                                                                    // Limpa janela.
-    cout << "Servico descadastrar produto investimento nao implementado. Pressione Enter para continuar." << endl;                                                                      // Imprime nome do campo.
+    cout << "Insira o codigo do produto que deseja descadastrar: ";                                                                      // Imprime nome do campo.
+    cin >> campo1;
+
+    try{
+        codigoproduto.setCodigoProduto(campo1);
+    }
+    catch(invalid_argument &exp){
+        cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
+        getch();                                                                                // Leitura de caracter digitado.
+        return;
+    }
+
+    if(cntr->descadastrarProdutoInvestimento(codigoproduto)){
+        CLR_SCR;                                                                                    // Limpa janela.
+        cout << "Produto descadastrado com sucesso" << endl;
+        getch();                                                                                // Leitura de caracter digitado.
+        return;
+    }
+
+    cout << "Falha no descadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
     getch();
+
+    return;
 
 }
 
 //--------------------------------------------------------------------------------------------
 
 void CntrApresentacaoProdutosFinanceiros::consultarProdutoInvestimento(){
-
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
+    string campo1;
+    Classe classe;
+    Produto produto;
 
     CLR_SCR;                                                                                    // Limpa janela.
-    cout << "Servico consultar produto investimento nao implementado. Pressione Enter para continuar." << endl;                                                                      // Imprime nome do campo.
-    getch();
+    cout << "Selecione a classe dos produtos de investimentos desejados (CDB, LCA, LCI, LF, ou LC): ";
+    cin >> campo1;
 
+    classe.setClasse(campo1);
+    produto.setClasse(classe);
+
+    cntr->pesquisarProduto(&produto);
 }
 
 //--------------------------------------------------------------------------------------------
 
 void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
 
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
+    string campo1, campo3;
+    double campo2;
 
-    CLR_SCR;                                                                                    // Limpa janela.
-    cout << "Servico realizar aplicacao nao implementado. Pressione Enter para continuar." << endl;                                                                      // Imprime nome do campo.
+    CodigoAplicacao codigoaplicacao;
+    ValorAplicacao valoraplicacao;
+    Data data;
+
+    // Apresenta tela de cadastramento.
+
+    CLR_SCR;                                                                                   // Limpa janela.
+
+    cout << "Preencha os seguintes campos: " << endl;                                                                    // Imprime solicita��o ao usu�rio.
+    cout << "Coodigo da Aplicacao : ";                                                                     // Imprime nome do campo.
+    cin >> campo1;                                                                             // L� valor do campo.
+    cout << "Valor da Aplicacao   : ";                                                                     // Imprime nome do campo.
+    cin >> campo2;                                                                             // L� valor do campo.
+    cout << "Data                 : ";                                                                     // Imprime nome do campo.
+    cin >> campo3;                                                                             // L� valor do campo.
+
+
+
+    try{
+        codigoaplicacao.setCodigoAplicacao(campo1);
+        valoraplicacao.setValorAplicacao(campo2);
+        data.setData(campo3);
+    }
+    catch(invalid_argument &exp){
+        cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
+        getch();                                                                                // Leitura de caracter digitado.
+        return;
+    }
+
+    Aplicacao aplicacao;
+
+    aplicacao.setCodigoAplicacao(codigoaplicacao);
+    aplicacao.setValorAplicacao(valoraplicacao);
+    aplicacao.setData(data);
+
+
+    if(cntr->realizarAplicacao(aplicacao)){
+        cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
+        getch();
+        return;
+    }
+
+    cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
     getch();
 
+    return;
 }
 
 //--------------------------------------------------------------------------------------------
 
 void CntrApresentacaoProdutosFinanceiros::listarAplicacoes(){
+    Aplicacao aplicacao;
 
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
-    //--------------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------------
-
-    CLR_SCR;                                                                                    // Limpa janela.
-    cout << "Servico listar aplicacoes nao implementado. Pressione Enter para continuar." << endl;                                                                      // Imprime nome do campo.
-    getch();
+    cntr->recuperarAplicacao(&aplicacao);
 
 }
