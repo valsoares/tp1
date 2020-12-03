@@ -25,8 +25,8 @@ void CntrApresentacaoControle::executar(){
         cout << "3 - Acessar dados sobre produtos financeiros." << endl;                                                                 // Imprime nome do campo.
         cout << "4 - Encerrar execucao do sistema." << endl;                                                                 // Imprime nome do campo.
 
-        cin >> campo;
-        cin.clear();                                                                     // Leitura do campo de entrada e convers�o de ASCII.
+        cin >> campo;   
+        cin.clear();                                                                // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
             case 1: if(cntrApresentacaoAutenticacao->autenticar(&cpf)){                         // Solicita autentica��o.
@@ -43,7 +43,7 @@ void CntrApresentacaoControle::executar(){
                             cout << "3 - Encerrar sessao." << endl;                                             // Imprime nome do campo.
 
                             cin >> campo;
-                            cin.clear();                                                 // Leitura do campo de entrada e convers�o de ASCII.
+                            cin.clear();                                               // Leitura do campo de entrada e convers�o de ASCII.
 
                             switch(campo){
                                 case 1: cntrApresentacaoPessoal->executar(cpf);                 // Solicita servi�o de pessoal.
@@ -58,8 +58,8 @@ void CntrApresentacaoControle::executar(){
                     else {
                         CLR_SCR;                                                                // Limpa janela.
                         cout << "Falha na autenticacao. Digite algo para continuar." << endl;                                                // Imprime mensagem.
-
-                        getchar();                                                               // Leitura de caracter digitado.
+                        
+                        getchar();                                                                // Leitura de caracter digitado.
                     }
                     break;
             case 2: cntrApresentacaoPessoal->cadastrar();
@@ -93,10 +93,10 @@ bool CntrApresentacaoAutenticacao::autenticar(Cpf *cpf){
 
         cout << "Digite o CPF  : ";                                                                  // Imprime nome do campo.
         cin >> campo1;
-        cin.clear();                                                                            // L� valor do campo.
+        cin.clear();                                                                          // L� valor do campo.
         cout << "Digite a senha: ";                                                                  // Imprime nome do campo.
         cin >> campo2;
-        cin.clear();                                                                            // L� valor do campo.
+        cin.clear();                                                                          // L� valor do campo.
 
         try{
             cpf->setCpf(campo1);                                                      // Atribui valor ao CPF.
@@ -106,7 +106,7 @@ bool CntrApresentacaoAutenticacao::autenticar(Cpf *cpf){
         catch(invalid_argument &exp){                                                           // Captura exce��o devido a formato incorreto.
             CLR_SCR;                                                                            // Limpa janela.
             cout << "Dado em formato incorreto. Pressione Enter para continuar." << endl;       // Informa formato incorreto.
-
+            
             getchar();                                                                            // L� caracter digitado.
         }
     }
@@ -133,7 +133,7 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
         cout << "2 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
         cin >> campo;
-        cin.clear();                                                                     // Leitura do campo de entrada e convers�o de ASCII.
+        cin.clear();                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
             case 1: consultarDadosPessoais(cpf);
@@ -149,7 +149,7 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
 void CntrApresentacaoPessoal::cadastrar(){
 
     string campo1, campo2, campo4, campo5, campo6, campo7, campo8;
-    string campo3;
+    int campo3;
 
     // Instancia os dom�nios.
 
@@ -171,31 +171,31 @@ void CntrApresentacaoPessoal::cadastrar(){
     cin >> campo1;
     cin.clear();                                                                             // L� valor do campo.
     cout << "Endereco        : ";                                                                     // Imprime nome do campo.
-    cin >> campo2;
-    cin.clear();                                                                               // L� valor do campo.
+    cin >> campo2; 
+    cin.clear();                                                                            // L� valor do campo.
     cout << "CEP             : ";                                                                     // Imprime nome do campo.
-    cin >> campo3;
-    cin.clear();                                                                               // L� valor do campo.
+    cin >> campo3;   
+    cin.clear();                                                                          // L� valor do campo.
     cout << "CPF             : ";                                                                     // Imprime nome do campo.
-    cin >> campo4;
-    cin.clear();                                                                               // L� valor do campo.
+    cin >> campo4; 
+    cin.clear();                                                                            // L� valor do campo.
     cout << "Senha           : ";                                                                     // Imprime nome do campo.
-    cin >> campo5;
-    cin.clear();                                                                               // L� valor do campo.
+    cin >> campo5;  
+    cin.clear();                                                                           // L� valor do campo.
     cout << "Numero de conta : ";                                                                     // Imprime nome do campo.
-    cin >> campo6;
-    cin.clear();                                                                               // L� valor do campo.
+    cin >> campo6;   
+    cin.clear();                                                                          // L� valor do campo.
     cout << "Agencia         : ";                                                                     // Imprime nome do campo.
-    cin >> campo7;
-    cin.clear();                                                                               // L� valor do campo.
+    cin >> campo7;     
+    cin.clear();                                                                        // L� valor do campo.
     cout << "Banco           : ";                                                                     // Imprime nome do campo.
-    cin >> campo8;
-    cin.clear();                                                                               // L� valor do campo.
+    cin >> campo8;    
+    cin.clear();                                                                         // L� valor do campo.
 
     try{
         nome.setNome(campo1);
         endereco.setEndereco(campo2);
-        cep.setCep(stoi(campo3));
+        cep.setCep(campo3);
         cpf.setCpf(campo4);
         senha.setSenha(campo5);
         numero.setNumero(campo6);
@@ -204,7 +204,7 @@ void CntrApresentacaoPessoal::cadastrar(){
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
-
+        
         getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
@@ -230,13 +230,14 @@ void CntrApresentacaoPessoal::cadastrar(){
     if(cntrServicoPessoal->cadastrarUsuario(usuario))
         if(cntrServicoProdutosFinanceiros->cadastrarConta(conta)){
             cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
+            
             getchar();
             return;
         }
 
     cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
-    string enter;
-    cin >> enter;
+    
+    getchar();
 
     return;
 }
@@ -270,7 +271,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
         cout << "2 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
         cin >> campo;
-        cin.clear();                                                                     // Leitura do campo de entrada.
+        cin.clear();                                                                   // Leitura do campo de entrada.
 
         switch(campo){
             case 1: consultarProdutoInvestimento();
@@ -305,7 +306,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(Cpf cpf){
         cout << "7 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
         cin >> campo;
-        cin.clear();                                                                     // Leitura do campo de entrada e convers�o de ASCII.
+        cin.clear();                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
             case 1: consultarConta();
@@ -360,28 +361,28 @@ void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
     cout << "Preencha os seguintes campos: " << endl;                                                                    // Imprime solicita��o ao usu�rio.
     cout << "Coodigo         : ";                                                                     // Imprime nome do campo.
     cin >> campo1;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Classe          : ";                                                                     // Imprime nome do campo.
     cin >> campo2;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Emissor         : ";                                                                     // Imprime nome do campo.
     cin >> campo3;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Prazo           : ";                                                                     // Imprime nome do campo.
     cin >> campo4;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Vencimento      : ";                                                                     // Imprime nome do campo.
     cin >> campo5;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Taxa            : ";                                                                     // Imprime nome do campo.
     cin >> campo6;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Horario         : ";                                                                     // Imprime nome do campo.
     cin >> campo7;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Valor Minimo    : ";                                                                     // Imprime nome do campo.
     cin >> campo8;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
 
 
     try{
@@ -396,7 +397,8 @@ void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
-        getchar();                                                                               // Leitura de caracter digitado.
+        
+        getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
 
@@ -413,11 +415,13 @@ void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
 
     if(cntr->cadastrarProdutoInvestimento(produto)){
         cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
+        
         getchar();
         return;
     }
 
     cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
+    
     getchar();
 
     return;
@@ -439,18 +443,21 @@ void CntrApresentacaoProdutosFinanceiros::descadastrarProdutoInvestimento(){
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
-        getchar();                                                                                 // Leitura de caracter digitado.
+        
+        getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
 
     if(cntr->descadastrarProdutoInvestimento(codigoproduto)){
         CLR_SCR;                                                                                    // Limpa janela.
         cout << "Produto descadastrado com sucesso" << endl;
-        getchar();                                                                               // Leitura de caracter digitado.
+        
+        getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
 
     cout << "Falha no descadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
+    
     getchar();
 
     return;
@@ -493,13 +500,13 @@ void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
     cout << "Preencha os seguintes campos: " << endl;                                                                    // Imprime solicita��o ao usu�rio.
     cout << "Coodigo da Aplicacao : ";                                                                     // Imprime nome do campo.
     cin >> campo1;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Valor da Aplicacao   : ";                                                                     // Imprime nome do campo.
     cin >> campo2;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
     cout << "Data                 : ";                                                                     // Imprime nome do campo.
     cin >> campo3;
-    cin.clear();                                                                               // L� valor do campo.
+    cin.clear();                                                                             // L� valor do campo.
 
 
 
@@ -510,6 +517,7 @@ void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
+        
         getchar();                                                                                // Leitura de caracter digitado.
         return;
     }
@@ -523,12 +531,15 @@ void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
 
     if(cntr->realizarAplicacao(aplicacao)){
         cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
+        
         getchar();
         return;
     }
 
     cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
+    
     getchar();
+
     return;
 }
 

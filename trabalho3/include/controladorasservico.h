@@ -1,7 +1,7 @@
 #ifndef CONTROLADORASSERVICO_H_INCLUDED
 #define CONTROLADORASSERVICO_H_INCLUDED
 
-// #include <conio.h>
+#include <conio.h>
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"

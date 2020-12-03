@@ -63,12 +63,12 @@ bool CntrServicoPessoal::pesquisarUsuario(Usuario* usuario){
         cout << "Nome: " << usuario->getNome().getNome() << endl;
         cout << "Cep: " << usuario->getCep().getCep() << endl;
         cout << "Endereco: " << usuario->getEndereco().getEndereco() << endl;                                                   // Imprime nome do campo.
-        string enter;
-        cin >> enter;
+        getchar();
         return true;
     }
 
-    cout << "Nenhum cpf encontrado, mas isso n deveria estar acontecendo" << endl;
+    cout << "Nenhum cpf encontrado, mas isso n deveria estar acontecendo! Pressione Enter para continuar." << endl;
+    getchar();
     return false;
 }
 
@@ -106,11 +106,11 @@ bool CntrServicoProdutosFinanceiros::consultarConta(Conta* conta){              
         cout << "Codigo da Agencia: " << conta->getCodigoAgencia().getCodigoAgencia() << endl;
         cout << "Codigo do Banco: " << conta->getCodigoBanco().getCodigoBanco() << endl;                                       // Imprime nome do campo.
         cout << "Numero: " << conta->getNumero().getNumero() << endl;
-        string enter;
-        cin >> enter;
+        getchar();
         return true;
     }
-    cout << "Nenhuma conta encontrada, mas isso n deveria estar acontecendo" << endl;
+    cout << "Nenhuma conta encontrada, mas isso n deveria estar acontecendo! Pressione Enter para continuar." << endl;
+    getchar();
     return false;
 }
 
@@ -143,12 +143,12 @@ bool CntrServicoProdutosFinanceiros::pesquisarProduto(Produto* produto){
         cout << "Prazo: " << produto->getPrazo().getPrazo() << endl;
         cout << "Taxa: " << produto->getTaxa().getTaxa() << endl;
         cout << "ValorMinimo: " << produto->getValorMinimo().getValorMinimo() << endl;
-        string enter;
-        cin >> enter;
+        getchar();
         return true;
     }
 
-    cout << "Nenhum produto dessa classe encontrado" << endl;
+    cout << "Nenhum produto dessa classe encontrado! Pressione Enter para continuar." << endl;
+    getchar();
     return false;
 }
 
@@ -179,11 +179,11 @@ bool CntrServicoProdutosFinanceiros::recuperarAplicacao(Aplicacao* aplicacao){
         cout << "Codigo da Aplicacao: " << aplicacao->getCodigoAplicacao().getCodigoAplicacao() << endl;
         cout << "Valor: " << aplicacao->getValorAplicacao().getValorAplicacao() << endl;                                       // Imprime nome do campo.
         cout << "Data: " << aplicacao->getData().getData() << endl;
-        string enter;
-        cin >> enter;
+        getchar();
         return true;
     }
-    cout << "Nenhuma aplicacao encontrada" << endl;
+    cout << "Nenhuma aplicacao encontrada! Pressione Enter para continuar." << endl;
+    getchar();
     return false;
 }
 
