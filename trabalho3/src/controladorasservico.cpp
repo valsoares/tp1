@@ -1,6 +1,8 @@
 #include "controladorasservico.h"
 #include "containers.h"
 
+
+
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 // Implementar m�todos das controladoras de servi�o.
@@ -57,11 +59,12 @@ bool CntrServicoPessoal::pesquisarUsuario(Usuario* usuario){
 
     if(container->pesquisar(usuario)){
         CLR_SCR;                                                                                    // Limpa janela.
-        cout << "Cpf cadastrado: " << usuario->getCpf() << endl;
-        cout << "Nome: " << usuario->getNome() << endl;
-        cout << "Cep: " << usuario->getCep() << endl;
-        cout << "Endereco: " << usuario->getEndereco() << endl;                                                   // Imprime nome do campo.
-        getch();
+        cout << "Cpf cadastrado: " << usuario->getCpf().getCpf() << endl;
+        cout << "Nome: " << usuario->getNome().getNome() << endl;
+        cout << "Cep: " << usuario->getCep().getCep() << endl;
+        cout << "Endereco: " << usuario->getEndereco().getEndereco() << endl;                                                   // Imprime nome do campo.
+        string enter;
+        cin >> enter;
         return true;
     }
 
@@ -100,10 +103,11 @@ bool CntrServicoProdutosFinanceiros::consultarConta(Conta* conta){              
 
     if(container->pesquisar(conta)){
         CLR_SCR;                                                                                    // Limpa janela.
-        cout << "Codigo da Agencia: " << conta->getCodigoAgencia() << endl;
-        cout << "Codigo do Banco: " << conta->getCodigoBanco() << endl;                                       // Imprime nome do campo.
-        cout << "Numero: " << conta->getNumero() << endl;
-        getch();
+        cout << "Codigo da Agencia: " << conta->getCodigoAgencia().getCodigoAgencia() << endl;
+        cout << "Codigo do Banco: " << conta->getCodigoBanco().getCodigoBanco() << endl;                                       // Imprime nome do campo.
+        cout << "Numero: " << conta->getNumero().getNumero() << endl;
+        string enter;
+        cin >> enter;
         return true;
     }
     cout << "Nenhuma conta encontrada, mas isso n deveria estar acontecendo" << endl;
@@ -132,14 +136,15 @@ bool CntrServicoProdutosFinanceiros::pesquisarProduto(Produto* produto){
 
     if(container->pesquisar(produto)){
         CLR_SCR;                                                                                    // Limpa janela.
-        cout << "Codigo do produto: " << produto->getCodigoProduto() << endl;
-        cout << "Data: " << produto->getData() << endl;
-        cout << "Emissor: " << produto->getEmissor() << endl;
-        cout << "Horario: " << produto->getHorario() << endl;
-        cout << "Prazo: " << produto->getPrazo() << endl;
-        cout << "Taxa: " << produto->getTaxa() << endl;
-        cout << "ValorMinimo: " << produto->getValorMinimo() << endl;
-        getch();
+        cout << "Codigo do produto: " << produto->getCodigoProduto().getCodigoProduto() << endl;
+        cout << "Data: " << produto->getData().getData() << endl;
+        cout << "Emissor: " << produto->getEmissor().getEmissor() << endl;
+        cout << "Horario: " << produto->getHorario().getHorario() << endl;
+        cout << "Prazo: " << produto->getPrazo().getPrazo() << endl;
+        cout << "Taxa: " << produto->getTaxa().getTaxa() << endl;
+        cout << "ValorMinimo: " << produto->getValorMinimo().getValorMinimo() << endl;
+        string enter;
+        cin >> enter;
         return true;
     }
 
@@ -171,10 +176,11 @@ bool CntrServicoProdutosFinanceiros::recuperarAplicacao(Aplicacao* aplicacao){
 
     if(container->pesquisar(aplicacao)){
         CLR_SCR;                                                                                    // Limpa janela.
-        cout << "Codigo da Aplicacao: " << aplicacao->getCodigoAplicacao() << endl;
-        cout << "Valor: " << aplicacao->getValorAplicacao() << endl;                                       // Imprime nome do campo.
-        cout << "Data: " << aplicacao->getData() << endl;
-        getch();
+        cout << "Codigo da Aplicacao: " << aplicacao->getCodigoAplicacao().getCodigoAplicacao() << endl;
+        cout << "Valor: " << aplicacao->getValorAplicacao().getValorAplicacao() << endl;                                       // Imprime nome do campo.
+        cout << "Data: " << aplicacao->getData().getData() << endl;
+        string enter;
+        cin >> enter;
         return true;
     }
     cout << "Nenhuma aplicacao encontrada" << endl;

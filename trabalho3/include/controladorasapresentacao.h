@@ -1,7 +1,7 @@
 #ifndef CONTROLADORASAPRESENTACAO_H_INCLUDED
 #define CONTROLADORASAPRESENTACAO_H_INCLUDED
 
-#include <conio.h>
+// #include <conio.h>
 #include <iostream>
 #include <string.h>
 

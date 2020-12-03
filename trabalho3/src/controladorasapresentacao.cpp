@@ -25,7 +25,7 @@ void CntrApresentacaoControle::executar(){
         cout << "3 - Acessar dados sobre produtos financeiros." << endl;                                                                 // Imprime nome do campo.
         cout << "4 - Encerrar execucao do sistema." << endl;                                                                 // Imprime nome do campo.
 
-        campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
+        cin >> campo;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
             case 1: if(cntrApresentacaoAutenticacao->autenticar(&cpf)){                         // Solicita autentica��o.
@@ -41,7 +41,7 @@ void CntrApresentacaoControle::executar(){
                             cout << "2 - Selecionar servicos relacionados a produtos financeiros." << endl;                                             // Imprime nome do campo.
                             cout << "3 - Encerrar sessao." << endl;                                             // Imprime nome do campo.
 
-                            campo = getch() - 48;                                               // Leitura do campo de entrada e convers�o de ASCII.
+                            cin >> campo;                                               // Leitura do campo de entrada e convers�o de ASCII.
 
                             switch(campo){
                                 case 1: cntrApresentacaoPessoal->executar(cpf);                 // Solicita servi�o de pessoal.
@@ -56,7 +56,8 @@ void CntrApresentacaoControle::executar(){
                     else {
                         CLR_SCR;                                                                // Limpa janela.
                         cout << "Falha na autenticacao. Digite algo para continuar." << endl;                                                // Imprime mensagem.
-                        getch();                                                                // Leitura de caracter digitado.
+                        string enter;
+                        cin >> enter;                                                                // Leitura de caracter digitado.
                     }
                     break;
             case 2: cntrApresentacaoPessoal->cadastrar();
@@ -101,7 +102,8 @@ bool CntrApresentacaoAutenticacao::autenticar(Cpf *cpf){
         catch(invalid_argument &exp){                                                           // Captura exce��o devido a formato incorreto.
             CLR_SCR;                                                                            // Limpa janela.
             cout << "Dado em formato incorreto. Pressione Enter para continuar." << endl;       // Informa formato incorreto.
-            getch();                                                                            // L� caracter digitado.
+            string enter;
+            cin >> enter;                                                                            // L� caracter digitado.
         }
     }
     return (cntr->autenticar(*cpf, senha));                                                     // Solicita servi�o de autentica��o.
@@ -126,7 +128,7 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
         cout << "1 - Consultar dados pessoais." << endl;                                                                 // Imprime nome do campo.
         cout << "2 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
-        campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
+        cin >> campo;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
             case 1: consultarDadosPessoais(cpf);
@@ -189,7 +191,8 @@ void CntrApresentacaoPessoal::cadastrar(){
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
-        getch();                                                                                // Leitura de caracter digitado.
+        string enter;
+        cin >> enter;                                                                                // Leitura de caracter digitado.
         return;
     }
 
@@ -214,12 +217,14 @@ void CntrApresentacaoPessoal::cadastrar(){
     if(cntrServicoPessoal->cadastrarUsuario(usuario))
         if(cntrServicoProdutosFinanceiros->cadastrarConta(conta)){
             cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
-            getch();
+            string enter;
+            cin >> enter;
             return;
         }
 
     cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
-    getch();
+    string enter;
+    cin >> enter;
 
     return;
 }
@@ -252,7 +257,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
         cout << "1 - Consultar produto de investimento." << endl;                                                                 // Imprime nome do campo.
         cout << "2 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
-        campo = getch() - 48;                                                                   // Leitura do campo de entrada.
+        cin >> campo;                                                                   // Leitura do campo de entrada.
 
         switch(campo){
             case 1: consultarProdutoInvestimento();
@@ -286,7 +291,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(Cpf cpf){
         cout << "6 - Listar aplicacoes em produto de investimento." << endl;                                                                 // Imprime nome do campo.
         cout << "7 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
-        campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
+        cin >> campo;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(campo){
             case 1: consultarConta();
@@ -363,13 +368,14 @@ void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
         emissor.setEmissor(campo3);
         prazo.setPrazo(campo4);
         vencimento.setData(campo5);
-        taxa.setTaxa(stoi(campo6));
+        taxa.setTaxa(campo6);
         horario.setHorario(campo7);
         valor.setValorMinimo(campo8);
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
-        getch();                                                                                // Leitura de caracter digitado.
+        string enter;
+        cin >> enter;                                                                                // Leitura de caracter digitado.
         return;
     }
 
@@ -386,12 +392,14 @@ void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
 
     if(cntr->cadastrarProdutoInvestimento(produto)){
         cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
-        getch();
+        string enter;
+        cin >> enter;
         return;
     }
 
     cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
-    getch();
+    string enter;
+    cin >> enter;
 
     return;
 }
@@ -411,19 +419,22 @@ void CntrApresentacaoProdutosFinanceiros::descadastrarProdutoInvestimento(){
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
-        getch();                                                                                // Leitura de caracter digitado.
+        string enter;
+        cin >> enter;                                                                                // Leitura de caracter digitado.
         return;
     }
 
     if(cntr->descadastrarProdutoInvestimento(codigoproduto)){
         CLR_SCR;                                                                                    // Limpa janela.
         cout << "Produto descadastrado com sucesso" << endl;
-        getch();                                                                                // Leitura de caracter digitado.
+        string enter;
+        cin >> enter;                                                                                // Leitura de caracter digitado.
         return;
     }
 
     cout << "Falha no descadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
-    getch();
+    string enter;
+    cin >> enter;
 
     return;
 
@@ -478,7 +489,8 @@ void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
     }
     catch(invalid_argument &exp){
         cout << "Dados em formato incorreto. Pressione Enter para continuar." << endl;                                                                // Informa formato incorreto.
-        getch();                                                                                // Leitura de caracter digitado.
+        string enter;
+        cin >> enter;                                                                                // Leitura de caracter digitado.
         return;
     }
 
@@ -491,12 +503,14 @@ void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
 
     if(cntr->realizarAplicacao(aplicacao)){
         cout << "Sucesso no cadastramento. Pressione Enter para continuar." << endl;                                                                    // Informa sucesso.
-        getch();
+        string enter;
+        cin >> enter;
         return;
     }
 
     cout << "Falha no cadastramento. Pressione Enter para continuar." << endl;                                                                            // Informa falha.
-    getch();
+    string enter;
+    cin >> enter;
 
     return;
 }

@@ -1,6 +1,6 @@
 #include "entidades.h"
 
-// Definições de métodos
+// Definiï¿½ï¿½es de mï¿½todos
 
 void Aplicacao::setCodigoAplicacao(const CodigoAplicacao &codigo){
     this->codigo = codigo;

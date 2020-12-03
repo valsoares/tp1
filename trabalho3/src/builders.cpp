@@ -2,25 +2,25 @@
 
 CntrApresentacaoControle* BuilderSistema::construir(){
 
-    // Instancia controladoras da camada de apresentação.
+    // Instancia controladoras da camada de apresentaï¿½ï¿½o.
 
     cntrApresentacaoControle = new CntrApresentacaoControle();
     cntrApresentacaoAutenticacao = new CntrApresentacaoAutenticacao();
     cntrApresentacaoPessoal = new CntrApresentacaoPessoal();
     cntrApresentacaoProdutosFinanceiros = new CntrApresentacaoProdutosFinanceiros();
 
-    // Instancia controladoras da camada de serviço.
+    // Instancia controladoras da camada de serviï¿½o.
 
     cntrServicoPessoal = new CntrServicoPessoal();
 
     // --------------------------------------------------------------------------------------------
-    // Substituir instancia de stub de CntrServicoAutenticacao por instância da controladora.
+    // Substituir instancia de stub de CntrServicoAutenticacao por instï¿½ncia da controladora.
     // --------------------------------------------------------------------------------------------
 
     cntrServicoAutenticacao = new CntrServicoAutenticacao();
 
     // ---------------------------------------------------------------------------------------------
-    // Substituir instancia de stub de CntrServicoProdutosFinanceiros por instância da controladora.
+    // Substituir instancia de stub de CntrServicoProdutosFinanceiros por instï¿½ncia da controladora.
     // ---------------------------------------------------------------------------------------------
 
     cntrServicoProdutosFinanceiros = new CntrServicoProdutosFinanceiros();
@@ -35,7 +35,7 @@ CntrApresentacaoControle* BuilderSistema::construir(){
     cntrApresentacaoPessoal->setCntrServicoProdutosFinanceiros(cntrServicoProdutosFinanceiros);
     cntrApresentacaoProdutosFinanceiros->setCntrServicoProdutosFinanceiros(cntrServicoProdutosFinanceiros);
 
-    // Retorna referência para instância de CntrApresentacaoControle.
+    // Retorna referï¿½ncia para instï¿½ncia de CntrApresentacaoControle.
 
     return cntrApresentacaoControle;
 }
