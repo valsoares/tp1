@@ -9,7 +9,7 @@
 // Implementa��es dos m�todos da classe controladora apresenta��o controle.
 
 void CntrApresentacaoControle::executar(){
-    int campo;                                                                                  // Campo de entrada.
+    string campo;                                                                                  // Campo de entrada.
 
     bool apresentar = true;                                                                     // Controle de la�o.
 
@@ -26,9 +26,9 @@ void CntrApresentacaoControle::executar(){
         cout << "4 - Encerrar execucao do sistema." << endl;                                                                 // Imprime nome do campo.
 
         cin >> campo;   
-        cin.clear();                                                                // Leitura do campo de entrada e convers�o de ASCII.
+                                                                        // Leitura do campo de entrada e convers�o de ASCII.
 
-        switch(campo){
+        switch(stoi(campo)){
             case 1: if(cntrApresentacaoAutenticacao->autenticar(&cpf)){                         // Solicita autentica��o.
                         bool apresentar = true;                                                 // Controle de la�o.
                         while(apresentar){
@@ -43,9 +43,9 @@ void CntrApresentacaoControle::executar(){
                             cout << "3 - Encerrar sessao." << endl;                                             // Imprime nome do campo.
 
                             cin >> campo;
-                            cin.clear();                                               // Leitura do campo de entrada e convers�o de ASCII.
+                                                                           // Leitura do campo de entrada e convers�o de ASCII.
 
-                            switch(campo){
+                            switch(stoi(campo)){
                                 case 1: cntrApresentacaoPessoal->executar(cpf);                 // Solicita servi�o de pessoal.
                                         break;
                                 case 2: cntrApresentacaoProdutosFinanceiros->executar(cpf);     // Solicita servi�o de produto financeiro.
@@ -93,10 +93,10 @@ bool CntrApresentacaoAutenticacao::autenticar(Cpf *cpf){
 
         cout << "Digite o CPF  : ";                                                                  // Imprime nome do campo.
         cin >> campo1;
-        cin.clear();                                                                          // L� valor do campo.
+                                                                                  // L� valor do campo.
         cout << "Digite a senha: ";                                                                  // Imprime nome do campo.
         cin >> campo2;
-        cin.clear();                                                                          // L� valor do campo.
+                                                                                  // L� valor do campo.
 
         try{
             cpf->setCpf(campo1);                                                      // Atribui valor ao CPF.
@@ -118,7 +118,7 @@ bool CntrApresentacaoAutenticacao::autenticar(Cpf *cpf){
 
 void CntrApresentacaoPessoal::executar(Cpf cpf){
 
-    int campo;                                                                                  // Campo de entrada.
+    string campo;                                                                                  // Campo de entrada.
 
     bool apresentar = true;                                                                     // Controle de la�o.
 
@@ -133,9 +133,9 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
         cout << "2 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
         cin >> campo;
-        cin.clear();                                                                   // Leitura do campo de entrada e convers�o de ASCII.
+                                                                           // Leitura do campo de entrada e convers�o de ASCII.
 
-        switch(campo){
+        switch(stoi(campo)){
             case 1: consultarDadosPessoais(cpf);
                     break;
             case 2: apresentar = false;
@@ -148,8 +148,7 @@ void CntrApresentacaoPessoal::executar(Cpf cpf){
 
 void CntrApresentacaoPessoal::cadastrar(){
 
-    string campo1, campo2, campo4, campo5, campo6, campo7, campo8;
-    int campo3;
+    string campo1, campo2, campo3, campo4, campo5, campo6, campo7, campo8;
 
     // Instancia os dom�nios.
 
@@ -169,33 +168,33 @@ void CntrApresentacaoPessoal::cadastrar(){
     cout << "Preencha os seguintes campos: " << endl;                                                                    // Imprime solicita��o ao usu�rio.
     cout << "Nome            : ";                                                                     // Imprime nome do campo.
     cin >> campo1;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Endereco        : ";                                                                     // Imprime nome do campo.
     cin >> campo2; 
-    cin.clear();                                                                            // L� valor do campo.
+                                                                                // L� valor do campo.
     cout << "CEP             : ";                                                                     // Imprime nome do campo.
     cin >> campo3;   
-    cin.clear();                                                                          // L� valor do campo.
+                                                                              // L� valor do campo.
     cout << "CPF             : ";                                                                     // Imprime nome do campo.
     cin >> campo4; 
-    cin.clear();                                                                            // L� valor do campo.
+                                                                                // L� valor do campo.
     cout << "Senha           : ";                                                                     // Imprime nome do campo.
     cin >> campo5;  
-    cin.clear();                                                                           // L� valor do campo.
+                                                                               // L� valor do campo.
     cout << "Numero de conta : ";                                                                     // Imprime nome do campo.
     cin >> campo6;   
-    cin.clear();                                                                          // L� valor do campo.
+                                                                              // L� valor do campo.
     cout << "Agencia         : ";                                                                     // Imprime nome do campo.
     cin >> campo7;     
-    cin.clear();                                                                        // L� valor do campo.
+                                                                            // L� valor do campo.
     cout << "Banco           : ";                                                                     // Imprime nome do campo.
     cin >> campo8;    
-    cin.clear();                                                                         // L� valor do campo.
+                                                                             // L� valor do campo.
 
     try{
         nome.setNome(campo1);
         endereco.setEndereco(campo2);
-        cep.setCep(campo3);
+        cep.setCep(stoi(campo3));
         cpf.setCpf(campo4);
         senha.setSenha(campo5);
         numero.setNumero(campo6);
@@ -256,7 +255,7 @@ void CntrApresentacaoPessoal::consultarDadosPessoais(Cpf cpf){
 
 void CntrApresentacaoProdutosFinanceiros::executar(){
 
-    int campo;                                                                                  // Campo de entrada.
+    string campo;                                                                                  // Campo de entrada.
 
     bool apresentar = true;                                                                     // Controle de la�o.
 
@@ -271,9 +270,9 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
         cout << "2 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
         cin >> campo;
-        cin.clear();                                                                   // Leitura do campo de entrada.
+                                                                           // Leitura do campo de entrada.
 
-        switch(campo){
+        switch(stoi(campo)){
             case 1: consultarProdutoInvestimento();
                     break;
             case 2: apresentar = false;
@@ -286,7 +285,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(){
 
 void CntrApresentacaoProdutosFinanceiros::executar(Cpf cpf){
 
-    int campo;                                                                                  // Campo de entrada.
+    string campo;                                                                                  // Campo de entrada.
 
     bool apresentar = true;                                                                     // Controle de la�o.
 
@@ -306,9 +305,9 @@ void CntrApresentacaoProdutosFinanceiros::executar(Cpf cpf){
         cout << "7 - Retornar." << endl;                                                                 // Imprime nome do campo.
 
         cin >> campo;
-        cin.clear();                                                                   // Leitura do campo de entrada e convers�o de ASCII.
+                                                                           // Leitura do campo de entrada e convers�o de ASCII.
 
-        switch(campo){
+        switch(stoi(campo)){
             case 1: consultarConta();
                     break;
             case 2: cadastrarProdutoInvestimento();
@@ -339,8 +338,7 @@ void CntrApresentacaoProdutosFinanceiros::consultarConta(){
 
 void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
 
-    string campo1, campo2, campo3, campo5, campo7;
-    int campo4, campo6;
+    string campo1, campo2, campo3, campo4, campo5, campo6, campo7;
     double campo8;
 
     // Instancia os dom�nios.
@@ -361,37 +359,37 @@ void CntrApresentacaoProdutosFinanceiros::cadastrarProdutoInvestimento(){
     cout << "Preencha os seguintes campos: " << endl;                                                                    // Imprime solicita��o ao usu�rio.
     cout << "Coodigo         : ";                                                                     // Imprime nome do campo.
     cin >> campo1;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Classe          : ";                                                                     // Imprime nome do campo.
     cin >> campo2;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Emissor         : ";                                                                     // Imprime nome do campo.
     cin >> campo3;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Prazo           : ";                                                                     // Imprime nome do campo.
     cin >> campo4;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Vencimento      : ";                                                                     // Imprime nome do campo.
     cin >> campo5;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Taxa            : ";                                                                     // Imprime nome do campo.
     cin >> campo6;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Horario         : ";                                                                     // Imprime nome do campo.
     cin >> campo7;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Valor Minimo    : ";                                                                     // Imprime nome do campo.
     cin >> campo8;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
 
 
     try{
         codigoproduto.setCodigoProduto(campo1);
         classe.setClasse(campo2);
         emissor.setEmissor(campo3);
-        prazo.setPrazo(campo4);
+        prazo.setPrazo(stoi(campo4));
         vencimento.setData(campo5);
-        taxa.setTaxa(campo6);
+        taxa.setTaxa(stoi(campo6));
         horario.setHorario(campo7);
         valor.setValorMinimo(campo8);
     }
@@ -436,7 +434,7 @@ void CntrApresentacaoProdutosFinanceiros::descadastrarProdutoInvestimento(){
     CLR_SCR;                                                                                    // Limpa janela.
     cout << "Insira o codigo do produto que deseja descadastrar: ";                                                                      // Imprime nome do campo.
     cin >> campo1;
-    cin.clear();
+    
 
     try{
         codigoproduto.setCodigoProduto(campo1);
@@ -474,7 +472,7 @@ void CntrApresentacaoProdutosFinanceiros::consultarProdutoInvestimento(){
     CLR_SCR;                                                                                    // Limpa janela.
     cout << "Selecione a classe dos produtos de investimentos desejados (CDB, LCA, LCI, LF, ou LC): ";
     cin >> campo1;
-    cin.clear();
+    
 
     classe.setClasse(campo1);
     produto.setClasse(classe);
@@ -500,13 +498,13 @@ void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
     cout << "Preencha os seguintes campos: " << endl;                                                                    // Imprime solicita��o ao usu�rio.
     cout << "Coodigo da Aplicacao : ";                                                                     // Imprime nome do campo.
     cin >> campo1;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Valor da Aplicacao   : ";                                                                     // Imprime nome do campo.
     cin >> campo2;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
     cout << "Data                 : ";                                                                     // Imprime nome do campo.
     cin >> campo3;
-    cin.clear();                                                                             // L� valor do campo.
+                                                                                 // L� valor do campo.
 
 
 
