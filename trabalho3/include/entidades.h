@@ -2,6 +2,12 @@
 #define ENTIDADES_H
 
 #include "dominios.h"
+#include <list>
+
+class Aplicacao;
+class Produto;
+class Conta;
+class Usuario;
 
 ///
 /// Entidade para representação de Aplicação.
@@ -11,11 +17,18 @@ class Aplicacao {
 
 private:
 
+    Produto* produto;
     CodigoAplicacao codigo;
     ValorAplicacao valor;
     Data data;
 
 public:
+
+    void setProduto(Produto* produto);
+
+    Produto* getProduto(){
+        return produto;
+    }
 
     ///
     /// Inicializa o atributo codigo com o parâmetro informado.
@@ -253,11 +266,18 @@ public:
 
 class Conta {
 private:
+    list<Aplicacao> aplicacao;
     CodigoBanco codigoBanco;
     CodigoAgencia codigoAgencia;
     Numero numero;
 
 public:
+
+    void setAplicacao(Aplicacao aplicacao);
+
+    list<Aplicacao> getAplicacao(){
+        return aplicacao;
+    }
 
     ///
     /// Inicializa o atributo código do banco com o parâmetro informado.
@@ -322,7 +342,9 @@ public:
 ///
 
 class Usuario {
+    
 private:
+    Conta* conta;
     Nome nome;
     Endereco endereco;
     Cep cep;
@@ -330,6 +352,13 @@ private:
     Senha senha;
 
 public:
+
+
+    void setConta(Conta* conta);
+
+    Conta* getConta(){
+        return conta;
+    }
 
     ///
     /// Inicializa o atributo nome com o parâmetro informado.

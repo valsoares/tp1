@@ -4,7 +4,6 @@
 //--------------------------------------------------------------------------------------------
 // Implementa��es dos m�todos das classes controladoras da camada de apresenta��o.
 
-
 //--------------------------------------------------------------------------------------------
 // Implementa��es dos m�todos da classe controladora apresenta��o controle.
 
@@ -59,7 +58,7 @@ void CntrApresentacaoControle::executar(){
                     }
                     else {
                         CLR_SCR;                                                                // Limpa janela.
-                        cout << "Falha na autenticacao. Digite 1 para continuar." << endl;                                                // Imprime mensagem.
+                        cout << "Falha na autenticacao. Pressione Enter para continuar." << endl;                                                // Imprime mensagem.
                         getchar();                                                               // Leitura de caracter digitado.
                     }
                     break;
@@ -181,7 +180,7 @@ void CntrApresentacaoPessoal::cadastrar(){
     cout << "Agencia         : ";                                                                     // Imprime nome do campo.
     getline(cin, campo7);                                                                              // L� valor do campo.
     cout << "Banco           : ";                                                                     // Imprime nome do campo.
-    getline(cin, campo8);                                                                              // L� valor do campo.
+    getline(cin, campo8);  
 
     try{
         nome.setNome(campo1);
@@ -203,7 +202,6 @@ void CntrApresentacaoPessoal::cadastrar(){
     // Instancia e inicializa entidades.
 
     Usuario usuario;
-
     usuario.setNome(nome);
     usuario.setEndereco(endereco);
     usuario.setCep(cep);
@@ -215,6 +213,8 @@ void CntrApresentacaoPessoal::cadastrar(){
     conta.setNumero(numero);
     conta.setCodigoAgencia(agencia);
     conta.setCodigoBanco(banco);
+
+    usuario.setConta(&conta);
 
     // Cadastra usu�rio e conta.
 
@@ -302,7 +302,7 @@ void CntrApresentacaoProdutosFinanceiros::executar(Cpf cpf){
                                                                            // Leitura do campo de entrada e convers�o de ASCII.
 
         switch(stoi(campo)){
-            case 1: consultarConta();
+            case 1: consultarConta(cpf);
                     break;
             case 2: cadastrarProdutoInvestimento();
                     break;
@@ -322,10 +322,10 @@ void CntrApresentacaoProdutosFinanceiros::executar(Cpf cpf){
 
 //--------------------------------------------------------------------------------------------
 
-void CntrApresentacaoProdutosFinanceiros::consultarConta(){
+void CntrApresentacaoProdutosFinanceiros::consultarConta(Cpf cpf){
     Conta conta;
 
-    cntr->consultarConta(&conta);
+    cntr->consultarConta(&conta, cpf);
 }
 
 //--------------------------------------------------------------------------------------------
@@ -472,7 +472,7 @@ void CntrApresentacaoProdutosFinanceiros::consultarProdutoInvestimento(){
 
 void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
 
-    string campo1, campo3;
+    string campo1, campo3, campo4;
     double campo2;
 
     CodigoAplicacao codigoaplicacao;
@@ -490,9 +490,9 @@ void CntrApresentacaoProdutosFinanceiros::realizarAplicacao(){
     cin >> campo2;
     getchar();                                                                                 // L� valor do campo.
     cout << "Data                 : ";                                                                     // Imprime nome do campo.
-    getline(cin, campo3);                                                                              // L� valor do campo.
-
-
+    getline(cin, campo3);  
+    cout << "Codigo do Produto    : ";                                                                          // L� valor do campo.
+    getline(cin, campo4);
 
     try{
         codigoaplicacao.setCodigoAplicacao(campo1);

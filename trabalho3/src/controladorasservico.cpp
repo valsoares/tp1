@@ -57,7 +57,7 @@ bool CntrServicoPessoal::pesquisarUsuario(Usuario* usuario){
 
     container = ContainerUsuario::getInstancia();
 
-    if(container->pesquisar(usuario)){
+    if(container->pesquisarUsuario(usuario)){
         CLR_SCR;                                                                                    // Limpa janela.
         cout << "Cpf cadastrado: " << usuario->getCpf().getCpf() << endl;
         cout << "Nome: " << usuario->getNome().getNome() << endl;
@@ -95,13 +95,13 @@ bool CntrServicoProdutosFinanceiros::cadastrarConta(Conta conta){
     return container->incluir(conta);
 };
 
-bool CntrServicoProdutosFinanceiros::consultarConta(Conta* conta){               //Mostra os dados da conta
+bool CntrServicoProdutosFinanceiros::consultarConta(Conta* conta, Cpf cpf){               //Mostra os dados da conta
 
-    ContainerConta *container;
+    ContainerUsuario *container;
 
-    container = ContainerConta::getInstancia();
+    container = ContainerUsuario::getInstancia();
 
-    if(container->pesquisar(conta)){
+    if(container->pesquisarConta(conta, cpf)){
         CLR_SCR;                                                                                    // Limpa janela.
         cout << "Codigo da Agencia: " << conta->getCodigoAgencia().getCodigoAgencia() << endl;
         cout << "Codigo do Banco: " << conta->getCodigoBanco().getCodigoBanco() << endl;                                       // Imprime nome do campo.
@@ -134,22 +134,11 @@ bool CntrServicoProdutosFinanceiros::pesquisarProduto(Produto* produto){
 
     container = ContainerProduto::getInstancia();
 
-    if(container->pesquisar(produto)){
-        CLR_SCR;                                                                                    // Limpa janela.
-        cout << "Codigo do produto: " << produto->getCodigoProduto().getCodigoProduto() << endl;
-        cout << "Data: " << produto->getData().getData() << endl;
-        cout << "Emissor: " << produto->getEmissor().getEmissor() << endl;
-        cout << "Horario: " << produto->getHorario().getHorario() << endl;
-        cout << "Prazo: " << produto->getPrazo().getPrazo() << endl;
-        cout << "Taxa: " << produto->getTaxa().getTaxa() << endl;
-        cout << "ValorMinimo: " << produto->getValorMinimo().getValorMinimo() << endl;
-        getchar();
-        return true;
-    }
+    container->pesquisar(produto);
 
-    cout << "Nenhum produto dessa classe encontrado! Pressione Enter para continuar." << endl;
+    cout << endl << "Esses foram os produtos encontrados! Pressione Enter para continuar." << endl;
     getchar();
-    return false;
+    return true;
 }
 
 bool CntrServicoProdutosFinanceiros::descadastrarProdutoInvestimento(CodigoProduto codigo){
@@ -165,7 +154,7 @@ bool CntrServicoProdutosFinanceiros::realizarAplicacao(Aplicacao aplicacao){
 
     container = ContainerAplicacao::getInstancia();
 
-    return container->incluir(aplicacao);
+    return container->incluir(aplicacao);;
 }
 
 bool CntrServicoProdutosFinanceiros::recuperarAplicacao(Aplicacao* aplicacao){

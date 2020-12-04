@@ -81,26 +81,26 @@
 	"controladorasservico.h"
 	"stubs.h"
 
-1607007978 source:c:\users\bitte\prog\tp1\trabalho3\src\builders.cpp
+1607048982 source:c:\users\bitte\prog\tp1\trabalho3\src\builders.cpp
 	"builders.h"
 
-1607007968 c:\users\bitte\prog\tp1\trabalho3\include\builders.h
+1607048830 c:\users\bitte\prog\tp1\trabalho3\include\builders.h
 	"interfaces.h"
 	"controladorasapresentacao.h"
 	"controladorasservico.h"
-	"stubs.h"
 
-1607007976 c:\users\bitte\prog\tp1\trabalho3\include\interfaces.h
+1607048976 c:\users\bitte\prog\tp1\trabalho3\include\interfaces.h
 	"dominios.h"
 	"entidades.h"
 
 1607007975 c:\users\bitte\prog\tp1\trabalho3\include\dominios.h
 	<iostream>
 
-1607007975 c:\users\bitte\prog\tp1\trabalho3\include\entidades.h
+1607049931 c:\users\bitte\prog\tp1\trabalho3\include\entidades.h
 	"dominios.h"
+	<list>
 
-1607024497 c:\users\bitte\prog\tp1\trabalho3\include\controladorasapresentacao.h
+1607050058 c:\users\bitte\prog\tp1\trabalho3\include\controladorasapresentacao.h
 	<conio.h>
 	<iostream>
 	<string.h>
@@ -109,13 +109,12 @@
 	"interfaces.h"
 	"containers.h"
 
-1607007970 c:\users\bitte\prog\tp1\trabalho3\include\containers.h
+1607048784 c:\users\bitte\prog\tp1\trabalho3\include\containers.h
 	"dominios.h"
 	"entidades.h"
 	<list>
 
-1607025029 c:\users\bitte\prog\tp1\trabalho3\include\controladorasservico.h
-	<conio.h>
+1607048113 c:\users\bitte\prog\tp1\trabalho3\include\controladorasservico.h
 	"dominios.h"
 	"entidades.h"
 	"interfaces.h"
@@ -126,14 +125,14 @@
 	"dominios.h"
 	"interfaces.h"
 
-1607007979 source:c:\users\bitte\prog\tp1\trabalho3\src\containers.cpp
+1607048431 source:c:\users\bitte\prog\tp1\trabalho3\src\containers.cpp
 	"containers.h"
 
-1607025736 source:c:\users\bitte\prog\tp1\trabalho3\src\controladorasapresentacao.cpp
+1607034993 source:c:\users\bitte\prog\tp1\trabalho3\src\controladorasapresentacao.cpp
 	"controladorasapresentacao.h"
 	"containers.h"
 
-1607024955 source:c:\users\bitte\prog\tp1\trabalho3\src\controladorasservico.cpp
+1607049833 source:c:\users\bitte\prog\tp1\trabalho3\src\controladorasservico.cpp
 	"controladorasservico.h"
 	"containers.h"
 
@@ -142,7 +141,7 @@
 	<string>
 	"dominios.h"
 
-1607007983 source:c:\users\bitte\prog\tp1\trabalho3\src\entidades.cpp
+1607049928 source:c:\users\bitte\prog\tp1\trabalho3\src\entidades.cpp
 	"entidades.h"
 
 1607007983 source:c:\users\bitte\prog\tp1\trabalho3\src\main.cpp
@@ -158,7 +157,7 @@
 1607007984 source:c:\users\bitte\prog\tp1\trabalho3\src\testes.cpp
 	"testes.h"
 
-1607007977 c:\users\bitte\prog\tp1\trabalho3\include\testes.h
+1607029018 c:\users\bitte\prog\tp1\trabalho3\include\testes.h
 	<iostream>
 	<string>
 	"entidades.h"

@@ -14,6 +14,10 @@ void Aplicacao::setData(const Data &data){
     this->data = data;
 }
 
+void Aplicacao::setProduto(Produto* produto){
+    this->produto = produto;
+}
+
 
 
 
@@ -63,6 +67,11 @@ void Conta::setNumero(const Numero &numero){
     this->numero = numero;
 }
 
+void Conta::setAplicacao(Aplicacao aplicacao){
+    this->aplicacao.push_back(aplicacao);
+}
+
+
 
 
 void Usuario::setNome(const Nome &nome){
@@ -83,4 +92,8 @@ void Usuario::setCpf(const Cpf &cpf){
 
 void Usuario::setSenha(const Senha &senha){
     this->senha = senha;
+}
+
+void Usuario::setConta(Conta* conta){
+    this->conta = conta;
 }

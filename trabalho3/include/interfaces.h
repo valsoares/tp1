@@ -64,7 +64,7 @@ public:
 class IServicoProdutosFinanceiros{
 public:
         virtual bool cadastrarConta(Conta) = 0;
-        virtual bool consultarConta(Conta*) = 0;
+        virtual bool consultarConta(Conta*, Cpf) = 0;
         virtual bool cadastrarProdutoInvestimento(Produto) = 0;
         virtual bool pesquisarProduto(Produto*) = 0;
         virtual bool descadastrarProdutoInvestimento(CodigoProduto) = 0;

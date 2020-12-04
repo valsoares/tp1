@@ -34,10 +34,11 @@ bool ContainerUsuario::remover(Cpf cpf){
     return false;
 }
 
-bool ContainerUsuario::pesquisar(Usuario* usuario){
+bool ContainerUsuario::pesquisarUsuario(Usuario* usuario){
     for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
         if (elemento->getCpf().getCpf() == usuario->getCpf().getCpf()){
             // Copia dados do objeto localizado.
+            usuario->setNome(elemento->getNome());
             usuario->setEndereco(elemento->getEndereco());
             usuario->setCep(elemento->getCep());
             usuario->setSenha(elemento->getSenha());
@@ -86,6 +87,7 @@ bool ContainerAplicacao::incluir(Aplicacao aplicacao){
             return false;
         }
     }
+    
     // Inclui objeto.
     container.push_back(aplicacao);
     return true;
@@ -97,7 +99,6 @@ bool ContainerAplicacao::pesquisar(Aplicacao* aplicacao){
         aplicacao->setCodigoAplicacao(elemento->getCodigoAplicacao());
         aplicacao->setData(elemento->getData());
         aplicacao->setValorAplicacao(elemento->getValorAplicacao());
-
         return true;
     }
     return false;
@@ -140,18 +141,16 @@ bool ContainerProduto::pesquisar(Produto* produto){
     for(list<Produto>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
         if (elemento->getClasse().getClasse() == produto->getClasse().getClasse()){
             // Copia dados do objeto localizado.
-            produto->setCodigoProduto(elemento->getCodigoProduto());
-            produto->setEmissor(elemento->getEmissor());
-            produto->setPrazo(elemento->getPrazo());
-            produto->setData(elemento->getData());
-            produto->setTaxa(elemento->getTaxa());
-            produto->setHorario(elemento->getHorario());
-            produto->setValorMinimo(elemento->getValorMinimo());
-
-            return true;
+            cout << "Codigo do produto : " << elemento->getCodigoProduto().getCodigoProduto() << endl;
+            cout << "Emissor           : " << elemento->getEmissor().getEmissor() << endl;
+            cout << "Prazo             : " << elemento->getPrazo().getPrazo() << endl;
+            cout << "Vencimento        : " << elemento->getData().getData() << endl; 
+            cout << "Taxa              : " << elemento->getTaxa().getTaxa() << endl;
+            cout << "Horario           : " << elemento->getHorario().getHorario() << endl;
+            cout << "Valor minimo      : " << elemento->getValorMinimo().getValorMinimo() << endl << endl;
         }
     }
-    return false;
+    return true;
 }
 
 /*
@@ -213,13 +212,14 @@ bool ContainerConta::remover(Conta conta){
     return false;
 }
 
-bool ContainerConta::pesquisar(Conta* conta){
-    for(list<Conta>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
-        conta->setCodigoAgencia(elemento->getCodigoAgencia());
-        conta->setCodigoBanco(elemento->getCodigoBanco());
-        conta->setNumero(elemento->getNumero());
+bool ContainerUsuario::pesquisarConta(Conta* conta, Cpf cpf){
+    for(list<Usuario>::iterator elemento = container.begin(); elemento != container.end(); elemento++){
+        if(elemento->getCpf().getCpf() == cpf.getCpf()){
+            conta->setCodigoAgencia(elemento->getConta()->getCodigoAgencia());
+            conta->setCodigoBanco(elemento->getConta()->getCodigoBanco());
+            conta->setNumero(elemento->getConta()->getNumero());
+        }
         return true;
     }
-
     return false;
 }

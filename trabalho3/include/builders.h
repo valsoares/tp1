@@ -4,7 +4,6 @@
 #include "interfaces.h"
 #include "controladorasapresentacao.h"
 #include "controladorasservico.h"
-#include "stubs.h"
 
 class BuilderSistema {
     private:

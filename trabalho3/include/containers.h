@@ -21,7 +21,8 @@ class ContainerUsuario{
         static  ContainerUsuario* getInstancia();       // M�todo para instanciar a classe.
         bool incluir(Usuario);                          // M�todos respons�veis por presta��o de servi�o.
         bool remover(Cpf);
-        bool pesquisar(Usuario*);
+        bool pesquisarConta(Conta*, Cpf);
+        bool pesquisarUsuario(Usuario*);
         bool autenticar(Cpf, Senha);
         bool atualizar(Usuario);
 };

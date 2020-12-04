@@ -94,7 +94,7 @@ inline void CntrApresentacaoPessoal::setCntrServicoProdutosFinanceiros(IServicoP
 class CntrApresentacaoProdutosFinanceiros:public IApresentacaoProdutosFinanceiros{
     private:
         IServicoProdutosFinanceiros *cntr;
-        void consultarConta();
+        void consultarConta(Cpf);
         void cadastrarProdutoInvestimento();
         void descadastrarProdutoInvestimento();
         void consultarProdutoInvestimento();

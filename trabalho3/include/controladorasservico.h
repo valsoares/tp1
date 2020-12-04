@@ -1,7 +1,7 @@
 #ifndef CONTROLADORASSERVICO_H_INCLUDED
 #define CONTROLADORASSERVICO_H_INCLUDED
 
-#include <conio.h>
+// #include <conio.h>
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"
@@ -43,7 +43,7 @@ class CntrServicoPessoal:public IServicoPessoal{
 class CntrServicoProdutosFinanceiros:public IServicoProdutosFinanceiros{
     public:
         bool cadastrarConta(Conta);
-        bool consultarConta(Conta*);
+        bool consultarConta(Conta*, Cpf);
         bool cadastrarProdutoInvestimento(Produto);
         bool pesquisarProduto(Produto*);
         bool descadastrarProdutoInvestimento(CodigoProduto);
